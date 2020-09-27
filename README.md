@@ -1,3 +1,10 @@
+## To do
+1.bulk function code and tutorial
+2.install tutorial update and sc usage
+3.bulk code test
+4.tutorial update for integration
+
+
 
 ## The single-cell CUT&RUNTools module
 **A new module of CUTRUNTools is provided for single-cell epigenome profiling data (scCUT&RUN and scCUT&Tag etc.) processing and analysis.** 
