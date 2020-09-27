@@ -1,6 +1,6 @@
 ## To do
 1.bulk function code and tutorial  
-2.install tutorial update and sc usage  
+2.install tutorial (if there is any script for software install) update and sc usage  
 3.bulk code test  
 4.tutorial update for integration  
 5.News: what is the update of this version? New update of bulk normalization and spike-in processing
