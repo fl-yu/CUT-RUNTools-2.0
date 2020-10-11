@@ -254,15 +254,15 @@ To intitutive show the overall QC metrics across all barcode cells, CUT&RUNTools
 <br/>
 
 
-<div align=left> <img src="./images/QC-statistics-1.png" width="600" height="300"> </div> 
+<div align=left> <img src="../images/QC-statistics-1.png" width="600" height="300"> </div> 
 
 The insert/fragment size distribution is useful to inspect the nucleosomal periodicity for different TF factors and histone modification. Distribution of insert size of the total unique fragments for all the barcode cells will be showed.  
 
-<div align=left> <img src="./images/QC-statistics-3-01.png" width="450" height="350"> </div> 
+<div align=left> <img src="../images/QC-statistics-3-01.png" width="450" height="350"> </div> 
 
 Strict quality control of single-cell data is essential to remove the contribution of low-quality cells. To ensure high-quality chromatin profiles used for the following analysis, we use two important metrics (*percentage\_rip* and *num\_reads_threshold*) to filter the cells. Cells with very few levels of reads found in the peaks may need to be excluded due to extreme low sequencing depth, technical artifacts and doublets in the single-cell sequencing. Generally, the peak from pseudo-bulk analysis of cell aggregation should be representative across the majority of cell types in the experiment, which can be a direct measurement for the signal-to-noise ratio of single-cell experiments. We recommend cells should be removed when the number less than a certain level (suggest 30% as default). Users can easily change the parameters in the configuration JSON file. If the users do not want to filter any cells, they just set both the parameters of *percentage\_rip* and *num\_reads_threshold* as 0. A scatter plot of the fraction of unique fragments in peaks versus the total number of unique fragments for each barcode cell. The default thresholds for the two parameters are indicated as dash lines in the figure.  
 
-<div align=left> <img src="./images/QC-statistics-2-01.png" width="450" height="350"> </div> 
+<div align=left> <img src="../images/QC-statistics-2-01.png" width="450" height="350"> </div> 
 
 Also, if you want to see the detailed QC metrics information of all the barcodes, you can find it in the file *statistics\_QCpassed.txt* and *statistics\_QCfailed.txt*, which were generated based on the above two metrics. The file *statistics\_QCpassed.txt* is important to guide which cells could be used in the following analysis (based on the column Barcode\_name).
 Both the files contain similar information for individual cells successfully ann failed to pass the QC filter criteria. Each row represents a barcode cell and each column represents the statics of QC metrics. The column name includes 
@@ -354,7 +354,7 @@ Also, CUT&RUNTools will output three figures (both of the pdf and png versions) 
 <br/>
 <br/>
 
-<div align=left> <img src="./images/tSNE-plot.png" width="450" height="350"> </div> 
+<div align=left> <img src="../images/tSNE-plot.png" width="450" height="350"> </div> 
 
 The TF-IDF normalized count matrix for the experiment is saved and could be used for the further analysis. The resulting data can be found in the *sc_cluster* folder. 
 
@@ -387,5 +387,14 @@ The file suffix with .bed for each cell storing the genome coverage information 
 A screenshot of genome browser view is displayed.  
 <br/>
 
-<div align=left> <img src="./images/gb-chr17-48513628-48855563.png" width="1600" height="300"> </div> 
+<div align=left> <img src="../images/gb-chr17-48513628-48855563.png" width="1600" height="300"> </div> 
 
+
+
+See the following links for more details:
+
+- [Overview](./sc-OVERVIEW.md)
+- [Installation Instructions](./sc-INSTALL.md)
+- [Quick Start](./sc-QUICK.md)
+- [Directory Structure](./sc-DIRECTORY.md)
+- [The full tutorial of CUT&RUNTools 2.0](./2.0-TUTORIAL.md)
