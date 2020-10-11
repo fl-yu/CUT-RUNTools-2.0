@@ -16,8 +16,8 @@ The main steps in the raw data processing and feature-by-cell matrix constructio
 
 See the following links for more details:
 
-- [Installation Instructions](docs/sc-INSTALL.md)
-- [Quick Start](docs/sc-QUICK.md)
-- [Usage Page](docs/sc-USAGE.md)
-- [Directory Structure](docs/sc-DIRECTORY.md)
-- [The full tutorial of CUT&RUNTools 2.0](docs/2.0-TUTORIAL.md)
+- [Installation Instructions](./sc-INSTALL.md)
+- [Quick Start](./sc-QUICK.md)
+- [Usage Page](./sc-USAGE.md)
+- [Directory Structure](./sc-DIRECTORY.md)
+- [The full tutorial of CUT&RUNTools 2.0](./2.0-TUTORIAL.md)
