@@ -1,6 +1,6 @@
 ## The directory structure of input and output folders 
 
-*A typical view of the data structure for single-cell data analysis*
+*A schematic view of the data structure for the typical single-cell data analysis*
 
 
 ```
