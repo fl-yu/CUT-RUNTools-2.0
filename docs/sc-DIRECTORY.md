@@ -1,9 +1,11 @@
-
 ## Directory structure of input and output folders 
 
+*A typical view of data structure for single-cell data analysis*
+
+
 ```
-	+ fastq_directory
-	+ workdir
+	+ fastq_directory (INPUT)
+	+ workdir (OUTPUT)
 	    + sc_trimmed
 	    + sc_trimmed3
 	    + sc_log
