@@ -46,14 +46,13 @@ See [Usage Page](docs/sc-USAGE.md) about how to set up the pipeline and detailed
 
 See [Directory Structure](docs/sc-DIRECTORY.md) for basic structure of input and output folders.
 
-<br \>
-
 ### The full tutorial of CUT&RUNTools 2.0 can be found [here](docs/2.0-TUTORIAL.md).
 
 --------
 
-If you run into issues and would like to report them, you can use the "Issues" tab on the left hand side. Alternatively, you can contact authors: fulong.yu{at}childrens.harvard.edu, or gcyuan{at}jimmy.harvard.edu.
-Read our paper. Sign up for CUT&RUNTools Google group mailing list to ask questions, receive updates.
+If you run into issues and would like to report them, you can use the "Issues" tab on the left hand side.  
+Alternatively, you can contact authors: fulong.yu{at}childrens.harvard.edu, or gcyuan{at}jimmy.harvard.edu.  
+Read our [paper](). Sign up for CUT&RUNTools Google group mailing list to ask questions, receive updates.
 
 
 
