@@ -9,7 +9,12 @@ Uncompress the exampleData.tar.gz
 tar -zxvf exampleData.tar.gz
 ```
 
-To configure the exampleData_configure.sh file: setting the *workdir*; specify the *fastqdir* parameter as the folder of exampleData, then you can simply run the following command to perform the entire pipeline.
+To configure the exampleData_configure.sh file:   
+> specify the *workdir*;  
+  specify the *fastqdir* parameter as the folder of exampleData;  
+  set the paths of pre-requsite software;  
+
+Then you can simply run the following command to perform the entire pipeline.
 
 ```
 chmod +x ./run_scModule.sh   
