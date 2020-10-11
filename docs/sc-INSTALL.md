@@ -35,5 +35,11 @@ $pythonbin/pip list | grep umap
     
 Additionally, R packages including reticulate("1.15"), leiden("0.3.3"), data.table("1.11.6"), Matrix("1.2.18"), irlba("2.3.3"), Rtsne("0.15"), RANN("2.6.1"), igraph("1.2.4.2"), uwot("0.1.8"), rGREAT("1.14.0"), ggplot2("3.3.0") need to be installed in the library of R you specified in the JSON configuration file. 
 
+See the following links for more details:
 
+- [Overview](./sc-OVERVIEW.md)
+- [Quick Start](./sc-QUICK.md)
+- [Usage Page](./sc-USAGE.md)
+- [Directory Structure](docs/sc-DIRECTORY.md)
+- [The full tutorial of CUT&RUNTools 2.0](./2.0-TUTORIAL.md)
 
