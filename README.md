@@ -1,10 +1,10 @@
 # CUT&RUNTools 2.0
 
-####*A tool for bulk and single-cell CUT&RUN/CUT&Tag data processing and analysis*
+#### *A tool for bulk and single-cell CUT&RUN/CUT&Tag data processing and analysis*
 
 ## Overview
 
-CUT&RUNTools 2.0 is a major update of CUT&RUNTools [(link)](https://bitbucket.org/qzhudfci/cutruntools/), including a set of new features specially designed for CUT&RUN and CUT&Tag experiments. Both of the bulk and single-cell data can be processed, analyzed and interpreted using CUT&RUNTools 2.0
+CUT&RUNTools 2.0 is a major update of CUT&RUNTools [(link)](https://bitbucket.org/qzhudfci/cutruntools/), including a set of new features specially designed for CUT&RUN and CUT&Tag experiments. In this release, both of the bulk and single-cell data can be processed, analyzed and interpreted using CUT&RUNTools 2.0.
 
 ## New Features
 
@@ -45,6 +45,7 @@ See [Quick Start](docs/sc-QUICK.md) for a most excellent starting point to get f
 See [Usage Page](docs/sc-USAGE.md) about how to set up the pipeline and detailed usage.  
 
 See [Directory Structure](docs/sc-DIRECTORY.md) for basic structure of input and output folders.
+
 <br \>
 
 ### The full tutorial of CUT&RUNTools 2.0 can be found [here](docs/2.0-TUTORIAL.md).
