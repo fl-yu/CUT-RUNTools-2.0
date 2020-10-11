@@ -23,3 +23,11 @@ chmod +x ./run_scModule.sh
 
 What happens next is that CUT&RUNTools will sequentially run the analysis pipeline (for details see the Usage and Tutorial below). 
 
+
+See the following links for more details:
+
+- [Overview](./sc-OVERVIEW.md)
+- [Installation Instructions](./sc-INSTALL.md)
+- [Usage Page](./sc-USAGE.md)
+- [Directory Structure](./sc-DIRECTORY.md)
+- [The full tutorial of CUT&RUNTools 2.0](./2.0-TUTORIAL.md)
