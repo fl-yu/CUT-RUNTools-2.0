@@ -5,7 +5,7 @@
 
 ```
 + fastq_directory (INPUT)
-+ workdir (OUTPUT)
++ workdir         (OUTPUT)
     ++ sc_trimmed
     ++ sc_trimmed3
     ++ sc_log
