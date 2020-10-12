@@ -1,11 +1,14 @@
-## Usage
+## Usage of CUT&RUNTools 2.0 for single-cell data analysis
 
-Similar to the bulk data analysis, CUT&RUNTools needs a JSON configuration file (named sc-config.json) to be written.
+### Defining the configuration file
+
+CUT&RUNTools requires a JSON configuration file (named as `sc-config.json`) which specifies all that is needed to run an analysis. 
+A sample configuration file is below. 
+
 
 <!-- end list -->
 
 ``` json
-
 "software_config" {
     	"Rscriptbin": "/n/app/R/3.3.3/bin",
     	"pythonbin": "/n/app/python/2.7.12/bin",
@@ -209,6 +212,7 @@ PARAMETERS
 ```
 **NOTES**: If an individual analysis step is performed, the parameters in the sc\_parameters section should be tuned accordingly as needed. For step1, no parameters in the run\_pipeline section need to be changed except for *entire\_pipeline* and *individual_step*. For step2, *the matrix\_type* only accepts one of bin\_by\_cell and customFeature\_by\_cell.
 
+## Tutorial details
 
 ### **Step 1. raw data processing and quality assessment**
 ***Read Triming***

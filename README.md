@@ -34,7 +34,7 @@ See [Usage Page](docs/bulk-USAGE.md) about how to set up the pipeline and detail
 
 See [Directory Structure](docs/bulk-DIRECTORY.md) for basic structure of input and output folders.  
 
-Comparing to the last version for bulk data analysis, the requirement of SLURM system was removed to compatiable with more computational platforms. 
+Comparing to the last version for bulk data analysis, the requirement of SLURM job submission environment was removed to compatiable with more computational platforms. 
 
 ## Single-cell data analysis
 
@@ -56,4 +56,17 @@ Read our [paper](). Sign up for CUT&RUNTools Google group mailing list to ask qu
 
 
 
+##To do list:
+
+
+cut&tag parameter/bulk-install-page:attack
+
+bulk-code:remove slrum/usage-go_through/
+
+1.bulk function code and tutorial  
+2.install tutorial update and sc usage  
+2.install tutorial (if there is any script for software install) update and sc usage  
+3.bulk code test  
+4.tutorial update for integration  
+5.News: what is the update of this version? New update of bulk normalization and spike-in processing
 
