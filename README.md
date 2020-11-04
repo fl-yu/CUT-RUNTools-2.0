@@ -8,6 +8,13 @@ CUT&RUNTools 2.0 is a major update of CUT&RUNTools [(link)](https://bitbucket.or
 
 ## New Features
 
+*Single-cell data analysis*
+
+- raw data processing and quality assessment  
+- feature-by-cell matrix construction  
+- dimensionality reduction and clustering analysis  
+- cell-type-specific pseudo-bulk data analysis  
+
 *Bulk data analysis* 
 
 - new settings for CUT&Tag data analysis  
@@ -16,12 +23,18 @@ CUT&RUNTools 2.0 is a major update of CUT&RUNTools [(link)](https://bitbucket.or
 - support for analysis involving larger fragments (>120bp)  
 - new functions of peak calling and annotation   
  
-*Single-cell data analysis*
 
-- raw data processing and quality assessment  
-- feature-by-cell matrix construction  
-- dimensionality reduction and clustering analysis  
-- cell-type-specific pseudo-bulk data analysis  
+## Single-cell data analysis
+
+To get started, please see [Overview](docs/sc-OVERVIEW.md) and [Installation Instructions](docs/sc-INSTALL.md).  
+
+See [Quick Start](docs/sc-QUICK.md) for a most excellent starting point to get familiar with the tool.  
+
+See [Usage Page](docs/sc-USAGE.md) about how to set up the pipeline and detailed usage.  
+
+See [Directory Structure](docs/sc-DIRECTORY.md) for basic structure of input and output folders.
+
+### The full tutorial of CUT&RUNTools 2.0 can be found [here](docs/2.0-TUTORIAL.md).
 
 
 ## Bulk data analysis
@@ -35,18 +48,6 @@ See [Usage Page](docs/bulk-USAGE.md) about how to set up the pipeline and detail
 See [Directory Structure](docs/bulk-DIRECTORY.md) for basic structure of input and output folders.  
 
 Comparing to the last version for bulk data analysis, the requirement of SLURM job submission environment was removed to compatiable with more computational platforms. 
-
-## Single-cell data analysis
-
-To get started, please see [Overview](docs/sc-OVERVIEW.md) and [Installation Instructions](docs/sc-INSTALL.md).  
-
-See [Quick Start](docs/sc-QUICK.md) for a most excellent starting point to get familiar with the tool.  
-
-See [Usage Page](docs/sc-USAGE.md) about how to set up the pipeline and detailed usage.  
-
-See [Directory Structure](docs/sc-DIRECTORY.md) for basic structure of input and output folders.
-
-### The full tutorial of CUT&RUNTools 2.0 can be found [here](docs/2.0-TUTORIAL.md).
 
 --------
 
