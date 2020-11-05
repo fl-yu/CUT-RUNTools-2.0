@@ -147,11 +147,9 @@ To check if the paths are correct and if the softwares in these paths indeed wor
 ```
 This script checks that your configuration file is correct and all paths are correct. You will get an empty line if the validate.py script runs without errors.
 
-## Install CutRunTools
+## Install
 
 
-
-Once completed, CutRunTools is installed.
 
 CutRunTools does not need to be installed to any special location such as /usr/bin, or /usr/local/bin. 
 
