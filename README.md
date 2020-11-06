@@ -10,17 +10,19 @@ CUT&RUNTools 2.0 is a major update of CUT&RUNTools [(link)](https://bitbucket.or
 
 *Single-cell data analysis*
 
-- raw data processing and quality assessment  
+- raw data processing in parallel
+- quality assessment and visualization
 - feature-by-cell matrix construction  
 - dimensionality reduction and clustering analysis  
 - cell-type-specific pseudo-bulk data analysis  
 
 *Bulk data analysis* 
 
-- spike-in alignment and data normalizaion
+- spike-in sequence alignment and data normalizaion
 - new options for CUT&RUN or CUT&Tag data analysis  
-- support for analysis involving larger fragments (>120bp)  
-- new functions of peak calling and annotation 
+- flexiable option for fragments selections (>120bp) 
+- supporting different peak calling strategies 
+- new functions for peaks annotation 
 - compatiable with more computational platforms  
  
 
