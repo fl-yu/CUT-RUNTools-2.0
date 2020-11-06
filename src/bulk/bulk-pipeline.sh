@@ -1,4 +1,6 @@
-#!/usr/bin/python
+
+
+#!/bin/bash
 # Copyright (C) 2020 Fulong Yu
 #
 # CUT&RUNTools is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; version 2 of the License.
@@ -8,36 +10,7 @@
 # A copy of the GNU General Public License has been distributed along with CUT&RUNTools and is found in LICENSE.md.
 
 
-import shutil
-import sys
-import os
-import re
-import json
-
-def make_executable(filename):
-	st = os.stat(filename)
-	os.chmod(filename, st.st_mode | 0o111)
-	
-def generate_integrated_sh(config, output=None):
-	outp = sys.stdout
-	if output is not None:
-		fw = open(output, "w")
-		outp = fw
-		
-	header = """#!/bin/bash
-""" 
-
-	path="""trimmomaticbin=%s
-trimmomaticjarfile=%s
-adapterpath=%s
-bowtie2bin=%s
-samtoolsbin=%s
-javabin=%s
-
-bt2idx=%s
-kseqbin=%s
-
-infile=$1
+infile=$sample_name
 #expand the path of infile
 relinfile=`realpath -s $infile`
 dirname=`dirname $relinfile`
@@ -56,20 +29,11 @@ logdir=$workdir/logs
 aligndir=$workdir/aligned.aug10
 
 for d in $trimdir $trimdir2 $logdir $aligndir; do
-if [ ! -d $d ]; then
-mkdir $d
-fi
+    if [ ! -d $d ]; then
+        mkdir $d
+    fi
 done
 
-""" % (config["trimmomaticbin"], config["trimmomaticjarfile"], config["adapterpath"], 
-	config["bowtie2bin"], config["samtoolsbin"], config["javabin"],
-	config["bt2idx"], config["kseqbin"])
-
-	bowtie2_org = config["input/output"]["organism_build"]
-	if config["input/output"]["organism_build"]=="hg38":
-		bowtie2_org = "GRCh38"
-
-	scripts="""
 #trimming paired-end
 #good version
 >&2 echo "Trimming file $base ..."
@@ -81,42 +45,10 @@ $javabin/java -jar $trimmomaticbin/$trimmomaticjarfile PE -threads 1 -phred33 $d
 $kseqbin/kseq_test $trimdir/"$base"_1.paired.fastq.gz $len $trimdir2/"$base"_1.paired.fastq.gz
 $kseqbin/kseq_test $trimdir/"$base"_2.paired.fastq.gz $len $trimdir2/"$base"_2.paired.fastq.gz
 
->&2 echo "Aligning file $base ..."
+>&2 echo "Aligning file $base to reference genome..."
 >&2 date
 ($bowtie2bin/bowtie2 -p 2 --dovetail --phred33 -x $bt2idx/%s -1 $trimdir2/"$base"_1.paired.fastq.gz -2 $trimdir2/"$base"_2.paired.fastq.gz) 2> $logdir/"$base".bowtie2 | $samtoolsbin/samtools view -bS - > $aligndir/"$base"_aligned_reads.bam
 
->&2 echo "Finished"
->&2 date
-""" % bowtie2_org
-	outp.write(header + "\n")
-	outp.write(path + "\n")
-	outp.write(scripts + "\n")
-
-	if output is not None:
-		outp.close()
-
-def generate_integrated_step2_sh(config, output=None):
-	outp = sys.stdout
-	if output is not None:
-		fw = open(output, "w")
-		outp = fw
-
-	header = """#!/bin/bash
-"""
-	p_pythonbase = config["pythonbin"].rstrip("/").rstrip("/bin")
-
-	path = """Rscriptbin=%s
-pythonbin=%s
-bedopsbin=%s
-picardbin=%s
-picardjarfile=%s
-samtoolsbin=%s
-macs2bin=%s
-javabin=%s
-extratoolsbin=%s
-extrasettings=%s
-chromsizedir=`dirname %s`
-macs2pythonlib=%s
 
 pythonlib=`echo $PYTHONPATH | tr : "\\n" | grep -v $macs2pythonlib | paste -s -d:`
 unset PYTHONPATH
@@ -127,19 +59,11 @@ ldlibrary=`echo $LD_LIBRARY_PATH | tr : "\\n" | grep -v $pythonldlibrary | paste
 unset LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$pythonldlibrary:$ldlibrary
 
-""" % (config["Rscriptbin"], config["pythonbin"], config["bedopsbin"], 
-	config["picardbin"], config["picardjarfile"], config["samtoolsbin"], 
-	config["macs2bin"], config["javabin"],
-	config["extratoolsbin"], config["extrasettings"], 
-	config["genome_sequence"], config["macs2pythonlib"], p_pythonbase + "/lib")
 
-	scripts =""">&2 echo "Input parameters are: $1"
->&2 date
-
-#expand the path of $1
-relinfile=`realpath -s $1`
+#expand the path of $sample_name
+relinfile=`realpath -s $sample_name`
 dirname=`dirname $relinfile`
-base=`basename $1 .bam`
+base=`basename $sample_name .bam`
 
 #cd to current directory (aligned.aug10)
 cd $dirname
@@ -148,9 +72,9 @@ workdir=`pwd`
 logdir=$workdir/logs
 
 for d in $logdir sorted dup.marked dedup; do
-if [ ! -d $d ]; then
-mkdir $d
-fi
+    if [ ! -d $d ]; then
+        mkdir $d
+    fi
 done
 
 >&2 echo "Filtering unmapped fragments... ""$base".bam
@@ -174,23 +98,41 @@ METRICS_FILE=metrics."$base".txt
 $samtoolsbin/samtools view -bh -F 1024 dup.marked/"$base".bam > dedup/"$base".bam
 
 for d in dup.marked.120bp dedup.120bp; do
-if [ ! -d $d ]; then
-mkdir $d
-fi
+    if [ ! -d $d ]; then
+    mkdir $d
+    fi
 done
 
->&2 echo "Filtering to <120bp... ""$base".bam
->&2 date
-$samtoolsbin/samtools view -h dup.marked/"$base".bam |LC_ALL=C awk -f $extrasettings/filter_below.awk |$samtoolsbin/samtools view -Sb - > dup.marked.120bp/"$base".bam
-$samtoolsbin/samtools view -h dedup/"$base".bam |LC_ALL=C awk -f $extrasettings/filter_below.awk |$samtoolsbin/samtools view -Sb - > dedup.120bp/"$base".bam
+if [ "$frag_120" == "TRUE" ]
+then
+    >&2 echo "Filtering to <120bp... ""$base".bam
+    >&2 date
+    $samtoolsbin/samtools view -h dup.marked/"$base".bam |LC_ALL=C awk -f $extrasettings/filter_below.awk |$samtoolsbin/samtools view -Sb - > dup.marked.120bp/"$base".bam
+    $samtoolsbin/samtools view -h dedup/"$base".bam |LC_ALL=C awk -f $extrasettings/filter_below.awk |$samtoolsbin/samtools view -Sb - > dedup.120bp/"$base".bam
 
->&2 echo "Creating bam index files... ""$base".bam
->&2 date
-$samtoolsbin/samtools index sorted/"$base".bam
-$samtoolsbin/samtools index dup.marked/"$base".bam
-$samtoolsbin/samtools index dedup/"$base".bam
-$samtoolsbin/samtools index dup.marked.120bp/"$base".bam
-$samtoolsbin/samtools index dedup.120bp/"$base".bam
+    >&2 echo "Creating bam index files... ""$base".bam
+    >&2 date
+    $samtoolsbin/samtools index sorted/"$base".bam
+    $samtoolsbin/samtools index dup.marked/"$base".bam
+    $samtoolsbin/samtools index dedup/"$base".bam
+    $samtoolsbin/samtools index dup.marked.120bp/"$base".bam
+    $samtoolsbin/samtools index dedup.120bp/"$base".bam
+else
+    >&2 echo "Using all the fragments not filtering <120bp... ""$base".bam
+    >&2 date
+    $samtoolsbin/samtools view -h dup.marked/"$base".bam |LC_ALL=C awk -f $extrasettings/filter_below.awk |$samtoolsbin/samtools view -Sb - > dup.marked.120bp/"$base".bam
+    $samtoolsbin/samtools view -h dedup/"$base".bam |LC_ALL=C awk -f $extrasettings/filter_below.awk |$samtoolsbin/samtools view -Sb - > dedup.120bp/"$base".bam
+
+    >&2 echo "Creating bam index files... ""$base".bam
+    >&2 date
+    $samtoolsbin/samtools index sorted/"$base".bam
+    $samtoolsbin/samtools index dup.marked/"$base".bam
+    $samtoolsbin/samtools index dedup/"$base".bam
+    $samtoolsbin/samtools index dup.marked.120bp/"$base".bam
+    $samtoolsbin/samtools index dedup.120bp/"$base".bam
+fi
+更改只保留一个bam后续操作
+
 
 >&2 echo "Peak calling using MACS2... ""$base".bam
 >&2 echo "Logs are stored in $logdir"
@@ -381,10 +323,10 @@ genome_sequence=%s
 extrasettings=%s
 blacklist=$extrasettings/%s.blacklist.bed
 
-i=$1 #filename must end with .narrowPeak or .broadPeak or .bed (if SEACR)
+i=$sample_name #filename must end with .narrowPeak or .broadPeak or .bed (if SEACR)
 >&2 echo "Input file is $i"
 
-#expand the path for $1
+#expand the path for $sample_name
 relinfile=`realpath -s $i`
 dirname=`dirname $relinfile`
 
@@ -480,7 +422,7 @@ def generate_integrated_footprinting_sh(config, dedup=False, output=None, is_all
 """
 	scripts = """
 pythonbin=%s
-peak_file=$1 #a narrowPeak/broadPeak/SEACR bed file
+peak_file=$sample_name #a narrowPeak/broadPeak/SEACR bed file
 mbase=`basename $peak_file %s`
 peak=$mbase"%s"
 mdiscovery=random.%d/MEME_"$mbase"_shuf
@@ -557,7 +499,7 @@ cur_path=`echo $PATH | tr : "\\n" | grep -v $bedopsbin | paste -s -d:`
 unset PATH
 export PATH=$cur_path:$bedopsbin
 
-$bedopsbin/gff2bed < $fimo_d/fimo.gff | awk 'BEGIN {IFS="\t"; OFS="\t";} {print $1,$2,$3,$4,$5,$6}' > $fimo_d/fimo.bed
+$bedopsbin/gff2bed < $fimo_d/fimo.gff | awk 'BEGIN {IFS="\t"; OFS="\t";} {print $sample_name,$2,$3,$4,$5,$6}' > $fimo_d/fimo.bed
 done
 """ 
 
@@ -621,7 +563,7 @@ done
 def generate_integrated_all_steps_sh(output=None):
 	script = """#!/bin/bash
 
-sample=$1
+sample=$sample_name
 #expand the path for $sample
 relsample=`realpath -s $sample`
 dirname=`dirname $relsample`
@@ -674,7 +616,7 @@ def generate_single_locus_script_sh(config, dedup=False, output=None):
 
 	script = """#!/bin/bash
 
-region=$1
+region=$sample_name
 bamfile=$2
 outdir=$3
 chromsizedir=`dirname %s`
@@ -778,7 +720,7 @@ def generate_TF_specific_footprint_script_sh(config, pval, motif_file, tf_intere
 	script = \"\"\"
 pythonbin=%s
 
-peak_file=$1 #a narrowPeak file
+peak_file=$sample_name #a narrowPeak file
 peak_filename=`basename $peak_file`
 mbase=""
 summit=""
@@ -876,7 +818,7 @@ cur_path=`echo $PATH | tr : "\n" | grep -v $bedopsbin | paste -s -d:`
 unset PATH
 export PATH=$cur_path:$bedopsbin
 
-$bedopsbin/gff2bed < $fimo_d/fimo.gff | awk 'BEGIN {IFS="\t"; OFS="\t";} {print $1,$2,$3,$4,$5,$6}' > $fimo_d/fimo.bed
+$bedopsbin/gff2bed < $fimo_d/fimo.gff | awk 'BEGIN {IFS="\t"; OFS="\t";} {print $sample_name,$2,$3,$4,$5,$6}' > $fimo_d/fimo.bed
 \"\"\" % (tf_interest)
 	script4 = \"\"\"
 """
@@ -1059,3 +1001,8 @@ if __name__=="__main__":
 				os.remove(config["input/output"]["workdir"] + "/" + fx)
 			os.symlink(config["input/output"]["fastq_directory"] + "/" + fx, \
 			config["input/output"]["workdir"] + "/" + fx)
+
+
+
+
+

@@ -6,7 +6,7 @@
 
 CUT&RUNTools 2.0 is a major update of CUT&RUNTools [(link)](https://bitbucket.org/qzhudfci/cutruntools/), including a set of new features specially designed for CUT&RUN and CUT&Tag experiments. In this release, both of the bulk and single-cell data can be processed, analyzed and interpreted using CUT&RUNTools 2.0.
 
-## New Features
+## Main Features
 
 *Single-cell data analysis*
 
@@ -17,11 +17,11 @@ CUT&RUNTools 2.0 is a major update of CUT&RUNTools [(link)](https://bitbucket.or
 
 *Bulk data analysis* 
 
-- new settings for CUT&Tag data analysis  
-- spike-in alignment  
-- different normalization method  
+- spike-in alignment and data normalizaion
+- new options for CUT&RUN or CUT&Tag data analysis  
 - support for analysis involving larger fragments (>120bp)  
-- new functions of peak calling and annotation   
+- new functions of peak calling and annotation 
+- compatiable with more computational platforms  
  
 
 ## Single-cell data analysis
