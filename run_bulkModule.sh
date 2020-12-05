@@ -12,7 +12,9 @@ sample_name=$2 # $scriptdir/bulk-config.json
 SCRIPT=`realpath $0`
 SCRIPTPATH=`dirname $SCRIPT`
 scriptdir=$SCRIPTPATH/src/bulk
-
+chrom_size_file=$SCRIPTPATH/assemblies/chrom."$organism_build"/"$organism_build".chrom.sizes
+blacklist=$SCRIPTPATH/blacklist/"$organism_build".blacklist.bed
+blacklist2=$SCRIPTPATH/blacklist/"$organism_build"_TA_repeat.bed
 # convert configuration JSON files to bash variables
 eval "$(jq -r '.software_config | to_entries | .[] | .key + "=\"" + .value + "\""' < $configrue_file)"
 eval "$(jq -r '.input_output | to_entries | .[] | .key + "=\"" + .value + "\""' < $configrue_file)"
@@ -28,18 +30,19 @@ then
     exit
     fi
 fi
-if [$organism_build -ne hg38] || [$organism_build -ne hg19] || [$organism_build -ne mm10] || [$organism_build -ne mm9]
+if [ "$organism_build" != "hg38" ] && [ "$organism_build" != "hg19" ] && [ "$organism_build" != "mm10" ] && [ "$organism_build" != "mm9" ]
     then
     echo "organism_build should be one of hg38, hg19, mm10 or mm9"
     exit 1
 fi
-if [$organism_build -ne hg38] || [$organism_build -ne hg19]
-    then
+if [ "$organism_build" == "hg38" ] || [ "$organism_build" == "hg19" ]
+then
     macs2_genome=hs
-    else if [$organism_build -ne mm10] || [$organism_build -ne mm9]
-    then
+else 
     macs2_genome=mm
 fi
+
+
 # also check T and F for spike_in_norm.....
 
 echo "==================================== Bulk data analysis pipeline will run =============================================================="
