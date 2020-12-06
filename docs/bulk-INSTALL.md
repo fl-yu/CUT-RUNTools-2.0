@@ -101,7 +101,7 @@ they can be installed by going to the official channel, downloading the source t
 
 ## Configuration file
 
-The configuration file tells CutRunTools where to locate the prerequisite tools. This is a [JSON](http://www.json.org/) file. A sample JSON file is provided below ([`bulk-config.json`](bulk-config.json)). Filling in the information should be pretty easy: in most cases we need to provide the path to the `bin` directory of each tool.
+The configuration file tells CutRunTools where to locate the prerequisite tools. This is a [JSON](http://www.json.org/) file. A sample JSON file is provided below `bulk-config.json`. Filling in the information should be pretty easy: in most cases we need to provide the path to the `bin` directory of each tool.
 
 ```json
 {
@@ -167,13 +167,17 @@ To check if the paths are correct and if the softwares in these paths indeed wor
 This script checks that your configuration file is correct and all paths are correct. You will get an empty line if the validate.py script runs without errors.
 
 Then, CutRunTools 2.0 can be run directly from the directory containing the CutRunTools scripts.
-
-
-The main program consists of `create_scripts.py`, `validate.py`, and a set of scripts in `aligned.aug10`, and in `macs2.narrow.aug18` which perform the important motif finding and footprinting analyses. Briefly, a user writes a `bulk-config.json` configuration file for a new analysis. CUT&RUNTools 2.0 uses this to generate a set of slurm-based job-submission scripts, customized to the user's samples and environment.
+Briefly, a user writes a `bulk-config.json` configuration file for a new analysis. CUT&RUNTools 2.0 uses this to generate a set of slurm-based job-submission scripts, customized to the user's samples and environment.
 
 
 
 
+See the following links for more details:
+
+- [Overview](./bulk-OVERVIEW.md)
+- [Quick Start](./bulk-QUICK.md)
+- [Usage Page](./bulk-USAGE.md)
+- [Directory Structure](./bulk-DIRECTORY.md)
 
 
 
