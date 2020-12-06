@@ -335,3 +335,14 @@ Many of the files in ths folder are intermediary files and can be ignored. The i
 
 ![Cut profile visualized with UCSC browser](../images/single.locus.visualized.UCSC.png)
 
+
+
+
+See the following links for more details:
+
+- [New updates](./bulk-news.md)
+- [Quick Start](./bulk-QUICK.md)
+- [Installation Page](./bulk-INSTALL.md)
+- [Directory Structure](./bulk-DIRECTORY.md)
+
+
