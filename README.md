@@ -38,7 +38,6 @@ See [Usage Page](docs/bulk-USAGE.md) about how to set up the pipeline and detail
 
 See [Directory Structure](docs/bulk-DIRECTORY.md) for basic structure of input and output folders.  
 
-To compatiable with more computational platforms for bulk data analysis, the requirement of SLURM job submission environment was removed. 
 
 --------
 
