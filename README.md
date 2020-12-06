@@ -4,7 +4,7 @@
 
 ## Overview
 
-CUT&RUNTools 2.0 is a major update of CUT&RUNTools [(link)](https://bitbucket.org/qzhudfci/cutruntools/), including a set of new features specially designed for CUT&RUN and CUT&Tag experiments. In this release, both of the bulk and single-cell data can be processed, analyzed and interpreted using CUT&RUNTools 2.0.
+CUT&RUNTools 2.0 is a major update of CUT&RUNTools [(link)](https://bitbucket.org/qzhudfci/cutruntools/), including a set of new features specially designed for CUT&RUN and CUT&Tag experiments. Both of the bulk and single-cell data can be processed, analyzed and interpreted using CUT&RUNTools 2.0.
 
 ## Main Features
 
@@ -15,30 +15,17 @@ CUT&RUNTools 2.0 is a major update of CUT&RUNTools [(link)](https://bitbucket.or
 - feature-by-cell matrix construction  
 - dimensionality reduction and clustering analysis  
 - cell-type-specific pseudo-bulk data analysis  
+ 
 
-*Bulk data analysis* 
+*Bulk data analysis update* 
 
 - spike-in sequence alignment and data normalizaion
-- new options for CUT&RUN or CUT&Tag data analysis  
+- options of experiment for CUT&RUN or CUT&Tag data analysis  
 - flexiable option for fragments selections (>120bp) 
 - supporting different peak calling strategies 
 - new functions for peaks annotation 
 - compatiable with more computational platforms  
- 
 
-## Single-cell data analysis
-
-To get started, please see [Overview](docs/sc-OVERVIEW.md) and [Installation Instructions](docs/sc-INSTALL.md).  
-
-See [Quick Start](docs/sc-QUICK.md) for a most excellent starting point to get familiar with the tool.  
-
-See [Usage Page](docs/sc-USAGE.md) about how to set up the pipeline and detailed usage.  
-
-See [Directory Structure](docs/sc-DIRECTORY.md) for basic structure of input and output folders.
-
-<div align=center> <img src="images/scCRtools.png" width="680" height="318"> </div> 
-
-<p align="center">The schematic view of the single-cell data processing module of CUT&RUNTools</p>
 
 
 ## Bulk data analysis
@@ -60,12 +47,27 @@ Alternatively, you can contact authors: fulong.yu{at}childrens.harvard.edu, or g
 Read our [paper](). Sign up for CUT&RUNTools Google group mailing list to ask questions, receive updates.
 
 
+
+## Single-cell data analysis
+
+To get started, please see [Overview](docs/sc-OVERVIEW.md) and [Installation Instructions](docs/sc-INSTALL.md).  
+
+See [Quick Start](docs/sc-QUICK.md) for a most excellent starting point to get familiar with the tool.  
+
+See [Usage Page](docs/sc-USAGE.md) about how to set up the pipeline and detailed usage.  
+
+See [Directory Structure](docs/sc-DIRECTORY.md) for basic structure of input and output folders.
+
+<div align=center> <img src="images/scCRtools.png" width="680" height="318"> </div> 
+
+<p align="center">The schematic view of the single-cell data processing module of CUT&RUNTools</p>
+
+
 ### The full tutorial of CUT&RUNTools 2.0 can be found [here](docs/2.0-TUTORIAL.md).
 
 ##To do list:
 
 
-cut&tag parameter/bulk-install-page:attack
 
 bulk-code:remove slrum/usage-go_through/
 
