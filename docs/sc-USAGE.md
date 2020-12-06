@@ -1,5 +1,18 @@
 ## Usage of CUT&RUNTools 2.0 for single-cell data analysis
 
+
+### The schematic view
+
+<div align=center> <img src="../images/scCRtools.png" width="680" height="318"> </div> 
+
+
+The single-cell module of CUT&RUNTools generally includes four main processing steps for single-cell data analysis: 
+-  (i) raw data processing and quality assessment
+-  (ii) feature-by-cell matrix construction
+-  (iii) dimensionality reduction and clustering analysis
+-  (iv) cell-type-specific pseudo-bulk data analysis
+
+
 ### Defining the configuration file
 
 CUT&RUNTools requires a JSON configuration file (named as `sc-config.json`) which specifies all that is needed to run an analysis. 
@@ -401,4 +414,4 @@ See the following links for more details:
 - [Installation Instructions](./sc-INSTALL.md)
 - [Quick Start](./sc-QUICK.md)
 - [Directory Structure](./sc-DIRECTORY.md)
-- [The full tutorial of CUT&RUNTools 2.0](./2.0-TUTORIAL.md)
+
