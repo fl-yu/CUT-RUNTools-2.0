@@ -19,7 +19,7 @@ CUT&RUNTools 2.0 is a major update of CUT&RUNTools [(link)](https://bitbucket.or
 
 *Bulk data analysis update* 
 
-- spike-in sequence alignment and data normalizaion
+- supporting spike-in sequence alignment and data normalizaion
 - options of experiment for CUT&RUN or CUT&Tag data analysis  
 - flexiable option for fragments selections (>120bp) 
 - supporting different peak calling strategies 
@@ -42,11 +42,6 @@ To compatiable with more computational platforms for bulk data analysis, the req
 
 --------
 
-If you run into issues and would like to report them, you can use the "Issues" tab on the left hand side.  
-Alternatively, you can contact authors: fulong.yu{at}childrens.harvard.edu, or gcyuan{at}jimmy.harvard.edu.  
-Read our [paper](). Sign up for CUT&RUNTools Google group mailing list to ask questions, receive updates.
-
-
 
 ## Single-cell data analysis
 
@@ -60,16 +55,17 @@ See [Directory Structure](docs/sc-DIRECTORY.md) for basic structure of input and
 
 <div align=center> <img src="images/scCRtools.png" width="680" height="318"> </div> 
 
-<p align="center">The schematic view of the single-cell data processing module of CUT&RUNTools</p>
+<p align="center">The schematic view of the single-cell data processing module of CUT&RUNTools</p>  
 
 
-### The full tutorial of CUT&RUNTools 2.0 can be found [here](docs/2.0-TUTORIAL.md).
+If you run into issues and would like to report them, you can use the "Issues" tab on the left hand side.  
+Alternatively, you can contact authors: fulong.yu{at}childrens.harvard.edu, or gcyuan{at}jimmy.harvard.edu.  
+Read our [paper](). Sign up for CUT&RUNTools Google group mailing list to ask questions, receive updates.
+
 
 ##To do list:
 
 
-
-bulk-code:remove slrum/usage-go_through/
 
 1.bulk function code and tutorial  
 2.install tutorial update and sc usage  
