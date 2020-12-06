@@ -60,7 +60,7 @@ fi
 
 spikein_dir=$workdir/spike_in
 # check the parameters
-if [ "$spike_in" != "none" ]
+if [ "$spike_in_align" == "TRUE" ]
 then
     mkdir -p $spikein_dir
     >&2 echo "[info] Aligning file $base to spike-in genome"
@@ -73,7 +73,7 @@ then
     spikein_reads=`printf "%.0f" $(echo "$total_reads * $align_ratio"|bc)`
 
     >&2 echo "[info] Spikein reads number is $spikein_reads, consisting of $align_ratio % of total reads"
-    >&2 echo "[info] This information will be used in spike-in normalization when generating bigwig files"
+    >&2 echo "[info] This information could be used in spike-in normalization when generating bigwig files"
 else
     >&2 echo "[info] FASTQ files won't be aligned to the spike-in genome"
 fi
@@ -229,28 +229,33 @@ $extratoolsbin/bedGraphToBigWig $outdir/"$base_file".sort.bdg $chrom_size_file $
     rm -rf $outdir/"$base_file".sort.bdg
     cp $outdir/"$base_file".sorted.bw $outdirbroad
     cp $outdir/"$base_file".sorted.bw $outdirseac
-if [ "$spikein_reads" == "0" ] || [ "$spike_in" = "none" ]
-then
-    >&2 echo "[info] Your bigwig file won't be normalized with spike-in reads as you did not specify this parameter or the spike-in reads were 0.."
+if [ "$spike_in_align" == "TRUE" ]
+then 
+    if [ "$spikein_reads" == "0" ] || [ "$spike_in_norm" == "FALSE" ]
+    then
+        >&2 echo "[info] Your bigwig file won't be normalized with spike-in reads as you did not specify this parameter or the spike-in reads were 0.."
+    else
+        >&2 echo "[info] Your bigwig file will be normalized with spike-in reads"
+        scale=$spikein_scale
+        scale_factor=`printf "%.0f" $(echo "$scale / $spikein_reads"|bc)`
+        >&2 echo scale_factor=$scale_factor
+        bamCoverage --bam $bam_file -o $outdir/"$base_file".spikein_normalized.bw \
+        --binSize 10
+        --normalizeUsing cpm
+        --effectiveGenomeSize $eGenomeSize
+        --scaleFactor $scale_factor
+        cp $outdir/"$base_file".spikein_normalized.bw $outdirbroad
+        cp $outdir/"$base_file".spikein_normalized.bw $outdirseac
+    fi
 else
-    >&2 echo "[info] Your bigwig file will be normalized with spike-in reads"
-    scale=$spikein_scale
-    scale_factor=`printf "%.0f" $(echo "$scale / $spikein_reads"|bc)`
-    >&2 echo scale_factor=$scale_factor
-    bamCoverage --bam $bam_file -o $outdir/"$base_file".spikein_normalized.bw \
-    --binSize 10
-    --normalizeUsing cpm
-    --effectiveGenomeSize $eGenomeSize
-    --scaleFactor $scale_factor
-    cp $outdir/"$base_file".spikein_normalized.bw $outdirbroad
-    cp $outdir/"$base_file".spikein_normalized.bw $outdirseac
+    >&2 echo "[info] Your bigwig file won't be normalized with spike-in reads"
 fi
 
 
 # 
 # specify peak file for the motif and footprinting analysis
 # 
-if [[ "$peak_caller" = "macs2" ]]
+if [[ "$peak_caller" == "macs2" ]]
 then
     # using narrow by default
     peak_file=$outdir/"$base_file"_peaks.narrowPeak
@@ -258,7 +263,7 @@ then
     suffix="_peaks.narrowPeak"
     summit_suffix="_summits.bed"
     summit_padded_suffix="_summits_padded.fa"
-elif [[ "$peak_caller" = "SEACR" ]]
+elif [[ "$peak_caller" == "SEACR" ]]
 then
     peak_file=$outdirseac/"$base_file"_treat.stringent.sort.bed
     summit=$outdirseac/"$base_file"_treat.stringent.sort.summits.bed
@@ -316,7 +321,7 @@ done
 
 >&2 echo "[info] Get randomized [$num_peaks] peaks from the top [$total_peaks] peaks..."
 >&2 echo "[info] Filtering the blacklist regions for the selected peak files"
-if [[ "$peak_caller" = "macs2" ]]
+if [[ "$peak_caller" == "macs2" ]]
 then
     cat blacklist_filtered/$peak | sort -t$'\t' -g -k8 -r | head -n $total_peaks | shuf | head -n $num_peaks | $bedopsbin/sort-bed - > $motif_dir/$peak
 else
