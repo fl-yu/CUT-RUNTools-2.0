@@ -105,44 +105,57 @@ The configuration file tells CutRunTools where to locate the prerequisite tools.
 
 ```json
 {
-	"Rscriptbin": "/path/to/R/bin",
-	"pythonbin": "/path/to/python/bin",
-	"perlbin": "/path/to/perl/bin",
-	"javabin": "/path/to/java/bin",
-	"trimmomaticbin": "/path/to/trimmomatic/bin",
-	"trimmomaticjarfile": "trimmomatic-0.36.jar",
-	"bowtie2bin": "/path/to/bowtie2/bin",
-	"samtoolsbin": "/path/to/samtools/bin",
-	"adapterpath": "/path/to/cutrun_pipeline/adapters", 
-	"picardbin": "/path/to/picard/bin",
-	"picardjarfile": "picard-2.8.0.jar",
-	"macs2bin": "/path/to/macs2/bin",
-	"macs2pythonlib": "/path/to/macs2/lib/python2.7/site-packages",
-	"kseqbin": "/path/to/cutrun_pipeline", 
-	"memebin": "/path/to/meme/bin", 
-	"bedopsbin": "/path/to/bedops/bin", 
-	"bedtoolsbin": "/path/to/bedtools/bin",
-	"makecutmatrixbin": "/path/to/.local/bin",
-	"bt2idx": "/path/to/bowtie2_indexes",
-	"genome_sequence": "/path/to/chrom.hg19/hg19.fa",
-	"extratoolsbin": "/path/to/cutrun_pipeline", 
-	"extrasettings": "/path/to/cutrun_pipeline", 
-	"input/output": {
-		"fastq_directory": "/path/to/user/fastq_directory",
-		"workdir": "/path/to/user/workdir",
-		"fastq_sequence_length": 42,
-		"organism_build": "hg19"
-	},
-	"motif_finding": {
-		"num_bp_from_summit": 150,
-		"num_peaks": 5000,
-		"total_peaks": 15000,
-		"motif_scanning_pval": 0.0005,
-		"num_motifs": 20
-	}
+    "software_config": {
+        "Rscriptbin": "/path/to/R/3.3.3/bin", 
+        "pythonbin": "/path/to/python/2.7.12/bin", 
+        "perlbin": "/path/to/perl/5.24.0/bin",
+        "javabin": "/path/to/java/jdk-1.8u112/bin",
+        "bowtie2bin": "/path/to/bowtie2/2.2.9/bin", 
+        "samtoolsbin": "/path/to/samtools/1.3.1/bin", 
+        "macs2bin": "/path/to/macs2/2.1.1.20160309/bin", 
+        "memebin": "/home/user/meme/bin", 
+        "bedopsbin": "/path/to/bedops/2.4.30", 
+        "bedtoolsbin": "/path/to/bedtools/2.26.0/bin", 
+        "path_deeptools": "/path/to/deeptools",
+        "bt2idx": "/n/groups/bowtie2_indexes", 
+        "genome_sequence": "/home/user/chrom.hg19/hg19.fa", 
+        "spike_in_bt2idx": "/n/groups/ecoli/bowtie2_indexes", 
+        "spike_in_sequence": "/home/user/chrom.ecoli/ecoli6.fa", 
+        "extratoolsbin": "/path/to/cutrun_pipeline2.0", 
+        "extrasettings": "/path/to/cutrun_pipeline2.0",
+        "kseqbin": "/path/to/cutrun_pipeline2.0", 
+        "adapterpath": "/path/to/cutrun_pipeline2.0/adapters", 
+        "trimmomaticbin": "/path/to/cutrun_pipeline2.0", 
+        "picardbin": "/path/to/cutrun_pipeline2.0", 
+        "picardjarfile": "picard-2.8.0.jar", 
+        "trimmomaticjarfile": "trimmomatic-0.36.jar", 
+        "makecutmatrixbin": "/home/user/.local/bin"
+    }, 
+    "input_output": {
+        "fastq_directory": "/n/scratch2/user/Nan_18_demo/sorted.chr11", 
+        "workdir": "/n/scratch2/user/workdir", 
+        "fastq_sequence_length": 42, 
+        "organism_build": "hg19",
+        "spike_in_align": "FALSE",
+        "spike_in_norm": "FALSE",
+        "spikein_scale": "10000",
+        "frag_120": "TRUE",
+        "peak_caller": "macs2",
+        "dup_peak_calling": "FALSE",
+        "cores": "8",
+        "experiment_type": "CUT&Tag"
+    }, 
+    "motif_finding": {
+        "num_bp_from_summit": 150, 
+        "num_peaks": 1000, 
+        "total_peaks": 5000, 
+        "motif_scanning_pval": 0.0005, 
+        "num_motifs": 10
+    }
 }
+
 ```
-Pay attention to the **the first 20 lines of this file** which concern the software installation. The rest is related to an actual analysis (explained in [USAGE.md](USAGE.md)). 
+The **software_config** section (the first 24 lines) concerns the software installation.  The rest is related to an actual analysis (explained in [USAGE.md](USAGE.md)). 
 
 
 ### Validate prerequisites
@@ -153,72 +166,14 @@ To check if the paths are correct and if the softwares in these paths indeed wor
 ```
 This script checks that your configuration file is correct and all paths are correct. You will get an empty line if the validate.py script runs without errors.
 
-## Install
+Then, CutRunTools 2.0 can be run directly from the directory containing the CutRunTools scripts.
 
 
-
-CutRunTools does not need to be installed to any special location such as /usr/bin, or /usr/local/bin. 
-
-It can be run directly from the directory containing the CutRunTools scripts.
-
-The main program consists of `create_scripts.py`, `validate.py`, and a set of scripts in `aligned.aug10`, and in `macs2.narrow.aug18` which perform the important motif finding and footprinting analyses.
-
-We suggest placing the CUT&RUNTools scripts to a more permanent location (like `~/cutruntools-scripts` or `/usr/local/cutruntools-scripts`). For example:
-
-```
-#suppose this is where cutruntools scripts are downloaded to:
-pwd
-/path/to/Downloads/qzhudfci-cutruntools-1806e65e5b28
-#copy it in a more permanent location like home directory
-mkdir ~/cutruntools-scripts
-cp -r /path/to/Downloads/qzhudfci-cutruntools-1806e65e5b28/* ~/cutruntools-scripts/.
-```
-
-See [USAGE.md](USAGE.md) for details. Briefly, a user writes a `bulk-config.json` configuration file for a new analysis. CutRunTools uses this to generate a set of slurm-based job-submission scripts, customized to the user's samples and environment. These job-submission scripts can be directly used by the user to start analyzing his/her Cut&Run samples.
-
-```
-#Example
-#Use the bulk-config.json from ~/cutruntools-scripts as a template for a new analysis
-cp ~/cutruntools-scripts/config.json config.jan4.json
-#modify config.jan4.json to your samples and needs
-~/cutruntools-scripts/create_scripts.py config.jan4.json
-#the SLURM-based job submission scripts would now have been created. See USAGE.md how to continue.
-```
+The main program consists of `create_scripts.py`, `validate.py`, and a set of scripts in `aligned.aug10`, and in `macs2.narrow.aug18` which perform the important motif finding and footprinting analyses. Briefly, a user writes a `bulk-config.json` configuration file for a new analysis. CUT&RUNTools 2.0 uses this to generate a set of slurm-based job-submission scripts, customized to the user's samples and environment.
 
 
 
 
-### Common errors flagged by validate.py
-
-#### Validation of macs2, make_cut_matrix failed
-This could be due to that the versions of Python are inconsistent. The version of Python indicated in the field `pythonbin` should be consistent with the version of Python used to install MACS2, and version used to install make_cut_matrix (`makecutmatrixbin`). 
-To confirm this, on our system, we enter
-```bash
-head -n 1 /path/to/macs2/2.1.1.20160309/bin/macs2
-#!/path/to/python/2.7.12/bin/python
-head -n 1 /path/to/.local/bin/make_cut_matrix
-#!/path/to/python/2.7.12/bin/python
-```
-Use `/path/to/python/2.7.12/bin` for the `pythonbin` field in `config.json`. 
-Similarly for Perl (`perlbin`) and meme-chip (`memebin`). Version of Perl used to install meme should be used for `perlbin`:
-```bash
-head -n 1 /path/to/meme/bin/meme-chip
-#!/path/to/perl/5.24.0/bin/perl
-```
-Use `/path/to/perl/5.24.0/bin` as value for `perlbin` in `config.json`.
-
-#### Validation of meme, meme-chip failed, XML/Simple.pm not found
-Validate script may flag an error with MEME installation: XML/Simple.pm is not found.
-You may encounter this error if the XML PERL module is installed to a custom directory (i.e. home rather than in `/usr/` or `/usr/local`). 
-If this is the case, the solution is to set up the Perl library environment variables.
-On our system, the custom Perl modules are installed to `/path/to/perl5-O2/lib`, so we enter:
-```bash
-PERL5LIB="/path/to/perl5-O2/lib/perl5":$PERL5LIB
-PERL_LOCAL_LIB_ROOT="/path/to/perl5-O2":$PERL_LOCAL_LIB_ROOT
-export PERL5LIB
-export PERL_LOCAL_LIB_ROOT
-```
-Then try validate script again.
 
 
 
