@@ -13,3 +13,11 @@ In this release, we provided several new features in the following which are urg
 - *compatible with more computational platforms*    
     To compatible with more computational platforms for bulk data analysis, the requirement of the SLURM job submission environment was removed. 
 
+
+See the following links for more details:
+
+
+- [Quick Start](./bulk-QUICK.md)
+- [Installation Page](./bulk-INSTALL.md)
+- [Usages](./bulk-USAGE.md)
+- [Directory Structure](./bulk-DIRECTORY.md)
