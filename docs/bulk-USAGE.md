@@ -84,7 +84,7 @@ PARAMETERS
 			options: hg38, hg19 (default), mm10 or mm9
 			 			
 	[spike_in_align]: Whether align the trimmed fastq files to the spike-in genome. Make sure you provided 
-	      the spike-in genome information if you set this as TRUE
+		the spike-in genome information if you set this as TRUE
 			options: TRUE or FALSE (default)
 			 			
 	[spike_in_norm]: Whether normalize the signal file (bigwig) based on spike-in reads. Note that the
@@ -100,9 +100,9 @@ PARAMETERS
 	[peak_caller]: To specify statistical significant peaks called from macs2 or SEACR method used for 
 		further analysis. The peak calling results of three strategies (macs2 narrow peaks, macs2 broad
 		peaks and seacr peaks) can be found in the 'peakcalling' directory. he narrow peak mode is suitable for a  
-	      typical TF, while the broad peak mode is good to use for the chromatin factors generally having 
-	      a large binding domain or epigenetic modification such as H3K27me3 or H3K9me3 having dispersed 
-	      localization
+	        typical TF, while the broad peak mode is good to use for the chromatin factors generally having 
+	        a large binding domain or epigenetic modification such as H3K27me3 or H3K9me3 having dispersed 
+	        localization
 			options: macs2 (default) or SEACR
 			 			
 	[dup_peak_calling]: Whether the reads with duplication will be used in the peak calling step 
