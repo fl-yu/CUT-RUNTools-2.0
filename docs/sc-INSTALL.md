@@ -1,16 +1,10 @@
 ## Pre-requisite software 
-A few software (list in the following) need to be installed before running the single-cell module on the basis of [pre-requisites of bulk data analysis](./bulk-INSTALL.md) (including Trimmomatic, Bowtie2, Samtools, Picard, MACS2, MEME, Bedops, Bedtools and Download genome assemblies). We encourage users to use conda to install and manage software.
+A few software (list in the following) need to be installed before running the single-cell module on the basis of [pre-requisites of bulk data analysis](./bulk-INSTALL.md) (including Trimmomatic, Bowtie2, Samtools, Picard, MACS2, MEME, Bedops, Bedtools, deeptools and Download genome assemblies). We encourage users to use conda to install and manage software.
 
 Install GNU parallel (a software program developed for running several jobs in parallel to make full use of the computational resource (more information can be found [here](https://www.gnu.org/software/parallel))  
 
 ```
 conda install -c conda-forge parallel
-```
-
-Install deeptools; get the path using the command: *which deeptools*
-
-```
-conda install -c bioconda deeptools
 ```
 
 Install tabix (it is the a generic tool that indexes position sorted files in TAB-delimited formats); get the path using the command: *which tabix*
