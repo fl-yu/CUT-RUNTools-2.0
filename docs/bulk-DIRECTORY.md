@@ -1,40 +1,33 @@
 ## The directory structure of input and output folders 
 
-*A schematic view of the data structure for the typical bulk data analysis*
+*A typical input and output data structure for the typical bulk data analysis*
 
 
 ```
 + fastq_directory (INPUT)
 + workdir         (OUTPUT)
     ++ trimmed
-    ++ trimmed3
-    ++ aligned.aug10
+    ++ trimmed2
+    ++ spike_in
+    ++ aligned
         +++ dedup
         +++ dedup.120bp
         +++ dup.marked
         +++ dup.marked.120bp
-    ++ macs2.narrow.aug18
-        +++ blk_filtered
-        +++ blk_filtered.fa
-        +++ centipede.bam
-        +++ fimo.result
-            ++++ fimo2.DREME-1.CTCHGCC
-            ++++ fimo2.DREME-2.RAAATA
-            ++++ fimo2.DREME-3.GGCTCACD
-        +++ random.1000
-    ++ macs2.narrow.aug18.dedup
-    ++ macs2.narrow.all.frag.aug18
-    ++ macs2.narrow.all.frag.aug18.dedup
-    ++ macs2.broad.aug18
-    ++ macs2.broad.aug18.dedup
-    ++ macs2.broad.all.frag.aug18
-    ++ macs2.broad.all.frag.aug18.dedup
-    ++ seacr.aug12
-    ++ seacr.aug12.all.frag
-    ++ seacr.aug12.all.frag.dedup
-    ++ seacr.aug12.dedup
-```
-
+        +++ sorted
+    ++ peakcalling
+        +++ macs2.narrow
+            ++++ blk_filtered
+            ++++ blk_filtered.fa
+            ++++ centipede.bam
+            ++++ random.1000
+            ++++ fimo.result
+                +++++ fimo2.DREME-1.CTCHGCC
+                +++++ fimo2.DREME-2.RAAATA
+                +++++ fimo2.DREME-3.GGCTCACD
+        +++ macs2.broad
+        +++ seacr
+        
 
 See the following links for more details:
 
