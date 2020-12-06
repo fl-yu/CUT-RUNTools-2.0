@@ -1,6 +1,6 @@
 ## The directory structure of input and output folders 
 
-*A typical input and output data structure for the typical bulk data analysis*
+*A typical input and output data structure for the bulk data analysis*
 
 
 ```
