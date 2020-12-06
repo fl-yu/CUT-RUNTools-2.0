@@ -6,122 +6,138 @@
 CUT&RUNTools requires a JSON configuration file (named as `bulk-config.json`) which specifies all that is needed to run an analysis. 
 A sample configuration file is below. 
 
-```json
+
+<!-- end list -->
+
+``` json
 {
-	"Rscriptbin": "/n/app/R/3.3.3/bin",
-	"pythonbin": "/n/app/python/2.7.12/bin",
-	"perlbin": "/n/app/perl/5.24.0/bin",
-	"javabin": "/n/app/java/jdk-1.8u112/bin",
-	"trimmomaticbin": "/n/app/trimmomatic/0.36/bin",
-	"trimmomaticjarfile": "trimmomatic-0.36.jar",
-	"bowtie2bin": "/n/app/bowtie2/2.2.9/bin",
-	"samtoolsbin": "/n/app/samtools/1.3.1/bin",
-	"adapterpath": "/home/qz64/cutrun_pipeline/adapters", 
-	"picardbin": "/n/app/picard/2.8.0/bin",
-	"picardjarfile": "picard-2.8.0.jar",
-	"macs2bin": "/n/app/macs2/2.1.1.20160309/bin",
-	"macs2pythonlib": "/n/app/macs2/2.1.1.20160309/lib/python2.7/site-packages",
-	"kseqbin": "/home/qz64/cutrun_pipeline", 
-	"memebin": "/n/app/meme/4.12.0/bin", 
-	"bedopsbin": "/n/app/bedops/2.4.30", 
-	"bedtoolsbin": "/n/app/bedtools/2.26.0/bin",
-	"makecutmatrixbin": "/home/qz64/.local/bin",
-	"bt2idx": "/n/groups/shared_databases/bowtie2_indexes",
-	"genome_sequence": "/home/qz64/chrom.hg19/hg19.fa",
-	"extratoolsbin": "/home/qz64/cutrun_pipeline", 
-	"extrasettings": "/home/qz64/cutrun_pipeline", 
-	"input/output": {
-		"fastq_directory": "/n/scratch2/qz64/Nan_18_aug23/Nan_run_19",
-		"workdir": "/n/scratch2/qz64/workdir",
-		"fastq_sequence_length": 42,
-		"organism_build": "hg19"
-	},
-	"motif_finding": {
-		"num_bp_from_summit": 150,
-		"num_peaks": 5000,
-		"total_peaks": 15000,
-		"motif_scanning_pval": 0.0005,
-		"num_motifs": 20
-	}
+    "software_config": {
+        "Rscriptbin": "/path/to/R/3.3.3/bin", 
+        "pythonbin": "/path/to/python/2.7.12/bin", 
+        "perlbin": "/path/to/perl/5.24.0/bin",
+        "javabin": "/path/to/java/jdk-1.8u112/bin",
+        "bowtie2bin": "/path/to/bowtie2/2.2.9/bin", 
+        "samtoolsbin": "/path/to/samtools/1.3.1/bin", 
+        "macs2bin": "/path/to/macs2/2.1.1.20160309/bin", 
+        "memebin": "/home/user/meme/bin", 
+        "bedopsbin": "/path/to/bedops/2.4.30", 
+        "bedtoolsbin": "/path/to/bedtools/2.26.0/bin", 
+        "path_deeptools": "/path/to/deeptools",
+        "bt2idx": "/n/groups/bowtie2_indexes", 
+        "genome_sequence": "/home/user/chrom.hg19/hg19.fa", 
+        "spike_in_bt2idx": "/n/groups/ecoli/bowtie2_indexes", 
+        "spike_in_sequence": "/home/user/chrom.ecoli/ecoli6.fa", 
+        "extratoolsbin": "/path/to/cutrun_pipeline2.0", 
+        "extrasettings": "/path/to/cutrun_pipeline2.0",
+        "kseqbin": "/path/to/cutrun_pipeline2.0", 
+        "adapterpath": "/path/to/cutrun_pipeline2.0/adapters", 
+        "trimmomaticbin": "/path/to/cutrun_pipeline2.0", 
+        "picardbin": "/path/to/cutrun_pipeline2.0", 
+        "picardjarfile": "picard-2.8.0.jar", 
+        "trimmomaticjarfile": "trimmomatic-0.36.jar", 
+        "makecutmatrixbin": "/home/user/.local/bin"
+    }, 
+    "input_output": {
+        "fastq_directory": "/n/scratch2/user/Nan_18_demo/sorted.chr11", 
+        "workdir": "/n/scratch2/user/workdir", 
+        "fastq_sequence_length": 42, 
+        "organism_build": "hg19",
+        "spike_in_align": "FALSE",
+        "spike_in_norm": "FALSE",
+        "spikein_scale": "10000",
+        "frag_120": "TRUE",
+        "peak_caller": "macs2",
+        "dup_peak_calling": "FALSE",
+        "cores": "8",
+        "experiment_type": "CUT&Tag"
+    }, 
+    "motif_finding": {
+        "num_bp_from_summit": 150, 
+        "num_peaks": 1000, 
+        "total_peaks": 5000, 
+        "motif_scanning_pval": 0.0005, 
+        "num_motifs": 10
+    }
 }
+
 ```
 
-By now you should have followed INSTALL.md and successfully installed the prerequisites, so you can skip over lines regarding software installation paths.
+- The **software_config** section defines the software paths for various sequencing tools.  
 
-*  `fastq_directory` is the directory containing paired-end CUT&RUN sequences (should contain _R1_001.fastq.gz and _R2_001.fastq.gz for each sample). 
-*  `workdir` is the output directory, where results are stored.
-*  `organism_build` is one of supported genome assemblies: hg38, hg19, mm10, and mm9. 
-*  `genome_sequence` is the whole-genome **masked** sequence which matches with the appropriate organism build.
+- The **input_output** section contains the general parameters for the data processing.
 
-### Create job scripts
+``` 
+PARAMETERS
+----------
 
-```bash
-./create_scripts.py bulk-config.json
+	[fastq_directory]: A folder containing all the fastq files of barcode cells, pattern with ***_R1_001.fastq.gz
+		and ***_R2_001.fastq.gz 
+			options: NO default 
+			 			
+	[workdir]: A folder containg all the output of data processing and analysis
+			options: NO default 
+			
+	[fastq_sequence_length]: Read length of the fastq files
+			options: 42 (default) 		
+	
+	[organism_build]: Reference genome version 
+			options: hg38, hg19 (default), mm10 or mm9
+			 			
+	[spike_in_align]: Whether align the trimmed fastq files to the spike-in genome. Make sure you provided 
+	      the spike-in genome information if you set this as TRUE
+			options: TRUE or FALSE (default)
+			 			
+	[spike_in_norm]: Whether normalize the signal file (bigwig) based on spike-in reads. Note that the
+		normalization will not be performed if the spike-in reads number is 0.
+			options: TRUE or FALSE (default)
+			 			
+	[spikein_scale]: A scale number for spike-in normalization. The scale factor is calculated as (spikein_scale)/(spike-in reads) 
+			options: 10000 (default) 
+			 			
+	[frag_120]: Whether filter the bam files based on the cretiria of fragment size 120
+			options: TRUE (default) or FALSE 
+			 			
+	[peak_caller]: To specify statistical significant peaks called from macs2 or SEACR method used for 
+		further analysis. The peak calling results of three strategies (macs2 narrow peaks, macs2 broad
+		peaks and seacr peaks) can be found in the 'peakcalling' directory. he narrow peak mode is suitable for a  
+	      typical TF, while the broad peak mode is good to use for the chromatin factors generally having 
+	      a large binding domain or epigenetic modification such as H3K27me3 or H3K9me3 having dispersed 
+	      localization
+			options: macs2 (default) or SEACR
+			 			
+	[dup_peak_calling]: Whether the reads with duplication will be used in the peak calling step 
+			options: TRUE or FALSE (default)
+			
+	[cores]: How many threads will be used by parallel in the software such as bowtie2 and samtool..
+			options: 8	
+			 			
+	[experiment_type]: CUT&Tag reads (bam files) should be shifted + 4 bp and − 5 bp for positive and 
+		negative strand respectively, to account for the 9-bp duplication created by DNA repair of the nick 
+		by Tn5 transposase and achieve 	base-pair resolution of TF footprint and motif-related analyses.  
+			options: CUT&RUN or CUT&Tag (default)
+			 			
+
 ```
-This creates a set of scripts based on the configuration file above (named bulk-config.json) in the `workdir` directory. The scripts can be directly, easily executed.
 
-### Four-step process for executing CUT&RUNTools
+- The **motif_finding** section includes the parameters controlling TF motif De Novo and footprinting steps, these four parameters are same to the last version.  
 
-With the scripts created, we can next perform the analysis.
+
+### Four-step process for executing CUT&RUNTools 2.0
 
 Step 1. **Read trimming, alignment.** 
 
-We suppose the `workdir` is defined as `/path/to/user/workdir`
-```bash
-cd /path/to/user/workdir
-sbatch ./integrated.sh GATA1_D7_30min_chr11_R2_001.fastq.gz
-```
 The parameter is the fastq file. Even though we specify the _R1_001.fastq.gz, CUT&RUNTools actually checks that both forward and reverse fastq files are present. Always use the _R1_001 of the pair as parameter of this command.
 
 Step 2. **BAM processing, peak calling.** It marks duplicates in bam files, and filter fragments by size. Then it performs peak calling using MACS2 and SEACR. It runs both.
-```bash
-cd aligned.aug10
-sbatch ./integrated.step2.sh GATA1_D7_30min_chr11_aligned_reads.bam
-```
 
 CUT&RUNTools varies through different peak calling settings and generates multiple results for these settings in the following directories. Based on the results, users should **select only one setting** to go to steps 3 & 4.
 
-| Directory (in `../`) | Tool | Config    | Fragments | Use duplicates (y/n) |
-| ---------------------|------|-----------|-----------|----------------------|
-|macs2.narrow.aug18         | MACS2| narrowPeak| <120bp | y |
-|macs2.broad.aug18          | MACS2| broadPeak | <120bp | y |
-|macs2.narrow.all.frag.aug18| MACS2| narrowPeak| all    | y |
-|macs2.broad.all.frag.aug18 | MACS2| broadPeak | all    | y |
-|macs2.narrow.aug18.dedup   | MACS2| narrowPeak| <120bp | n |
-|macs2.broad.aug18.dedup    | MACS2| broadPeak | <120bp | n |
-|macs2.narrow.all.frag.aug18.dedup | MACS2| narrowPeak| all    | n |
-|macs2.broad.all.frag.aug18.dedup  | MACS2| broadPeak | all    | n |
-|seacr.aug12                | SEACR| stringent | <120bp | y |
-|seacr.aug12.all.frag       | SEACR| stringent | all    | y |
-|seacr.aug12.dedup          | SEACR| stringent | <120bp | n | 
-|seacr.aug12.all.frag.dedup | SEACR| stringent | all    | n |
-
-Which directory to use: if **TF CUT&RUN**, I prefer **macs2.narrow.aug18** or **macs2.narrow.aug18.dedup**. If **histone CUT&RUN**, use **macs2.broad.all.frag.aug18**. If **SEACR**, use **seacr.aug12.all.frag** (histone) or **seacr.aug12** (TF) and use the **stringent** peaks within each folder.
-
-For large fragment (>120bp), the peak results in directories `*.all.frag.*` should be used.
+Which directory to use: if **TF CUT&RUN**, I prefer **macs2.narrow.120** or **macs2.narrow.dedup.120**. If **histone CUT&RUN**, use **macs2.broad.all**. If **SEACR**, use **seacr.all.frag** (histone) or **seacr.120** (TF) and use the **stringent** peaks within each folder.
 
 Step 3. **Motif finding.** CUT&RUNTools uses MEME-chip for de novo motif finding on sequences surrounding the peak summits.
-```bash
-#Use macs2.narrow.aug18 or any of the peak calling result directory in the above table
-cd ../macs2.narrow.aug18
-#For narrow setting, the peak file ends in .narrowPeak
-#For broad setting, the peak file ends in .broadPeak
-#For seacr setting, the peak file ends in .stringent.sort.bed
-#Use the right peak file accordingly
-sbatch ./integrate.motif.find.sh GATA1_D7_30min_chr11_aligned_reads_peaks.narrowPeak
-```
-Similar procedure applies in other peak calling directories for broadPeaks, all fragment results, or SEACR peaks.
-```bash
-#SEACR
-cd ../seacr.aug12.all.frag
-sbatch ./integrate.motif.find.sh GATA1_D7_30min_chr11_aligned_reads_treat.stringent.sort.bed
-```
 
 Step 4. **Motif footprinting.**
-```bash
-cd ../macs2.narrow.aug18
-sbatch ./integrate.footprinting.sh GATA1_D7_30min_chr11_aligned_reads_peaks.narrowPeak
-```
+ 
 Beautiful footprinting figures will be located in the directory `fimo.result`. Footprinting figures are created for every motif found by MEME-chip, but only the right motif (associated with TF) will have a proper looking profile. Users can scan through all the motifs' footprints.
 
 # Outputs
@@ -133,7 +149,7 @@ For example, suppose our sample is named "GATA1_D7_30min_S11". We can do the fol
 ## De novo motif finding results
 
 ```bash
-cd macs2.narrow.aug18/random.10000
+cd peakcalling/macs2.narrow/random.10000
 ls -ltr
 ```
 ```
@@ -186,8 +202,7 @@ Motif footprinting results are located in `fimo.result` directory.
 
 
 ```bash
-pwd
-/n/scratch2/qz64/Nan_18_aug28_gata/macs2.narrow.aug18/random.10000/MEME_GATA1_HDP2_30min_S13_aligned_reads_shuf
+cd peakcalling/macs2.narrow/random.10000/MEME_GATA1_HDP2_30min_S13_aligned_reads_shuf
 ```
 
 ```
@@ -285,8 +300,7 @@ Use the script in the appropriate peak calling directory for your purpose (for e
 ```
 #construct single locus profile keeping duplicates in bam
 pwd
-/n/scratch2/qz64/workdir
-cd macs2.narrow.aug18/
+cd peakcalling/macs2.narrow
 ./get_cuts_single_locus.sh chr11:5245029-5303165 ../aligned.aug10/dup.marked.120bp/GATA1_D7_30min_chr11_aligned_reads.bam single.locus
 ```
 Here, **the 3 parameters required are: region, bam file path, output directory**. `single.locus` is the output directory.
@@ -321,54 +335,3 @@ Many of the files in ths folder are intermediary files and can be ignored. The i
 
 ![Cut profile visualized with UCSC browser](single.locus.visualized.UCSC.png)
 
-
-## Footprinting for user-specified motif
-
-CUT&RUNTools can run the motif scanning and footprinting steps on a user-specified motif, such as a motif from the public JASPAR database. The motif should be in the MEME format. 
-
-One of the scripts that `create_scripts.py` has generated is called `generate.footprinting.factor.specific.centipede.py` that is in the directory `macs2.narrow.aug18` or `macs2.narrow.aug18.dedup` within your `workdir` that you defined.
-
-Detailed usage is as follows:
-```bash
-Usage: generate.footprinting.factor.specific.centipede.py
-where the options mean:
--b     Designated motif in MEME format
--p     P-value for FIMO motif scanning
--n     Name of factor
-```
-
-Example:
-```bash
-pwd
-/n/scratch2/qz64/workdir
-cd macs2.narrow.aug18
-./generate.footprinting.factor.specific.centipede.py -b MA0035.2.GATA1.meme -p 0.001 -n GATA1
-```
-
-Note that option **-p** is the motif scanning p-value, which we recommend 0.0005, but for this example we will use 0.001 since GATA1 motif is quite short.
-
-This Python script will generate a BASH script called `integrate.footprinting.GATA1.centipede.sh`, which accepts a CUT&RUN experiment narrowPeak file (generated by MACS2) as input. For example:
-
-```bash
-sbatch ./integrate.footprinting.GATA1.centipede.sh GATA1_D9_30min_S12_aligned_reads_peaks.narrowPeak
-```
-
-The output files will be located in the `fimo.GATA1.result` directory:
-```bash
-â””----  fimo.GATA1.result
-         â””--- GATA1_D9_30min_S12_aligned_reads_peaks
-                â””---  fimo2.MA0035.2.GATA1
-                        â””--- cisml.xml
-                        â””--- fimo.bed
-                        â””--- fimo.cuts.freq.txt
-                        â””--- fimo.gff
-                        â””--- fimo.html
-                        â””--- fimo.lambda.txt
-                        â””--- fimo.logratio.bed
-                        â””--- fimo.logratio.txt
-                        â””--- fimo.png
-                        â””--- fimo.postpr.txt
-                        â””--- fimo.txt
-                        â””--- fimo.xml
-```
-The output files are `fimo.bed`, `fimo.cuts.freq.txt`, and `fimo.logratio.txt`, which are the binding site locations, cut frequency matrix, and binding log odds for the provided GATA1 motif. 
