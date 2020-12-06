@@ -84,7 +84,7 @@ PARAMETERS
 			options: hg38, hg19 (default), mm10 or mm9
 			 			
 	[spike_in_align]: Whether align the trimmed fastq files to the spike-in genome. Make sure you provided 
-	      the spike-in genome information if you set this as TRUE
+		the spike-in genome information if you set this as TRUE
 			options: TRUE or FALSE (default)
 			 			
 	[spike_in_norm]: Whether normalize the signal file (bigwig) based on spike-in reads. Note that the
@@ -100,9 +100,9 @@ PARAMETERS
 	[peak_caller]: To specify statistical significant peaks called from macs2 or SEACR method used for 
 		further analysis. The peak calling results of three strategies (macs2 narrow peaks, macs2 broad
 		peaks and seacr peaks) can be found in the 'peakcalling' directory. he narrow peak mode is suitable for a  
-	      typical TF, while the broad peak mode is good to use for the chromatin factors generally having 
-	      a large binding domain or epigenetic modification such as H3K27me3 or H3K9me3 having dispersed 
-	      localization
+	        typical TF, while the broad peak mode is good to use for the chromatin factors generally having 
+	        a large binding domain or epigenetic modification such as H3K27me3 or H3K9me3 having dispersed 
+	        localization
 			options: macs2 (default) or SEACR
 			 			
 	[dup_peak_calling]: Whether the reads with duplication will be used in the peak calling step 
@@ -250,7 +250,7 @@ cisml.xml  fimo.bed  fimo.cuts.freq.txt  fimo.gff  fimo.html  fimo.lambda.txt  f
 
 **The file fimo.png contains the motif footprinting figure.**
 
-![HGATAA footprint](sample.result.gata1.png)
+![HGATAA footprint](../images/sample.result.gata1.png)
 
 **The file fimo.logratio.txt shows the posterior binding log-odds score for all motif sites (as shown in fimo.bed file). We can sort all the sites by binding log odds score by the following.**
 
@@ -334,4 +334,15 @@ ls -ltr
 Many of the files in ths folder are intermediary files and can be ignored. The important files are the three bigwigs (`.frag.ends.R1.bw`, `.frag.ends.R2.bw`, and `.frag.ends.bw`). **The R1 and R2 bigwigs designate strand-specific cut profiles that were created. The `frag.ends.bw` is one that combines cuts from both strands.** The bigwigs can be displayed in any visualization tools such as IGV or UCSC genome browser.
 
 ![Cut profile visualized with UCSC browser](../images/single.locus.visualized.UCSC.png)
+
+
+
+
+See the following links for more details:
+
+- [New updates](./bulk-news.md)
+- [Quick Start](./bulk-QUICK.md)
+- [Installation Page](./bulk-INSTALL.md)
+- [Directory Structure](./bulk-DIRECTORY.md)
+
 

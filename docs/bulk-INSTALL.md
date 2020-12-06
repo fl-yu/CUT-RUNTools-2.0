@@ -1,4 +1,4 @@
-# Software installation of bulk data module
+# Software installation
 
 CUT&RUNTools 2.0 requires Python (3.6), R (3.6), Java and Perl. Installation also requires GCC to compile some C-based source code. 
 
@@ -6,7 +6,6 @@ CUT&RUNTools 2.0 requires Python (3.6), R (3.6), Java and Perl. Installation als
 
 Additionally, the following tools should be already installed. Check the corresponding website to see how to install them.  CUT&RUNTools 2.0 may work with a lower version of each tool. In the bracket is the version we have.
 
-* Trimmomatic (0.36) [link](http://www.usadellab.org/cms/?page=trimmomatic)
 * Bowtie2 (2.2.9) [link](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
 * Samtools (1.3.1) [link](http://samtools.sourceforge.net/)
 * MACS2 (2.1.1) [link](https://github.com/taoliu/MACS)
