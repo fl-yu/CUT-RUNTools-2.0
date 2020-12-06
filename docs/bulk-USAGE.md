@@ -250,7 +250,7 @@ cisml.xml  fimo.bed  fimo.cuts.freq.txt  fimo.gff  fimo.html  fimo.lambda.txt  f
 
 **The file fimo.png contains the motif footprinting figure.**
 
-![HGATAA footprint](sample.result.gata1.png)
+![HGATAA footprint](../images/sample.result.gata1.png)
 
 **The file fimo.logratio.txt shows the posterior binding log-odds score for all motif sites (as shown in fimo.bed file). We can sort all the sites by binding log odds score by the following.**
 
