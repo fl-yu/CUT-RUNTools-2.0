@@ -35,5 +35,4 @@ See the following links for more details:
 - [Installation Instructions](./bulk-INSTALL.md)
 - [Quick Start](./bulk-QUICK.md)
 - [Usage Page](./bulk-USAGE.md)
-- [The full tutorial of CUT&RUNTools 2.0](./2.0-TUTORIAL.md)
 
