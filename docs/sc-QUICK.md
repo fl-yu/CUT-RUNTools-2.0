@@ -30,4 +30,4 @@ See the following links for more details:
 - [Installation Instructions](./sc-INSTALL.md)
 - [Usage Page](./sc-USAGE.md)
 - [Directory Structure](./sc-DIRECTORY.md)
-- [The full tutorial of CUT&RUNTools 2.0](./2.0-TUTORIAL.md)
+
