@@ -333,5 +333,5 @@ ls -ltr
 
 Many of the files in ths folder are intermediary files and can be ignored. The important files are the three bigwigs (`.frag.ends.R1.bw`, `.frag.ends.R2.bw`, and `.frag.ends.bw`). **The R1 and R2 bigwigs designate strand-specific cut profiles that were created. The `frag.ends.bw` is one that combines cuts from both strands.** The bigwigs can be displayed in any visualization tools such as IGV or UCSC genome browser.
 
-![Cut profile visualized with UCSC browser](single.locus.visualized.UCSC.png)
+![Cut profile visualized with UCSC browser](../images/single.locus.visualized.UCSC.png)
 
