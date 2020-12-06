@@ -43,6 +43,20 @@ else
 fi
 
 
+if [ "$organism_build" == "hg38" ]
+then
+    eGenomeSize=2913022398
+elif [ "$organism_build" == "hg19" ]
+then
+    eGenomeSize=2864785220
+elif [ "$organism_build" == "mm10" ]
+then
+    eGenomeSize=2652783500
+else
+    eGenomeSize=2620345972
+fi
+
+
 # also check T and F for spike_in_norm.....
 
 echo "==================================== Bulk data analysis pipeline will run =============================================================="

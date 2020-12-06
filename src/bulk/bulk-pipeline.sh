@@ -22,7 +22,7 @@ workdir=$workdir
 mkdir -p $workdir
 len=$fastq_sequence_length
 trimdir=$workdir/trimmed
-trimdir2=$workdir/trimmed3
+trimdir2=$workdir/trimmed2
 logdir=$workdir/logs
 aligndir=$workdir/aligned
 peakdir=$workdir/peakcalling
@@ -58,8 +58,6 @@ else
     ($bowtie2bin/bowtie2 -p $cores --very-sensitive-local --phred33 -I 10 -X 700 -x $bt2idx/genome -1 $trimdir2/"$base"_1.paired.fastq.gz -2 $trimdir2/"$base"_2.paired.fastq.gz) 2> $logdir/"$base".bowtie2 | $samtoolsbin/samtools view -bS - > $aligndir/"$base".bam
 fi
 
-
-
 spikein_dir=$workdir/spike_in
 # check the parameters
 if [ "$spike_in" != "none" ]
@@ -68,21 +66,19 @@ then
     >&2 echo "[info] Aligning file $base to spike-in genome"
     >&2 date
     ($bowtie2bin/bowtie2 -p $cores --dovetail --phred33 -x $spike_in_bt2idx/genome -1 $trimdir2/"$base"_1.paired.fastq.gz -2 $trimdir2/"$base"_2.paired.fastq.gz) 2> $logdir/"$base".spikein.bowtie2 | $samtoolsbin/samtools view -bS - > $spikein_dir/"$base".bam
+
+    $logdir/"$base".spikein.bowtie2
+    total_reads=`cat $logdir/"$base".spikein.bowtie2 | grep "reads; of these:" | awk '{print $1}' - FS=' '`
+    align_ratio=`cat $logdir/"$base".spikein.bowtie2 | grep "overall alignment" | awk '{print $1}' - FS=' ' | cut -f1 -d"%"`
+    spikein_reads=`printf "%.0f" $(echo "$total_reads * $align_ratio"|bc)`
+
+    >&2 echo "[info] Spikein reads number is $spikein_reads, consisting of $align_ratio % of total reads"
+    >&2 echo "[info] This information will be used in spike-in normalization when generating bigwig files"
+else
+    >&2 echo "[info] FASTQ files won't be aligned to the spike-in genome"
 fi
 
 
-
-
-# pythonlib=`echo $PYTHONPATH | tr : "\\n" | grep -v $macs2pythonlib | paste -s -d:`
-# unset PYTHONPATH
-# export PYTHONPATH=$macs2pythonlib:$pythonlib
-
-# pythonldlibrary=%s
-# ldlibrary=`echo $LD_LIBRARY_PATH | tr : "\\n" | grep -v $pythonldlibrary | paste -s -d:`
-# unset LD_LIBRARY_PATH
-# export LD_LIBRARY_PATH=$pythonldlibrary:$ldlibrary
-
-#expand the path of $sample_name
 dirname=$aligndir
 #cd to current directory (aligned)
 cd $dirname
@@ -230,10 +226,26 @@ done
 cd $outdir
 LC_ALL=C sort -k1,1 -k2,2n $outdir/"$base_file"_treat_pileup.bdg > $outdir/"$base_file".sort.bdg
 $extratoolsbin/bedGraphToBigWig $outdir/"$base_file".sort.bdg $chrom_size_file $outdir/"$base_file".sorted.bw
-rm -rf $outdir/"$base_file".sort.bdg
+    rm -rf $outdir/"$base_file".sort.bdg
+    cp $outdir/"$base_file".sorted.bw $outdirbroad
+    cp $outdir/"$base_file".sorted.bw $outdirseac
+if [ "$spikein_reads" == "0" ] || [ "$spike_in" = "none" ]
+then
+    >&2 echo "[info] Your bigwig file won't be normalized with spike-in reads as you did not specify this parameter or the spike-in reads were 0.."
+else
+    >&2 echo "[info] Your bigwig file will be normalized with spike-in reads"
+    scale=$spikein_scale
+    scale_factor=`printf "%.0f" $(echo "$scale / $spikein_reads"|bc)`
+    >&2 echo scale_factor=$scale_factor
+    bamCoverage --bam $bam_file -o $outdir/"$base_file".spikein_normalized.bw \
+    --binSize 10
+    --normalizeUsing cpm
+    --effectiveGenomeSize $eGenomeSize
+    --scaleFactor $scale_factor
+    cp $outdir/"$base_file".spikein_normalized.bw $outdirbroad
+    cp $outdir/"$base_file".spikein_normalized.bw $outdirseac
+fi
 
-cp $outdir/"$base_file".sorted.bw $outdirbroad
-cp $outdir/"$base_file".sorted.bw $outdirseac
 
 # 
 # specify peak file for the motif and footprinting analysis

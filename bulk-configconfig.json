@@ -24,7 +24,7 @@
         "spike_in_sequence": "/home/user/chrom.ecoli/ecoli6.fa", 
         "extratoolsbin": "/home/user/cutrun_pipeline", 
         "extrasettings": "/home/user/cutrun_pipeline",
-
+        "path_deeptools": "/path/to/deeptools"
     }, 
     "input_output": {
         "fastq_directory": "/n/scratch2/user/Nan_18_demo/sorted.chr11", 
@@ -33,6 +33,7 @@
         "organism_build": "hg19",
         "spike_in": "none",
         "spike_in_norm": "none",
+        "spikein_scale": "10000",
         "frag_120": "TRUE",
         "peak_caller": "macs2",
         "dup_peak_calling": "FALSE",

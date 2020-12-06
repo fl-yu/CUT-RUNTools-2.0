@@ -1,21 +1,22 @@
-# CUT&RUNTools
+# CUT&RUNTools 2.0 bulk data analysis
 
-This package contains the pipeline for conducting a CUT&RUN analysis.
+This package contains the pipeline for conducting a bulk CUT&RUN or CUT&Tag data analysis.
 The pipeline comprises of read trimming, alignment steps, motif finding steps, and finally the motif footprinting step. 
 
 To get started, please see [INSTALL.md](INSTALL.md) about how to set up the pipeline.
 
 Once the package is installed, please see [USAGE.md](USAGE.md) about usage. Basic usage is provided below.
 
-If you run into issues and would like to report them, you can use the "Issues" tab on the left hand side. Alternatively, you can contact me or one of corresponding authors: zqian{at}jimmy.harvard.edu, stuart_orkin{at}dfci.harvard.edu, or gcyuan{at}jimmy.harvard.edu.
 
-Read our [paper](https://www.biorxiv.org/content/10.1101/529081v1.abstract). Sign up for cutruntools [Google group mailing list](https://groups.google.com/forum/#!forum/cutruntools) to ask questions, receive updates.
+## What's New for bulk data analysis
 
-CUT&RUNTools is released under [GPL license version 2](https://opensource.org/licenses/GPL-2.0).
+11/19/20: spike-in sequence alignment and data normalizaion   
+11/19/20: new options for CUT&RUN or CUT&Tag data analysis  
+11/19/20: new functions for peaks annotation  
+10/19/20: flexiable option for fragments selections (>120bp)  
+05/06/20: supporting different peak calling strategies  
+05/06/20: compatiable with more computational platforms  
 
-## What's New
-
-8/19/19: Added support for SEACR, support for analysis involving larger fragments (>120bp). Changes are in step 2.
 
 ## Basic Usage
 
