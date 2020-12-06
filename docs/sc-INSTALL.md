@@ -1,5 +1,5 @@
 ## Pre-requisite software 
-A few software need to be installed before running the single-cell module on the basis of [pre-requisites of bulk data analysis](./bulk-INSTALL.md) (including Trimmomatic, Bowtie2, Samtools, Picard, MACS2, MEME, Bedops, Bedtools and Download genome assemblies). We encourage users to use conda to install and manage software.
+A few software (list in the following) need to be installed before running the single-cell module on the basis of [pre-requisites of bulk data analysis](./bulk-INSTALL.md) (including Trimmomatic, Bowtie2, Samtools, Picard, MACS2, MEME, Bedops, Bedtools and Download genome assemblies). We encourage users to use conda to install and manage software.
 
 Install GNU parallel (a software program developed for running several jobs in parallel to make full use of the computational resource (more information can be found [here](https://www.gnu.org/software/parallel))  
 
