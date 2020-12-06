@@ -31,7 +31,7 @@
 
 See the following links for more details:
 
-- [Overview](./bulk-OVERVIEW.md)
+- [New updates](./bulk-news.md)
 - [Installation Instructions](./bulk-INSTALL.md)
 - [Quick Start](./bulk-QUICK.md)
 - [Usage Page](./bulk-USAGE.md)
