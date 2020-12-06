@@ -30,6 +30,8 @@ CUT&RUNTools 2.0 is a major update of CUT&RUNTools [(link)](https://bitbucket.or
 
 ## Bulk data analysis
 
+To learn new features for CUT&RUNTools 2.0 on the bulk data analysis, please see [New features] (docs/bulk-news.md).
+
 To get started, please see [Installation Instructions](docs/bulk-INSTALL.md). 
 
 Once the package is installed, see [Quick Start](docs/bulk-QUICK.md) for examples.
