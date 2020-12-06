@@ -28,9 +28,9 @@ What happens next is that CUT&RUNTools 2.0 will sequentially run the analysis pi
 
 See the following links for more details:
 
-- [Overview](./sc-OVERVIEW.md)
-- [Installation Instructions](./sc-INSTALL.md)
-- [Usage Page](./sc-USAGE.md)
-- [Directory Structure](./sc-DIRECTORY.md)
+- [New updates](./bulk-news.md)
+- [Installation Page](./bulk-INSTALL.md)
+- [Usages](./bulk-USAGE.md)
+- [Directory Structure](./bulk-DIRECTORY.md)
 
 
