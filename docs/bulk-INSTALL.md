@@ -4,16 +4,16 @@ CUT&RUNTools 2.0 requires Python (3.6), R (3.6), Java and Perl. Installation als
 
 ## Prerequisites
 
-The following tools should be already installed. Check the corresponding website to see how to install them.  CUT&RUNTools may work with a lower version of each tool. In the bracket is the version we have.
+Additionally, the following tools should be already installed. Check the corresponding website to see how to install them.  CUT&RUNTools 2.0 may work with a lower version of each tool. In the bracket is the version we have.
 
 * Trimmomatic (0.36) [link](http://www.usadellab.org/cms/?page=trimmomatic)
 * Bowtie2 (2.2.9) [link](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
 * Samtools (1.3.1) [link](http://samtools.sourceforge.net/)
-* Picard (2.8.0) [link](https://broadinstitute.github.io/picard/)
 * MACS2 (2.1.1) [link](https://github.com/taoliu/MACS)
 * MEME (4.12.0) [link](http://meme-suite.org/tools/meme)
 * Bedops (2.4.30) [link](https://bedops.readthedocs.io/en/latest/)
 * Bedtools (2.26.0) [link](https://bedtools.readthedocs.io/en/latest/)
+* Deeptools (3.5.0) [link](https://deeptools.readthedocs.io/en/develop/)
 
 Alternatively, we recommend the user to install the software using [conda system](https://docs.conda.io/en/latest/). On a Linux system, paths of software from the anaconda environment might be obtained in the following:
 
@@ -29,10 +29,9 @@ bowtie2                     /home/fyu/anaconda2/envs/bowtie2
 deeptools                   /home/fyu/anaconda2/envs/deeptools
 macs2                       /home/fyu/anaconda2/envs/macs2
 samtools                    /home/fyu/anaconda2/envs/samtools
-trimmomatic                 /home/fyu/anaconda2/envs/trimmomatic
 ```
 
-We also provided pecial notes for **Atactk** and **UCSC-tools**, see below.
+We also provided special notes for **Atactk** and **UCSC-tools**, see below.
 * Atactk [link](https://github.com/ParkerLab/atactk)- we provide special install instructions since we need to patch a source file.
 * UCSC-tools [link](http://hgdownload.soe.ucsc.edu/admin/exe/)- we provide special install instructions.
 
@@ -40,9 +39,16 @@ Other tools already contained in CUT&RUNTools:
 
 * Samblaster [link](https://github.com/GregoryFaust/samblaster)
 * SEACR [link](https://github.com/FredHutch/SEACR)
+* picard (0.1.8) [link](http://broadinstitute.github.io/picard/command-line-overview.html)
+* trimmomatic (0.36) [link](https://github.com/timflutre/trimmomatic)
 
+Files already contained in CUT&RUNTools:
+* genome size files
+* blacklist regions
+* adaptor files
+* example fastq data
 
-### Atactk
+### Atactk installation
 
 This is a [python package](https://github.com/ParkerLab/atactk) that determines the enzyme cut frequency matrix. Originally for Tn5 transposase in ATAC-seq, the logic of the tool also applies to other digestions like CUT&RUN. 
 However since original implementation is designed for ATAC-seq it needs to be patched in one small place in the code to make it suitable for CUT&RUN analysis. Otherwise, we estimate that the cut frequency is sometime off by 1 bp in its calculation.
@@ -56,7 +62,7 @@ This will use pip to install atactk to the user's home directory (~/.local/bin).
 
 *  `adapterpath` contains Illumina Truseq3-PE adapter sequences (we provide them). 
 
-### UCSC-tools
+### UCSC-tools installation
 
 We need two specific tools bedGraph2BigWig and fetchChromSizes, and provide a script [`ucsc-tools.install`](ucsc-tools.install) to automatically download and install them from the UCSC genome browser:
 ```
@@ -64,7 +70,7 @@ source ucsc-tools.install
 ```
 This will download the two executables in the current directory.
 
-### kseq
+### kseq installation
 
 We first install a special trimmer we wrote `kseq`. This tool further trims the reads by 6 nt to get rid of the problem of possible adapter run-through. To install:
 ```
@@ -78,7 +84,7 @@ The genome sequence of a specific organism build (such as hg19, hg38) is require
 source assemblies.install
 ```
 
-## Install CENTIPEDE
+## Install CENTIPEDE R packages for footprinting analysis
 
 In R, run:
 ```
