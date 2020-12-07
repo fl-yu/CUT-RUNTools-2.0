@@ -66,12 +66,10 @@ Read our [paper](). Sign up for CUT&RUNTools Google group mailing list to ask qu
 
 ##To do list:
 
+1. test pipelines
+2. go through the tutorial
+3. add bulk functions
+4. manuscript and figure
 
 
-1.bulk function code and tutorial  
-2.install tutorial update and sc usage  
-2.install tutorial (if there is any script for software install) update and sc usage  
-3.bulk code test  
-4.tutorial update for integration  
-5.News: what is the update of this version? New update of bulk normalization and spike-in processing
 
