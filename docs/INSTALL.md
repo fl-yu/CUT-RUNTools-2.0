@@ -171,7 +171,7 @@ The `software_config` section (the first 24 lines) concerns the software install
 ```json
 {
 	"software_config": {
-		"Rscriptbin": "/path/to/R/bin",
+        "Rscriptbin": "/path/to/R/bin",
 		"pythonbin": "/path/to/python/bin",
 		"perlbin": "/path/to/perl/bin",
 		"javabin": "/path/to/java/bin",
