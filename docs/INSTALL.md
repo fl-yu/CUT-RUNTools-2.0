@@ -30,7 +30,6 @@ conda install -c bioconda bedtools
 conda install -c bioconda deeptools
 conda install -c conda-forge parallel
 conda install -c bioconda tabix
-
 ```  
 
 On a Linux system, paths of software (e.g. /home/fyu/anaconda2/envs) from the anaconda environment might be obtained in the following:
@@ -50,7 +49,7 @@ samtools                    /home/fyu/anaconda2/envs/samtools
 ```
 
 **Part 2.**   
-R packages including reticulate("1.15"), leiden("0.3.3"), data.table("1.11.6"), Matrix("1.2.18"), irlba("2.3.3"), Rtsne("0.15"), RANN("2.6.1"), igraph("1.2.4.2"), uwot("0.1.8"), rGREAT("1.14.0"), ggplot2("3.3.0"), CENTIPEDE("1.2") need to be installed in the library of R you specified in the JSON configuration file. *The user can install these R packages automatically with the script ***r-pkgs-install.r*** provided by the package.*
+R packages including reticulate ("1.15"), leiden ("0.3.3"), data.table ("1.11.6"), Matrix ("1.2.18"), irlba ("2.3.3"), Rtsne ("0.15"), RANN ("2.6.1"), igraph ("1.2.4.2"), uwot ("0.1.8"), rGREAT ("1.14.0"), ggplot2 ("3.3.0"), CENTIPEDE ("1.2") need to be installed in the library of R you specified in the JSON configuration file. The user can install these R packages automatically with the script ***r-pkgs-install.r*** provided by the package.
 
 **Part 3.**  
 Three python modules (umap, leidenalg, and igraph) are required to be installed on your system.  
