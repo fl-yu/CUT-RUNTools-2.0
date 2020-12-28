@@ -27,6 +27,8 @@ CUT&RUNTools 2.0 is a major update of CUT&RUNTools [(link)](https://bitbucket.or
 - compatiable with more computational platforms  
 
 
+## Installation and Requirement
+Please refer to [Installation Instructions](docs/install.md).
 
 ## Bulk data analysis
 
@@ -46,7 +48,7 @@ See [Directory Structure](docs/bulk-DIRECTORY.md) for basic structure of input a
 
 ## Single-cell data analysis
 
-To get started, please see [Overview](docs/sc-OVERVIEW.md) and [Installation Instructions](docs/sc-INSTALL.md).  
+To get started, please see [Overview](docs/sc-OVERVIEW.md).  
 
 See [Quick Start](docs/sc-QUICK.md) for a most excellent starting point to get familiar with the tool.  
 
