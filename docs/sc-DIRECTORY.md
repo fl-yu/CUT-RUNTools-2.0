@@ -7,7 +7,7 @@
 + fastq_directory (INPUT)
 + workdir         (OUTPUT)
     ++ sc_trimmed
-    ++ sc_trimmed3
+    ++ sc_trimmed2
     ++ sc_log
 	+++ trim
 	+++ bowtie2
@@ -37,10 +37,3 @@
 ```
 
 
-See the following links for more details:
-
-- [Overview](./sc-OVERVIEW.md)
-- [Installation Instructions](./sc-INSTALL.md)
-- [Quick Start](./sc-QUICK.md)
-- [Usage Page](./sc-USAGE.md)
-- [The full tutorial of CUT&RUNTools 2.0](./2.0-TUTORIAL.md)
