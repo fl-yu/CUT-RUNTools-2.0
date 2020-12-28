@@ -408,10 +408,4 @@ A screenshot of genome browser view is displayed.
 
 
 
-See the following links for more details:
-
-- [Overview](./sc-OVERVIEW.md)
-- [Installation Instructions](./sc-INSTALL.md)
-- [Quick Start](./sc-QUICK.md)
-- [Directory Structure](./sc-DIRECTORY.md)
 
