@@ -4,7 +4,7 @@
 
 #len=`cat length` 
 trimdir=$workdir/sc_trimmed
-trimdir2=$workdir/sc_trimmed3
+trimdir2=$workdir/sc_trimmed2
 logdir=$workdir/sc_logs
 aligndir=$workdir/sc_aligned.aug10
 qcdir=$workdir/sc_qc
