@@ -237,14 +237,21 @@ Similar to the configure.json of the bulk data processing, all the requirements 
 
 ## Validate prerequisites
 
-To check if the paths are correct and if the softwares in these paths indeed work:
+Briefly, a user writes a `bulk-config.json` or `sc-config.json` configuration file for a new analysis. Then, CutRunTools 2.0 can be run directly from the directory containing the CutRunTools scripts. To check if the paths are correct and if the softwares in these paths indeed work:
+
 ```
 ./validate.py bulk-config.json --ignore-input-output --software
 ```
+
+OR
+
+```
+./validate.py sc-config.json --ignore-input-output --software
+```
+
 This script checks that your configuration file is correct and all paths are correct. You will get an empty line if the validate.py script runs without errors.
 
-Then, CutRunTools 2.0 can be run directly from the directory containing the CutRunTools scripts.
-Briefly, a user writes a `bulk-config.json` or `sc-config.json` configuration file for a new analysis.
+
 
 
 
