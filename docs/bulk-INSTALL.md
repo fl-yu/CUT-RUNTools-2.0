@@ -30,19 +30,18 @@ macs2                       /home/fyu/anaconda2/envs/macs2
 samtools                    /home/fyu/anaconda2/envs/samtools
 ```
 
-We also provided special notes for **Atactk** and **UCSC-tools**, see below.
+We also provided special notes for **Atactk** and **UCSC-tools** (they were already included in our packages), see below.
 * Atactk [link](https://github.com/ParkerLab/atactk)- we provide special install instructions since we need to patch a source file.
 * UCSC-tools [link](http://hgdownload.soe.ucsc.edu/admin/exe/)- we provide special install instructions.
 
-Other tools already contained in CUT&RUNTools:
+Other tools already contained in CUT&RUNTools 2.0 (you do not need to install them other than specify them in the configuration file):
 
-* Samblaster [link](https://github.com/GregoryFaust/samblaster)
 * SEACR [link](https://github.com/FredHutch/SEACR)
 * picard (0.1.8) [link](http://broadinstitute.github.io/picard/command-line-overview.html)
 * trimmomatic (0.36) [link](https://github.com/timflutre/trimmomatic)
 
 Files already contained in CUT&RUNTools:
-* genome size files
+* genome size files 
 * blacklist regions
 * adaptor files
 * example fastq data
