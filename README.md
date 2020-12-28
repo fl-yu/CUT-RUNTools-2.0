@@ -34,9 +34,8 @@ Please refer to [Installation Instructions](docs/INSTALL.md).
 
 To learn new features for CUT&RUNTools 2.0 on the bulk data analysis, please see [New features](docs/bulk-news.md).
 
-To get started, please see [Installation Instructions](docs/bulk-INSTALL.md). 
 
-Once the package is installed, see [Quick Start](docs/bulk-QUICK.md) for examples.
+Once the package is installed, see [Data Example](docs/bulk-QUICK.md) for examples.
 
 See [Usage Page](docs/bulk-USAGE.md) about how to set up the pipeline and detailed usage. 
 
@@ -50,7 +49,7 @@ See [Directory Structure](docs/bulk-DIRECTORY.md) for basic structure of input a
 
 To get started, please see [Overview](docs/sc-OVERVIEW.md).  
 
-See [Quick Start](docs/sc-QUICK.md) for a most excellent starting point to get familiar with the tool.  
+See [Data Example](docs/sc-QUICK.md) for a most excellent starting point to get familiar with the tool.  
 
 See [Usage Page](docs/sc-USAGE.md) about how to set up the pipeline and detailed usage.  
 
