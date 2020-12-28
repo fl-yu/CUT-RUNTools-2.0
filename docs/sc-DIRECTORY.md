@@ -31,9 +31,13 @@
 	++++ group_1
 	    ++++ single_cells
 	    ++++ pseudo_bulk_data
+	    	++++++  macs2
+		++++++  SEACR
 	++++ group_2
-	    ++++++ single_cells
-	    ++++++ pseudo_bulk_data
+	    ++++ single_cells
+	    ++++ pseudo_bulk_data
+	    	++++++  macs2
+		++++++  SEACR
 ```
 
 
