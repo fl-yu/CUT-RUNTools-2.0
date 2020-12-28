@@ -28,7 +28,7 @@ CUT&RUNTools 2.0 is a major update of CUT&RUNTools [(link)](https://bitbucket.or
 
 
 ## Installation and Requirement
-Please refer to [Installation Instructions](docs/install.md).
+Please refer to [Installation Instructions](docs/INSTALL.md).
 
 ## Bulk data analysis
 
