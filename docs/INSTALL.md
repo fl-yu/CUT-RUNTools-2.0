@@ -1,6 +1,6 @@
 # Software installation
 
-CUT&RUNTools 2.0 requires **Python** (3.6), **R** (3.6), **Java** and **Perl**. Installation also requires **GCC** to compile some C-based source code. Additionally, the following tools should be already installed.   
+CUT&RUNTools 2.0 requires **Python** (3.6), **R** (3.6), **Java** and **Perl**. Installation also requires **GCC** to compile some C-based source code. Additionally, the following required tools should be already installed before running the setup.   
 
 ## Prerequisites
 
