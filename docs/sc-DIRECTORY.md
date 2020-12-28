@@ -32,8 +32,8 @@
 	    ++++ single_cells
 	    ++++ pseudo_bulk_data
 	++++ group_2
-		++++++ single_cells
-		++++++ pseudo_bulk_data
+	    ++++++ single_cells
+	    ++++++ pseudo_bulk_data
 ```
 
 
