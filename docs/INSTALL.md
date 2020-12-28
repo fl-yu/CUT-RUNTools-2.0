@@ -99,10 +99,10 @@ In this part, some necessary tools and data were already contained in CUT&RUNToo
 * trimmomatic (0.36) [link](https://github.com/timflutre/trimmomatic)  
 
 Files frequently used which were already contained in CUT&RUNTools 2.0:
-* genome size files (`adapters` folder contains Illumina Truseq3-PE adapter sequences)
-* blacklist regions (`adapters` folder contains Illumina Truseq3-PE adapter sequences)
+* genome size files (`assemblies` folder contains genome size files)
+* blacklist regions (`blacklist` folder contains blacklist sequences)
 * adaptor files (`adapters` folder contains Illumina Truseq3-PE adapter sequences)
-* example fastq data (`adapters` folder contains Illumina Truseq3-PE adapter sequences)
+* example fastq data (`exampleData` folder contains example data for the data analysis)
 
 
 ## Configuration file
@@ -169,7 +169,7 @@ The `software_config` section (the first 24 lines) concerns the software install
 
 **The sample JSON file of `sc-config.json`** 
 
-```
+```json
 {
 	"software_config": {
 		"Rscriptbin": "/path/to/R/bin",
