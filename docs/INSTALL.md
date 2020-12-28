@@ -195,8 +195,8 @@ The `software_config` section (the first 24 lines) concerns the software install
 		"path_parallel": "/path/to/parallel/bin", 
 		"path_deeptools": "/path/to/deeptools/bin",
 		"path_tabix": "/path/to/tabix/bin", 
-    },
-    "sc_parameters": {
+	},
+	"sc_parameters": {
 		"single_cell": "TRUE", 
 		"fastq_directory": "/path/to/fastq", 
 		"workdir": "/path/to/workdir", 
@@ -215,7 +215,7 @@ The `software_config` section (the first 24 lines) concerns the software install
 		"cluster_pc": "30", 
 		"experiment_name": "scCUT&Tag", 
 	},
-    "run_pipeline": {
+	"run_pipeline": {
 		"entire_pipeline": "TRUE", 
 		"individual_step": "NULL", 
 		"step2_bamfile_dir": "$workdir/sc_aligned.aug10/dup.marked.clean", 
