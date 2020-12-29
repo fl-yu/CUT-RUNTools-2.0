@@ -26,18 +26,18 @@
 	+++ groups_aggregation
 	    ++++ single_cells
 	    ++++ pseudo_bulk_data
-		++++++  macs2
-		++++++  SEACR
-	++++ group_1
+		+++++  macs2
+		+++++  SEACR
+	+++ group_1
 	    ++++ single_cells
 	    ++++ pseudo_bulk_data
-	    	++++++  macs2
-		++++++  SEACR
-	++++ group_2
+	    	+++++  macs2
+		+++++  SEACR
+	+++ group_2
 	    ++++ single_cells
 	    ++++ pseudo_bulk_data
-	    	++++++  macs2
-		++++++  SEACR
+	    	+++++  macs2
+		+++++  SEACR
 ```
 
 
