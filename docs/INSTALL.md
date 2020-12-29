@@ -139,8 +139,8 @@ The configuration file tells CutRunTools where to locate the prerequisite tools.
         "makecutmatrixbin": "/home/user/.local/bin"
     }, 
     "input_output": {
-        "fastq_directory": "/n/scratch2/user/Nan_18_demo/sorted.chr11", 
-        "workdir": "/n/scratch2/user/workdir", 
+        "fastq_directory": "/path/to/fastq", 
+        "workdir": "/path/to/workdir", 
         "fastq_sequence_length": 42, 
         "organism_build": "hg19",
         "spike_in_align": "FALSE",
