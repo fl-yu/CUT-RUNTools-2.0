@@ -42,7 +42,7 @@ As the installation of MEME will frequently conflict with other software, we wil
 ```
 conda create -n meme python=3.6
 source activate meme
-conda install -c bioconda/label/cf201901 meme
+conda install -y -c bioconda/label/cf201901 meme
 ```
 
 On a Linux system, paths of software (e.g. /homes6/fulong/miniconda3/envs/cutruntools2) from the anaconda environment might be obtained in the following: 
