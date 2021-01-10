@@ -13,10 +13,10 @@ then
     url=http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/chromFaMasked.tar.gz
 elif [ "$organism_build" == "mm10" ]
 then
-    http://hgdownload.cse.ucsc.edu/goldenPath/mm9/bigZips/chromFaMasked.tar.gz
+    url=http://hgdownload.cse.ucsc.edu/goldenPath/mm9/bigZips/chromFaMasked.tar.gz
 elif [ "$organism_build" == "mm10" ]
 then
-    http://hgdownload.cse.ucsc.edu/goldenPath/mm10/bigZips/chromFaMasked.tar.gz
+    url=http://hgdownload.cse.ucsc.edu/goldenPath/mm10/bigZips/chromFaMasked.tar.gz
 else
     echo "Only support hg38, hg19, mm10 or mm9, please check your parameter.."
 fi
