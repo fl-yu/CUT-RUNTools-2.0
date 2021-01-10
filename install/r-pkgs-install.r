@@ -4,7 +4,7 @@
 if(!require(BiocManager)){
     install.packages("BiocManager")
 }
-if(packageVersion("BiocManager") < "1.30.10")
+if(packageVersion("BiocManager") < "1.30.10"){
     install.packages("BiocManager")
 }
 

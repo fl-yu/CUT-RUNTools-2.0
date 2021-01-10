@@ -1,0 +1,20 @@
+--- make_cut_matrix	2018-09-26 07:15:56.777268000 -0400
++++ /home/qz64/.local/bin/make_cut_matrix	2018-02-16 05:31:26.354382730 -0500
+@@ -168,7 +168,7 @@
+ 
+     parser.add_argument('-b', '--bins', dest='bins', type=atactk.command.parse_bins, required=True, help='A list of fragment size bin groups and their resolutions. See BINNING, below.')
+     parser.add_argument('-F', '--exclude-flags', type=int, dest='exclude_flags', action='append', help='A SAM flag used to exclude alignments from the BAM file. More than one may be specified. Alignments matching any exclude flag will not be counted. The default is to exclude all unmapped reads/mates by filtering out any alignments with SAM flags 4 or 8 set.')
+-    parser.add_argument('-f', '--include-flags', type=int, dest='include_flags', action='append', help='A SAM flag that determines which alignments from the BAM file will be included in the counts. More than one may be specified. Any alignment matching any include flag will be counted. The default is to include properly paired and mapped reads by filtering for SAM flags 83, 99, 147, or 163.')
++    parser.add_argument('-f', '--include-flags', type=int, dest='include_flags', action='append', help='A SAM flag that determines which alignments from the BAM file will be included in the counts. More than one may be specified. Any alignment matching any include flag will be counted. The recommended setting is to include properly paired and mapped reads by filtering for SAM flags 83, 99, 147, or 163 (for paired end). For single-end, none. Default: none')
+     parser.add_argument('-o', '--cut-point-offset', type=int, default=4, dest='cut_point_offset', help='The position of cut points relative to the beginning of a read and in the direction toward the read end, as a number of bases (default: 4).')
+     parser.add_argument('-p', '--parallel', type=int, default=1, dest='parallel', help='The number of parallel scoring processes to use (default: 1).')
+     parser.add_argument('-q', '--quality', type=int, default=30, dest='quality', help='The minimum mapping quality required for a read to be counted (default: 30).')
+@@ -188,7 +188,7 @@
+     if args.include_flags:
+         args.include_flags = sorted(set(args.include_flags))
+     else:
+-        args.include_flags = [83, 99, 147, 163]
++        args.include_flags = []
+ 
+     if args.exclude_flags:
+         args.exclude_flags = sorted(set(args.exclude_flags))
