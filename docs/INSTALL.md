@@ -20,7 +20,16 @@ CUT&RUNTools 2.0 may work with different version of each tool, in the bracket is
 
 We recommend the user to install and manage the software using [conda system](https://docs.conda.io/en/latest/) which could incorporate the dependencies for each software. 
 
+1. Create and activate the conda environment to make a tidy
+
 ```
+conda create -n cutruntools2 python=3.6
+source activate cutruntools2
+```
+2. Install the required software
+
+```
+conda create -n cutruntools2 python=3.6
 conda install -c bioconda bowtie2
 conda install -c bioconda samtools
 conda install -c bioinfo macs2
