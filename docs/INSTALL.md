@@ -104,7 +104,7 @@ Two patches of [`make_cut_matrix.patch`](make_cut_matrix.patch) and [`metrics.py
 ```
 source atactk.install.sh
 ```
-This will use pip to install the patched Atactk to the user's home directory (~/.local/bin).
+This will use pip to install the patched Atactk (*make_cut_matrix*) to the user's home directory (~/.local/bin).
 
 Another software `kseq` for a special trimmer we wrote, which can further trim the reads by 6 nt to get rid of the problem of possible adapter run-through. To install:
 
