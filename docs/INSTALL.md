@@ -60,6 +60,8 @@ Software version is able to be obtained in the following:
 
 ```
 conda env list
+# conda software and version in the environment:
+#
 bedops                    2.4.39               hc9558a2_0    bioconda
 bedtools                  2.29.2               hc088bd4_0    bioconda
 bowtie2                   2.4.2            py36h5202f60_1    bioconda
