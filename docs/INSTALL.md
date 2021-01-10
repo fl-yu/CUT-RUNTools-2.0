@@ -1,6 +1,6 @@
 # Software installation
 
-CUT&RUNTools 2.0 requires **Python** (3.6), **R** (3.6), **Java** and **Perl**. Installation also requires **GCC** to compile some C-based source code. Additionally, the following required tools should be already installed before running the setup.   
+CUT&RUNTools 2.0 requires **Python** (>=3.6), **R** (4.0), **Java** and **Perl**. Installation also requires **GCC** to compile some C-based source code. Additionally, the following required tools should be already installed before running the setup.   
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ As the installation of MEME will frequently conflict with other software, we wil
 ```
 conda create -n meme python=3.6
 source activate meme
-conda install -c bioconda/label/cf201901 meme
+conda install -y -c bioconda/label/cf201901 meme
 ```
 
 On a Linux system, paths of software (e.g. /homes6/fulong/miniconda3/envs/cutruntools2) from the anaconda environment might be obtained in the following: 
@@ -74,7 +74,12 @@ tabix                     0.2.6                ha92aebf_0    bioconda
 ```
 
 **Part 2.**   
-R packages including reticulate ("1.15"), leiden ("0.3.3"), data.table ("1.11.6"), Matrix ("1.2.18"), irlba ("2.3.3"), Rtsne ("0.15"), RANN ("2.6.1"), igraph ("1.2.4.2"), uwot ("0.1.8"), rGREAT ("1.14.0"), ggplot2 ("3.3.0"), CENTIPEDE ("1.2") need to be installed in the library of R you specified in the JSON configuration file. The user can install these R packages automatically with the script ***r-pkgs-install.r*** provided by the package.
+R packages including reticulate ("1.15"), leiden ("0.3.3"), data.table ("1.11.6"), Matrix ("1.2.18"), irlba ("2.3.3"), Rtsne ("0.15"), RANN ("2.6.1"), igraph ("1.2.4.2"), uwot ("0.1.8"), rGREAT ("1.14.0"), ggplot2 ("3.3.0"), CENTIPEDE ("1.2") need to be installed in the library of R you specified in the JSON configuration file. The user can install these R packages automatically with the script ***r-pkgs-install.r*** in the `install` folder provided by our package.
+
+```
+# in R
+source("r-pkgs-install.r")
+```
 
 **Part 3.**  
 Three python modules (umap, leidenalg, and igraph) are required to be installed on your system.  
@@ -92,14 +97,14 @@ pip list | grep umap
 
 **Part 4.**  
 
-We also provided special notes for **Atactk** and **kseq**, the installation files were already included in the packages.
+We also provided special notes for **Atactk** and **kseq**, **the installation files were already included in the packages**.
 
 Two patches of [`make_cut_matrix.patch`](make_cut_matrix.patch) and [`metrics.py.patch`](metrics.py.patch) for Atactk [(link)](https://github.com/ParkerLab/atactk) were provided to accurately estimate the cut frequency at single-base resolution. Install the patched version of the package by:
 
 ```
 source atactk.install.sh
 ```
-This will use pip to install the patched Atactk to the user's home directory (~/.local/bin).
+This will use pip to install the patched Atactk (*make_cut_matrix*) to the user's home directory (~/.local/bin).
 
 Another software `kseq` for a special trimmer we wrote, which can further trim the reads by 6 nt to get rid of the problem of possible adapter run-through. To install:
 
