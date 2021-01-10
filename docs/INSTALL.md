@@ -5,55 +5,70 @@ CUT&RUNTools 2.0 requires **Python** (3.6), **R** (3.6), **Java** and **Perl**. 
 ## Prerequisites
 
 **Part 1.**  
-CUT&RUNTools 2.0 may work with different version of each tool, in the bracket is the version we tested.
+CUT&RUNTools 2.0 may work with different version of each tool.
 
-* Bowtie2 (2.2.9) [link](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
-* Samtools (1.8) [link](http://samtools.sourceforge.net/)
-* MACS2 (2.1.1) [link](https://github.com/taoliu/MACS)
-* MEME (4.12.0) [link](http://meme-suite.org/tools/meme)
-* Bedops (2.4.30) [link](https://bedops.readthedocs.io/en/latest/)
-* Bedtools (2.26.0) [link](https://bedtools.readthedocs.io/en/latest/)
-* Deeptools (3.5.0) [link](https://deeptools.readthedocs.io/en/develop/)
-* GNU parallel (20200522) [link](https://www.gnu.org/software/parallel/)
-* tabix (0.2.5) [link](https://davetang.org/muse/2013/02/22/using-tabix/)
+* Bowtie2 [link](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
+* Samtools [link](http://samtools.sourceforge.net/)
+* MACS2 [link](https://github.com/taoliu/MACS)
+* MEME [link](http://meme-suite.org/tools/meme)
+* Bedops [link](https://bedops.readthedocs.io/en/latest/)
+* Bedtools [link](https://bedtools.readthedocs.io/en/latest/)
+* Deeptools [link](https://deeptools.readthedocs.io/en/develop/)
+* GNU parallel [link](https://www.gnu.org/software/parallel/)
+* tabix [link](https://davetang.org/muse/2013/02/22/using-tabix/)
 
 
 We recommend the user to install and manage the software using [conda system](https://docs.conda.io/en/latest/) which could incorporate the dependencies for each software. 
 
-1. Create and activate the conda environment to make a tidy
+1. Create and activate the conda environment to make a tidy environment to mange the software
 
 ```
 conda create -n cutruntools2 python=3.6
 source activate cutruntools2
 ```
-2. Install the required software
+2. Install the required software in the conda environment, you can skip any software which have been installed
 
 ```
-conda install -c bioconda bowtie2
-conda install -c bioconda samtools
-conda install -c bioinfo macs2
-conda install -c bioconda/label/cf201901 meme
-conda install -c bioconda bedops
-conda install -c bioconda bedtools
-conda install -c bioconda deeptools
-conda install -c conda-forge parallel
-conda install -c bioconda tabix
+conda install -y -c bioconda bowtie2
+conda install -y -c bioconda samtools
+conda install -y -c bioinfo macs2
+conda install -y -c bioconda bedops
+conda install -y -c bioconda bedtools
+conda install -y -c bioconda deeptools
+conda install -y -c conda-forge parallel
+conda install -y -c bioconda tabix
 ```  
+As the installation of MEME will frequently conflict with other software, we will create a new conda environment named `meme` to install this independently.
+```
+conda create -n meme python=3.6
+source activate meme
+conda install -c bioconda/label/cf201901 meme
+```
 
-On a Linux system, paths of software (e.g. /home/fyu/anaconda2/envs) from the anaconda environment might be obtained in the following:
+On a Linux system, paths of software (e.g. /homes6/fulong/miniconda3/envs/cutruntools2) from the anaconda environment might be obtained in the following: 
 
 ```
-conda info -e
+conda env list
 # conda environments:
 #
-base                     *  /home/fyu/anaconda2/envs
-bedops                      /home/fyu/anaconda2/envs/bedops
-bedtools                    /home/fyu/anaconda2/envs/bedtools
-bowtie2                     /home/fyu/anaconda2/envs/bowtie2
-deeptools                   /home/fyu/anaconda2/envs/deeptools
-macs2                       /home/fyu/anaconda2/envs/macs2
-MEME                        /home/fyu/anaconda2/envs/meme
-samtools                    /home/fyu/anaconda2/envs/samtools
+base                        /homes6/fulong/miniconda3
+cutruntools2             *  /homes6/fulong/miniconda3/envs/cutruntools2
+meme                        /homes6/fulong/miniconda3/envs/meme
+```
+
+Software version is able to be obtained in the following:
+
+```
+conda env list
+bedops                    2.4.39               hc9558a2_0    bioconda
+bedtools                  2.29.2               hc088bd4_0    bioconda
+bowtie2                   2.4.2            py36h5202f60_1    bioconda
+deeptools                 3.5.0                      py_0    bioconda
+deeptoolsintervals        0.1.9            py36h4c5857e_2    bioconda
+macs2                     2.2.7.1          py36h4c5857e_1    bioconda
+parallel                  20201122             ha770c72_0    conda-forge
+samtools                  1.7                           1    bioconda
+tabix                     0.2.6                ha92aebf_0    bioconda
 ```
 
 **Part 2.**   
