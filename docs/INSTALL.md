@@ -29,7 +29,6 @@ source activate cutruntools2
 2. Install the required software
 
 ```
-conda create -n cutruntools2 python=3.6
 conda install -c bioconda bowtie2
 conda install -c bioconda samtools
 conda install -c bioinfo macs2
