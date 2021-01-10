@@ -39,7 +39,7 @@ conda info -e
 # conda environments:
 #
 base                     *  /home/fyu/anaconda2/envs
-bedGraphToBigWig            /home/fyu/anaconda2/envs/bedGraphToBigWig
+bedGraphToBigWig            /home/fyu/anaconda2/envs/meme
 bedops                      /home/fyu/anaconda2/envs/bedops
 bedtools                    /home/fyu/anaconda2/envs/bedtools
 bowtie2                     /home/fyu/anaconda2/envs/bowtie2
