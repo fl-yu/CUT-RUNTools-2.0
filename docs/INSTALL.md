@@ -97,7 +97,7 @@ pip list | grep umap
 
 **Part 4.**  
 
-We also provided special notes for **Atactk** and **kseq**, the installation files were already included in the packages.
+We also provided special notes for **Atactk** and **kseq**, **the installation files were already included in the packages**.
 
 Two patches of [`make_cut_matrix.patch`](make_cut_matrix.patch) and [`metrics.py.patch`](metrics.py.patch) for Atactk [(link)](https://github.com/ParkerLab/atactk) were provided to accurately estimate the cut frequency at single-base resolution. Install the patched version of the package by:
 
