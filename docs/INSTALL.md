@@ -196,14 +196,14 @@ The configuration file tells CutRunTools where to locate the prerequisite tools.
 
 ```
 
-The `software_config` section (the first 24 lines) concerns the software installation, all the requirements of software can be defined here. The rest is related to an actual analysis (explained in [USAGE.md](USAGE.md)).
+The `software_config` section (the first 26 lines) concerns the software installation and required data, all the requirements of software can be defined here. The rest is related to an actual analysis (explained in [USAGE page]).
 
 
 **The sample JSON file of `sc-config.json`** 
 
 ```json
 {
-	"software_config": {
+    "software_config": {
         "Rscriptbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
         "pythonbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
         "perlbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin",
@@ -230,43 +230,43 @@ The `software_config` section (the first 24 lines) concerns the software install
         "picardjarfile": "picard-2.8.0.jar", 
         "trimmomaticjarfile": "trimmomatic-0.36.jar", 
         "makecutmatrixbin": "/homes6/fulong/.local/bin"
-	},
-	"input_output": {
-		"single_cell": "TRUE", 
-		"fastq_directory": "/path/to/fastq", 
-		"workdir": "/path/to/workdir", 
-		"genome": "hg38", 
-		"chrome_sizes_file": "/path/to/hg38.chrom.sizes",
-		"cores": "8", 
-		"percentage_rip": "30", 
-		"num_reads_threshold": "10000", 
-		"peak_caller": "macs2", 	
-		"peak_type": "narrow", 
-		"matrix_type": "peak_by_cell", 
-		"bin_size": "5000", 
-		"feature_file": "/path/to/feature_file", 
-		"experiment_type": "CUT&Tag", 
-		"cluster_resolution": "0.8", 
-		"cluster_pc": "30", 
-		"experiment_name": "scCUT&Tag", 
-	},
-	"run_pipeline": {
-		"entire_pipeline": "TRUE", 
-		"individual_step": "NULL", 
-		"step2_bamfile_dir": "$workdir/sc_aligned.aug10/dup.marked.clean", 
-		"step2_output_dir": "$workdir/sc_countMatrix", 
-		"step2_qc_pass_file": "$workdir/sc_qc/report/statistics_QCpassed.txt", 
-		"step3_count_matrix": "$workdir/sc_countMatrix/feature-by-cell_matrix.txt", 
-		"step3_output_dir": "$workdir/sc_cluster", 
-		"step4_bamfile_dir": "$workdir/sc_aligned.aug10/dup.marked.clean", 
-		"step4_cell_anno_file": "$workdir/sc_cluster/leiden_cluster_annotation.txt", 
-		"step4_output_dir": "$workdir/sc_pseudoBulk", 
-	}
+    },
+    "input_output": {
+	"single_cell": "TRUE", 
+	"fastq_directory": "/path/to/fastq", 
+	"workdir": "/path/to/workdir", 
+	"genome": "hg38", 
+	"chrome_sizes_file": "/path/to/hg38.chrom.sizes",
+	"cores": "8", 
+	"percentage_rip": "30", 
+	"num_reads_threshold": "10000", 
+	"peak_caller": "macs2", 	
+	"peak_type": "narrow", 
+	"matrix_type": "peak_by_cell", 
+	"bin_size": "5000", 
+	"feature_file": "/path/to/feature_file", 
+	"experiment_type": "CUT&Tag", 
+	"cluster_resolution": "0.8", 
+	"cluster_pc": "30", 
+	"experiment_name": "scCUT&Tag", 
+    },
+    "run_pipeline": {
+	"entire_pipeline": "TRUE", 
+	"individual_step": "NULL", 
+	"step2_bamfile_dir": "$workdir/sc_aligned.aug10/dup.marked.clean", 
+	"step2_output_dir": "$workdir/sc_countMatrix", 
+	"step2_qc_pass_file": "$workdir/sc_qc/report/statistics_QCpassed.txt", 
+	"step3_count_matrix": "$workdir/sc_countMatrix/feature-by-cell_matrix.txt", 
+	"step3_output_dir": "$workdir/sc_cluster", 
+	"step4_bamfile_dir": "$workdir/sc_aligned.aug10/dup.marked.clean", 
+	"step4_cell_anno_file": "$workdir/sc_cluster/leiden_cluster_annotation.txt", 
+	"step4_output_dir": "$workdir/sc_pseudoBulk", 
+    }
 }
 ```
 
-The `software_config` section (the first 24 lines) concerns the software installation.
-Similar to the configure.json of the bulk data processing, all the requirements of software can be defined here. Three more paths (path_parallel, path_deeptools and path_tabix) should be specified compared to the bulk configure.json file. The rest is related to an actual analysis (explained in [USAGE.md](USAGE.md)).
+The `software_config` section (the first 26 lines) concerns the software installation and required data (same with the bulk version).
+Similar to the configure.json of the bulk data processing, all the requirements of software can be defined here. Three more paths (path_parallel, path_deeptools and path_tabix) should be specified compared to the bulk configure.json file. The rest is related to an actual analysis (explained in [USAGE page]).
 
 
 
