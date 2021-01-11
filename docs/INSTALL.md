@@ -1,6 +1,6 @@
 # Software installation
 
-CUT&RUNTools 2.0 requires **Python** (>=3.6), **R** (4.0), **Java** and **Perl**. Installation also requires **GCC** to compile some C-based source code. Additionally, the following required tools should be already installed before running the setup.   
+CUT&RUNTools 2.0 requires **Python** (>=3.6), **R** (>=3.3), **Java** and **Perl**. Installation also requires **GCC** to compile some C-based source code. Additionally, the following required tools should be already installed before running the setup.   
 
 ## Prerequisites
 
@@ -23,8 +23,8 @@ We recommend the user to install and manage the software using [conda system](ht
 1. Create and activate the conda environment to make a tidy environment to mange the software
 
 ```
-conda create -n cutruntools2 python=3.6
-source activate cutruntools2
+conda create -n cutruntools2.1 python=3.6
+source activate cutruntools2.1
 ```
 2. Install the required software in the conda environment, you can skip any software which have been installed
 
@@ -99,7 +99,7 @@ pip list | grep umap
 
 We also provided special notes for **Atactk** and **kseq**, **the installation files were already included in the packages**.
 
-Two patches of [`make_cut_matrix.patch`](make_cut_matrix.patch) and [`metrics.py.patch`](metrics.py.patch) for Atactk [(link)](https://github.com/ParkerLab/atactk) were provided to accurately estimate the cut frequency at single-base resolution. Install the patched version of the package by:
+Two patches of `make_cut_matrix.patch` and `metrics.py.patch` for Atactk [(link)](https://github.com/ParkerLab/atactk) were provided to accurately estimate the cut frequency at single-base resolution. Install the patched version of the package by:
 
 ```
 source atactk.install.sh
@@ -113,7 +113,7 @@ source make_kseq_test.sh
 ```
 
 **Part 5.**  
-We provided script or method to download the reference genome and bowtie2 indexes. The genome sequence of a specific organism build (such as hg19, hg38) is required for genome alignment and motif discovery. We provide a script [`assemblies.install`](assemblies.install) to download this automatically from UCSC. We specifically require repeat-**masked** version of genome sequence file. Two parameters were needed to be specified by the user, genome assembly (hg38, hg19, mm10 or mm9) and the path of software bedtools. 
+We provided script or method to download the reference genome and bowtie2 indexes. The genome sequence of a specific organism build (such as hg19, hg38) is required for genome alignment and motif discovery. We provide a script `assemblies.install` to download this automatically from UCSC. We specifically require repeat-**masked** version of genome sequence file. Two parameters were needed to be specified by the user, genome assembly (hg38, hg19, mm10 or mm9) and the path of software bedtools. 
 
 ```
 chmod +x assemblies.install.sh
@@ -143,125 +143,130 @@ The configuration file tells CutRunTools where to locate the prerequisite tools.
 ```json
 {
     "software_config": {
-        "Rscriptbin": "/path/to/R/3.3.3/bin", 
-        "pythonbin": "/path/to/python/2.7.12/bin", 
-        "perlbin": "/path/to/perl/5.24.0/bin",
-        "javabin": "/path/to/java/jdk-1.8u112/bin",
-        "bowtie2bin": "/path/to/bowtie2/2.2.9/bin", 
-        "samtoolsbin": "/path/to/samtools/1.3.1/bin", 
-        "macs2bin": "/path/to/macs2/2.1.1.20160309/bin", 
-        "memebin": "/home/user/meme/bin", 
-        "bedopsbin": "/path/to/bedops/2.4.30", 
-        "bedtoolsbin": "/path/to/bedtools/2.26.0/bin", 
-        "path_deeptools": "/path/to/deeptools",
-        "bt2idx": "/n/groups/bowtie2_indexes", 
-        "genome_sequence": "/home/user/chrom.hg19/hg19.fa", 
-        "spike_in_bt2idx": "/n/groups/ecoli/bowtie2_indexes", 
-        "spike_in_sequence": "/home/user/chrom.ecoli/ecoli6.fa", 
-        "extratoolsbin": "/path/to/cutrun_pipeline2.0", 
-        "extrasettings": "/path/to/cutrun_pipeline2.0",
-        "kseqbin": "/path/to/cutrun_pipeline2.0", 
-        "adapterpath": "/path/to/cutrun_pipeline2.0/adapters", 
-        "trimmomaticbin": "/path/to/cutrun_pipeline2.0", 
-        "picardbin": "/path/to/cutrun_pipeline2.0", 
+        "Rscriptbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "pythonbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "perlbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin",
+        "javabin": "/homes6/fulong/miniconda3/envs/dfci1/bin",
+        "bowtie2bin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "samtoolsbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "macs2bin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "memebin": "/homes6/fulong/miniconda3/envs/py3/bin", 
+        "bedopsbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "bedtoolsbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "path_deeptools": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin",
+        "path_parallel": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "path_tabix": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin",
+        "bt2idx": "/gcdata/gcproj/fulong/Data/Genomes/Homo_sapiens/UCSC/hg38/Sequence/Bowtie2Index", 
+        "genome_sequence": "/gcdata/gcproj/fulong/Data/Genomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa", 
+        "spike_in_bt2idx": "/gcdata/gcproj/fulong/Data/Genomes/Escherichia_coli_K_12_DH10B/Ensembl/EB1/Sequence/Bowtie2Index", 
+        "spike_in_sequence": "/gcdata/gcproj/fulong/Data/Genomes/Escherichia_coli_K_12_DH10B/Ensembl/EB1/Sequence/WholeGenomeFasta/genome.fa", 
+        "extratoolsbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
+        "extrasettings": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install",
+        "kseqbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
+        "adapterpath": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/adapters", 
+        "trimmomaticbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
+        "picardbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
         "picardjarfile": "picard-2.8.0.jar", 
         "trimmomaticjarfile": "trimmomatic-0.36.jar", 
-        "makecutmatrixbin": "/home/user/.local/bin"
+        "makecutmatrixbin": "/homes6/fulong/.local/bin"
     }, 
     "input_output": {
-        "fastq_directory": "/path/to/fastq", 
-        "workdir": "/path/to/workdir", 
-        "fastq_sequence_length": 42, 
+        "fastq_directory": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/exampleData", 
+        "workdir": "/gcdata/gcproj/fulong/Software/cutrun-test/bulk-example-test", 
+        "fastq_sequence_length": "42", 
         "organism_build": "hg19",
-        "spike_in_align": "FALSE",
+        "spike_in": "FALSE",
         "spike_in_norm": "FALSE",
         "spikein_scale": "10000",
         "frag_120": "TRUE",
         "peak_caller": "macs2",
         "dup_peak_calling": "FALSE",
         "cores": "8",
-        "experiment_type": "CUT&Tag"
+        "experiment_type": "CUT&RUN"
     }, 
     "motif_finding": {
-        "num_bp_from_summit": 150, 
-        "num_peaks": 1000, 
-        "total_peaks": 5000, 
-        "motif_scanning_pval": 0.0005, 
-        "num_motifs": 10
+        "num_bp_from_summit": "100", 
+        "num_peaks": "1000", 
+        "total_peaks": "2000", 
+        "motif_scanning_pval": "0.0005", 
+        "num_motifs": "10"
     }
 }
 
+
 ```
 
-The `software_config` section (the first 24 lines) concerns the software installation, all the requirements of software can be defined here. The rest is related to an actual analysis (explained in [USAGE.md](USAGE.md)).
+The `software_config` section (the first 26 lines) concerns the software installation and required data, all the requirements of software can be defined here. The rest is related to an actual analysis (explained in [USAGE page]).
 
 
 **The sample JSON file of `sc-config.json`** 
 
 ```json
 {
-	"software_config": {
-        "Rscriptbin": "/path/to/R/bin",
-		"pythonbin": "/path/to/python/bin",
-		"perlbin": "/path/to/perl/bin",
-		"javabin": "/path/to/java/bin",
-		"trimmomaticbin": "/path/to/trimmomatic/bin",
-		"trimmomaticjarfile": "trimmomatic-0.36.jar",
-		"bowtie2bin": "/path/to/bowtie2/bin",
-		"samtoolsbin": "/path/to/samtools/bin",
-		"adapterpath": "/path/to/cutrun_pipeline/adapters", 
-		"picardbin": "/path/to/picard/bin",
-		"picardjarfile": "picard-2.8.0.jar",
-		"macs2bin": "/path/to/macs2/bin",
-		"macs2pythonlib": "/path/to/macs2/2.1.1.20160309/lib/python2.7/site-packages",
-		"kseqbin": "/path/to/cutrun_pipeline", 
-		"memebin": "/path/to/meme/bin", 
-		"bedopsbin": "/path/to/bedops/bin", 
-		"bedtoolsbin": "/path/to/bedtools/bin",
-		"makecutmatrixbin": "/home/user/.local/bin",
-		"bt2idx": "/path/to/bowtie2_indexes",
-		"genome_sequence": "/path/to/chrom.hg19/hg19.fa",
-		"extratoolsbin": "/home/user/cutrun_pipeline", 
-		"path_parallel": "/path/to/parallel/bin", 
-		"path_deeptools": "/path/to/deeptools/bin",
-		"path_tabix": "/path/to/tabix/bin", 
-	},
-	"sc_parameters": {
-		"single_cell": "TRUE", 
-		"fastq_directory": "/path/to/fastq", 
-		"workdir": "/path/to/workdir", 
-		"genome": "hg38", 
-		"chrome_sizes_file": "/path/to/hg38.chrom.sizes",
-		"cores": "8", 
-		"percentage_rip": "30", 
-		"num_reads_threshold": "10000", 
-		"peak_caller": "macs2", 	
-		"peak_type": "narrow", 
-		"matrix_type": "peak_by_cell", 
-		"bin_size": "5000", 
-		"feature_file": "/path/to/feature_file", 
-		"experiment_type": "CUT&Tag", 
-		"cluster_resolution": "0.8", 
-		"cluster_pc": "30", 
-		"experiment_name": "scCUT&Tag", 
-	},
-	"run_pipeline": {
-		"entire_pipeline": "TRUE", 
-		"individual_step": "NULL", 
-		"step2_bamfile_dir": "$workdir/sc_aligned.aug10/dup.marked.clean", 
-		"step2_output_dir": "$workdir/sc_countMatrix", 
-		"step2_qc_pass_file": "$workdir/sc_qc/report/statistics_QCpassed.txt", 
-		"step3_count_matrix": "$workdir/sc_countMatrix/feature-by-cell_matrix.txt", 
-		"step3_output_dir": "$workdir/sc_cluster", 
-		"step4_bamfile_dir": "$workdir/sc_aligned.aug10/dup.marked.clean", 
-		"step4_cell_anno_file": "$workdir/sc_cluster/leiden_cluster_annotation.txt", 
-		"step4_output_dir": "$workdir/sc_pseudoBulk", 
-	}
+    "software_config": {
+        "Rscriptbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "pythonbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "perlbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin",
+        "javabin": "/homes6/fulong/miniconda3/envs/dfci1/bin",
+        "bowtie2bin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "samtoolsbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "macs2bin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "memebin": "/homes6/fulong/miniconda3/envs/py3/bin", 
+        "bedopsbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "bedtoolsbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "path_deeptools": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin",
+        "path_parallel": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "path_tabix": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin",
+        "bt2idx": "/gcdata/gcproj/fulong/Data/Genomes/Homo_sapiens/UCSC/hg38/Sequence/Bowtie2Index", 
+        "genome_sequence": "/gcdata/gcproj/fulong/Data/Genomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa", 
+        "spike_in_bt2idx": "/gcdata/gcproj/fulong/Data/Genomes/Escherichia_coli_K_12_DH10B/Ensembl/EB1/Sequence/Bowtie2Index", 
+        "spike_in_sequence": "/gcdata/gcproj/fulong/Data/Genomes/Escherichia_coli_K_12_DH10B/Ensembl/EB1/Sequence/WholeGenomeFasta/genome.fa", 
+        "extratoolsbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
+        "extrasettings": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install",
+        "kseqbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
+        "adapterpath": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/adapters", 
+        "trimmomaticbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
+        "picardbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
+        "picardjarfile": "picard-2.8.0.jar", 
+        "trimmomaticjarfile": "trimmomatic-0.36.jar", 
+        "makecutmatrixbin": "/homes6/fulong/.local/bin"
+    },
+    "input_output": {
+	"single_cell": "TRUE", 
+	"fastq_directory": "/path/to/fastq", 
+	"workdir": "/path/to/workdir", 
+	"genome": "hg38", 
+	"chrome_sizes_file": "/path/to/hg38.chrom.sizes",
+	"cores": "8", 
+	"percentage_rip": "30", 
+	"num_reads_threshold": "10000", 
+	"peak_caller": "macs2", 	
+	"peak_type": "narrow", 
+	"matrix_type": "peak_by_cell", 
+	"bin_size": "5000", 
+	"feature_file": "/path/to/feature_file", 
+	"experiment_type": "CUT&Tag", 
+	"cluster_resolution": "0.8", 
+	"cluster_pc": "30", 
+	"experiment_name": "scCUT&Tag", 
+    },
+    "run_pipeline": {
+	"entire_pipeline": "TRUE", 
+	"individual_step": "NULL", 
+	"step2_bamfile_dir": "$workdir/sc_aligned.aug10/dup.marked.clean", 
+	"step2_output_dir": "$workdir/sc_countMatrix", 
+	"step2_qc_pass_file": "$workdir/sc_qc/report/statistics_QCpassed.txt", 
+	"step3_count_matrix": "$workdir/sc_countMatrix/feature-by-cell_matrix.txt", 
+	"step3_output_dir": "$workdir/sc_cluster", 
+	"step4_bamfile_dir": "$workdir/sc_aligned.aug10/dup.marked.clean", 
+	"step4_cell_anno_file": "$workdir/sc_cluster/leiden_cluster_annotation.txt", 
+	"step4_output_dir": "$workdir/sc_pseudoBulk", 
+    }
 }
 ```
 
-The `software_config` section (the first 24 lines) concerns the software installation.
-Similar to the configure.json of the bulk data processing, all the requirements of software can be defined here. Three more paths (path_parallel, path_deeptools and path_tabix) should be specified compared to the bulk configure.json file. The rest is related to an actual analysis (explained in [USAGE.md](USAGE.md)).
+The `software_config` section (the first 26 lines) concerns the software installation and required data (same with the bulk version).
+Similar to the configure.json of the bulk data processing, all the requirements of software can be defined here. Three more paths (path_parallel, path_deeptools and path_tabix) should be specified compared to the bulk configure.json file. The rest is related to an actual analysis (explained in [USAGE page]).
 
 
 
