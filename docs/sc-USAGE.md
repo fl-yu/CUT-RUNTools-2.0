@@ -136,7 +136,7 @@ PARAMETERS
 	
 	[matrix_type]: This parameter control the feature used for count matrix generation (see Tutorial for 
 	      further information) 
-			options: bin_by_cell (default), peak_by_cell or customFeature_by_cell 
+			options: bin_by_cell, peak_by_cell (default) or customFeature_by_cell 
 			 			
 	[bin_size]: If matrix_type is specified as bin_by_cell, the feature file of genome-wide bins with 
 	      resolution of bin_size is automatically generated and the feature-by-cell matrix will be 
