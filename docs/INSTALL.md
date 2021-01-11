@@ -52,7 +52,7 @@ conda env list
 # conda environments:
 #
 base                        /homes6/fulong/miniconda3
-cutruntools2             *  /homes6/fulong/miniconda3/envs/cutruntools2
+cutruntools2             *  /homes6/fulong/miniconda3/envs/cutruntools2.1
 meme                        /homes6/fulong/miniconda3/envs/meme
 ```
 
