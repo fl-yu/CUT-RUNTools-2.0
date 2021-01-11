@@ -163,7 +163,7 @@ PARAMETERS
 			options: 30 (default) 
 			 			
 	[experiment_name]: Name of the your analysis which is useful to name the name of output files
-			options: scCUT&Tag (default)
+			options: scCUTTag (default). Note that the character '&" is not welcome
 			 			
 
 ```
