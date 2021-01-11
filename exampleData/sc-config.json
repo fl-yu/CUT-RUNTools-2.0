@@ -1,7 +1,7 @@
 {
     "software_config": {
-        "Rscriptbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
-        "pythonbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "Rscriptbin": "/homes6/fulong/miniconda3/envs/py3/bin", 
+        "pythonbin": "/homes6/fulong/miniconda3/envs/py3/bin", 
         "perlbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin",
         "javabin": "/homes6/fulong/miniconda3/envs/dfci1/bin",
         "bowtie2bin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
@@ -34,16 +34,16 @@
         "genome": "hg38", 
         "chrome_sizes_file": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/assemblies/chrom.hg38/hg38.chrom.sizes",
         "cores": "8", 
-        "percentage_rip": "30", 
-        "num_reads_threshold": "10000", 
+        "percentage_rip": "0", 
+        "num_reads_threshold": "0", 
         "peak_caller": "macs2", 	
         "peak_type": "narrow", 
-        "matrix_type": "peak_by_cell", 
+        "matrix_type": "bin_by_cell", 
         "bin_size": "5000", 
         "feature_file": "/path/to/feature_file", 
         "experiment_type": "CUT&Tag", 
         "cluster_resolution": "0.8", 
-        "cluster_pc": "30", 
+        "cluster_pc": "2", 
         "experiment_name": "scCUTTag"
     }, 
     "run_pipeline": {

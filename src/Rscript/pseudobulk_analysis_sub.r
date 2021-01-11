@@ -64,8 +64,8 @@ if (group_num==1) {
         single_bam_file <- paste0(bam_dir, "/", anno_meta$cell_name[idx])
         single_bed_file <- gsub(".bam",  ".bed", single_bam_file)
         # copy the bam files to subgroup dir
-        file.copy(single_bam_file, scbam_dir)
-        file.copy(single_bed_file, scbam_dir)
+        file.copy(single_bam_file, scbam_dir, overwrite=T)
+        file.copy(single_bed_file, scbam_dir, overwrite=T)
         message("[info] single-cell track generating")
         system(paste("chmod +x", paste0(bash_function_dir, "/qbed.sh")))
         experi_name <- paste0(paste0("group_", target_group[i]))

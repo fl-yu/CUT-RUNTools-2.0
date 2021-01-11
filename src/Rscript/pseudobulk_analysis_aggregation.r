@@ -47,7 +47,7 @@ experi_name <- "groups_aggregation"
 cat(date(), paste(length(grep("*bam$", dir(bam_dir))), "Barcode bam files will be copied and merged ...\n"))
 myfile <- dir(bam_dir)
 # copy the bam files to subgroup dir
-file_copy_result <- file.copy(paste(bam_dir, myfile, sep="/"), paste(scbam_dir, myfile, sep="/"))
+file_copy_result <- file.copy(paste(bam_dir, myfile, sep="/"), paste(scbam_dir, myfile, sep="/"), overwrite=T)
 message("[info] single-cell track generating")
 
 system(paste("chmod +x", paste0(bash_function_dir, "/qbed.sh")))
