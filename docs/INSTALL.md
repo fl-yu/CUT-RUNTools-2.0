@@ -99,7 +99,7 @@ pip list | grep umap
 
 We also provided special notes for **Atactk** and **kseq**, **the installation files were already included in the packages**.
 
-Two patches of [`make_cut_matrix.patch`](make_cut_matrix.patch) and [`metrics.py.patch`](metrics.py.patch) for Atactk [(link)](https://github.com/ParkerLab/atactk) were provided to accurately estimate the cut frequency at single-base resolution. Install the patched version of the package by:
+Two patches of `make_cut_matrix.patch` and `metrics.py.patch` for Atactk [(link)](https://github.com/ParkerLab/atactk) were provided to accurately estimate the cut frequency at single-base resolution. Install the patched version of the package by:
 
 ```
 source atactk.install.sh
@@ -113,7 +113,7 @@ source make_kseq_test.sh
 ```
 
 **Part 5.**  
-We provided script or method to download the reference genome and bowtie2 indexes. The genome sequence of a specific organism build (such as hg19, hg38) is required for genome alignment and motif discovery. We provide a script [`assemblies.install`](assemblies.install) to download this automatically from UCSC. We specifically require repeat-**masked** version of genome sequence file. Two parameters were needed to be specified by the user, genome assembly (hg38, hg19, mm10 or mm9) and the path of software bedtools. 
+We provided script or method to download the reference genome and bowtie2 indexes. The genome sequence of a specific organism build (such as hg19, hg38) is required for genome alignment and motif discovery. We provide a script `assemblies.install` to download this automatically from UCSC. We specifically require repeat-**masked** version of genome sequence file. Two parameters were needed to be specified by the user, genome assembly (hg38, hg19, mm10 or mm9) and the path of software bedtools. 
 
 ```
 chmod +x assemblies.install.sh
