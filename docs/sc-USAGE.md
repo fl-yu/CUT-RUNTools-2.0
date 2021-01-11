@@ -85,9 +85,9 @@ A sample configuration file is below.
 ```
 
 - The **software_config** section defines the software paths for various sequencing tools.  
-Similar to the configure.json of the bulk data processing, all the requirements of software can be defined here. Three more paths (*path_parallel*, *path_deeptools* and *path_tabix*) should be specified compared to the bulk configure.json file.
+Similar to the configure.json of the bulk data processing, all the requirements of software can be defined here.
 
-- The **sc_parameters** section contains the general parameters for the data processing.
+- The **input_output** section contains the general parameters for the data processing.
 
 ``` 
 PARAMETERS
@@ -225,7 +225,7 @@ PARAMETERS
 	
 
 ```
-**NOTES**: If an individual analysis step is performed, the parameters in the sc\_parameters section should be tuned accordingly as needed. For step1, no parameters in the run\_pipeline section need to be changed except for *entire\_pipeline* and *individual_step*. For step2, *the matrix\_type* only accepts one of bin\_by\_cell and customFeature\_by\_cell.
+**NOTES**: If an individual analysis step is performed, the parameters in the input\_output section should be tuned accordingly as needed. For step1, no parameters in the run\_pipeline section need to be changed except for *entire\_pipeline* and *individual_step*. For step2, *the matrix\_type* only accepts one of bin\_by\_cell and customFeature\_by\_cell.
 
 ## Tutorial details
 
