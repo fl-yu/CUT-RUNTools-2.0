@@ -18,7 +18,7 @@ Then you can simply run the following command to perform the entire pipeline.
 
 ```
 chmod +x ./run_scModule.sh   
-./run_scModule.sh /path/to/scCutRunTools/src sc-config.json
+./run_scModule.sh /path/to/sc-config.json
 ```
 
 What happens next is that CUT&RUNTools will sequentially run the analysis pipeline, see the [Usages](./sc-USAGE.md) and output [Directory Structure](./sc-DIRECTORY.md) for details. 

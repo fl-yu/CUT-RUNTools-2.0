@@ -67,7 +67,5 @@ Read our [paper](). Sign up for CUT&RUNTools Google group mailing list to ask qu
 
 ##To do list:
 
-1. test pipelines
-2. go through the tutorial
-3. add bulk functions
-4. manuscript and figure
+1. add bulk functions
+2. check and review the manuscript and figure
