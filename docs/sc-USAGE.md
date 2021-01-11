@@ -57,7 +57,7 @@ A sample configuration file is below.
 	"genome": "hg38", 
 	"chrome_sizes_file": "/path/to/hg38.chrom.sizes",
 	"cores": "8", 
-	"percentage_rip": "30", 
+	"percentage_rip": "10", 
 	"num_reads_threshold": "10000", 
 	"peak_caller": "macs2", 	
 	"peak_type": "narrow", 
