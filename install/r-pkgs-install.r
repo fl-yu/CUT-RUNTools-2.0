@@ -11,14 +11,15 @@ if(packageVersion("BiocManager") < "1.30.10"){
 message(paste("#### Install R packages #### "))
 
 # CRAN packages
-cran.pkgs <- c("devtools", "reticulate", "leiden", "data.table", "Matirx", "irlba", "ggplot2", "igraph",
-  "uwot", "CENTIPEDE")
+cran.pkgs <- c("devtools", "reticulate", "leiden", "data.table", "Matirx", "irlba", "igraph",
+  "uwot", "ggplot2")
 for(i in cran.pkgs){
     if(!require(i, character.only = T)) {
         message(paste("Install ", i, "\n"))
-        install.packages(i, dependencies = TRUE, repos="http://R-Forge.R-project.org")
+        install.packages(i)
     }
 }
+install.packages("CENTIPEDE", repos="http://R-Forge.R-project.org")
 
 # individual packages
 indi.pkgs <- c("Rtsne", "RANN")
@@ -28,7 +29,7 @@ message(paste("Install RANN \n"))
 devtools::install_github("jefferis/RANN")
 
 # biocManage packages
-bioc.pkgs = c("rGREAT")
+bioc.pkgs = c("rGREAT", "ggplot2")
 for(i in bioc.pkgs){
     if(!require(i, character.only = T)) {  
         message(paste("Install", i, "..."))
@@ -39,7 +40,7 @@ for(i in bioc.pkgs){
 
 # check if all the required packages were installed
 # 
-pkg <- c(cran.pkgs, indi.pkgs, bioc.pkgs)
+pkg <- c(cran.pkgs, indi.pkgs, bioc.pkgs, "CENTIPEDE")
 if(any(! pkg %in% rownames(installed.packages()))){
     message(paste("#### All the R packages were installed successfully ! #### \n"))
 } else {
@@ -48,4 +49,5 @@ if(any(! pkg %in% rownames(installed.packages()))){
     pkg[! pkg %in% rownames(installed.packages())]
 }
 
-
+message("Please check if all the packages were installed properly")
+message(pkg)
