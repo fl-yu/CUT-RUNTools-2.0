@@ -1,0 +1,51 @@
+{
+    "software_config": {
+        "Rscriptbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "pythonbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "perlbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin",
+        "javabin": "/homes6/fulong/miniconda3/envs/dfci1/bin",
+        "bowtie2bin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "samtoolsbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "macs2bin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "memebin": "/homes6/fulong/miniconda3/envs/py3/bin", 
+        "bedopsbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "bedtoolsbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "path_deeptools": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin",
+        "path_parallel": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "path_tabix": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin",
+        "bt2idx": "/gcdata/gcproj/fulong/Data/Genomes/Homo_sapiens/UCSC/hg38/Sequence/Bowtie2Index", 
+        "genome_sequence": "/gcdata/gcproj/fulong/Data/Genomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa", 
+        "spike_in_bt2idx": "/gcdata/gcproj/fulong/Data/Genomes/Escherichia_coli_K_12_DH10B/Ensembl/EB1/Sequence/Bowtie2Index", 
+        "spike_in_sequence": "/gcdata/gcproj/fulong/Data/Genomes/Escherichia_coli_K_12_DH10B/Ensembl/EB1/Sequence/WholeGenomeFasta/genome.fa", 
+        "extratoolsbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
+        "extrasettings": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install",
+        "kseqbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
+        "adapterpath": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/adapters", 
+        "trimmomaticbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
+        "picardbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
+        "picardjarfile": "picard-2.8.0.jar", 
+        "trimmomaticjarfile": "trimmomatic-0.36.jar", 
+        "makecutmatrixbin": "/homes6/fulong/.local/bin"
+    }, 
+    "input_output": {
+        "fastq_directory": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/exampleData", 
+        "workdir": "/gcdata/gcproj/fulong/Software/cutrun-test/bulk-example-test", 
+        "fastq_sequence_length": "42", 
+        "organism_build": "hg19",
+        "spike_in": "FALSE",
+        "spike_in_norm": "FALSE",
+        "spikein_scale": "10000",
+        "frag_120": "TRUE",
+        "peak_caller": "macs2",
+        "dup_peak_calling": "FALSE",
+        "cores": "8",
+        "experiment_type": "CUT&RUN"
+    }, 
+    "motif_finding": {
+        "num_bp_from_summit": "100", 
+        "num_peaks": "1000", 
+        "total_peaks": "2000", 
+        "motif_scanning_pval": "0.0005", 
+        "num_motifs": "10"
+    }
+}

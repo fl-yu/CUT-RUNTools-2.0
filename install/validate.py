@@ -48,7 +48,7 @@ if __name__=="__main__":
 	if not args["ignore_input_output"]:
 		#validate the input files
 		flist = set([])
-		for filename in os.listdir(config["sc_parameters"]["fastq_directory"]):
+		for filename in os.listdir(config["input_output"]["fastq_directory"]):
 			if filename.endswith("fastq.gz"):
 				flist.add(filename)
 		for x in flist:
@@ -102,10 +102,6 @@ if __name__=="__main__":
 		sys.exit(1)
 	if not check_program_exists(config["software_config"]["pythonbin"], "python"):
 		sys.exit(1)
-	if not check_program_exists(config["software_config"]["extratoolsbin"], "bedGraphToBigWig"):
-		sys.exit(1)
-	if not check_program_exists(config["software_config"]["extratoolsbin"], "fetchChromSizes"):
-		sys.exit(1)
 	if not check_program_exists(config["software_config"]["adapterpath"], "Truseq3.PE.fa"):
 		sys.exit(1)
 	if not check_program_exists(config["software_config"]["extratoolsbin"], "SEACR_1.1.sh"):
@@ -136,10 +132,10 @@ if __name__=="__main__":
 	#check genome sequence exists, and check bowtie2 indices
 	if not args["ignore_input_output"]:
 		if not check_program_exists(os.path.dirname(config["software_config"]["genome_sequence"]), "%s.chrom.sizes" % 
-		config["sc_parameters"]["genome"]):
+		config["input_output"]["genome"]):
 			sys.exit(1)
 
-		org = config["sc_parameters"]["genome"]
+		org = config["input_output"]["genome"]
 		if org=="hg38":
 			org = "GRCh38"
 		for ff in ["%s.1.bt2" % org, "%s.2.bt2" % org, "%s.3.bt2" % org, \

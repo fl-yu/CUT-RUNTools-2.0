@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 # Copyright (C) 2020 Fulong Yu
 #
 # CUT&RUNTools 2.0 is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; version 2 of the License.
@@ -9,16 +9,18 @@
 
 configrue_file=$1 # $scriptdir/bulk-config.json
 sample_name=$2 # $scriptdir/bulk-config.json
-SCRIPT=`realpath $0`
+experiment_name=$sample_name
+SCRIPT=`readlink -f $0`
+
 SCRIPTPATH=`dirname $SCRIPT`
 scriptdir=$SCRIPTPATH/src/bulk
-chrom_size_file=$SCRIPTPATH/assemblies/chrom."$organism_build"/"$organism_build".chrom.sizes
-blacklist=$SCRIPTPATH/blacklist/"$organism_build".blacklist.bed
-blacklist2=$SCRIPTPATH/blacklist/"$organism_build"_TA_repeat.bed
 # convert configuration JSON files to bash variables
 eval "$(jq -r '.software_config | to_entries | .[] | .key + "=\"" + .value + "\""' < $configrue_file)"
 eval "$(jq -r '.input_output | to_entries | .[] | .key + "=\"" + .value + "\""' < $configrue_file)"
 eval "$(jq -r '.motif_finding | to_entries | .[] | .key + "=\"" + .value + "\""' < $configrue_file)"
+chrom_size_file=$SCRIPTPATH/assemblies/chrom."$organism_build"/"$organism_build".chrom.sizes
+blacklist=$SCRIPTPATH/blacklist/"$organism_build".blacklist.bed
+blacklist2=$SCRIPTPATH/blacklist/"$organism_build"_TA_repeat.bed
 
 workdir=$workdir/$experiment_name
 # check the parameters
@@ -30,6 +32,7 @@ then
     exit
     fi
 fi
+
 if [ "$organism_build" != "hg38" ] && [ "$organism_build" != "hg19" ] && [ "$organism_build" != "mm10" ] && [ "$organism_build" != "mm9" ]
     then
     echo "organism_build should be one of hg38, hg19, mm10 or mm9"
@@ -80,11 +83,6 @@ echo "==================================== Bulk data analysis pipeline will run 
     sleep 0.1
     echo -e "================================================================================================================================="
 
+
 . $scriptdir/bulk-pipeline.sh
-
-
-
-
-
-
 
