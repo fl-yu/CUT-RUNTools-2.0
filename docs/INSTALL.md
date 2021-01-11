@@ -238,7 +238,7 @@ The `software_config` section (the first 26 lines) concerns the software install
 	"genome": "hg38", 
 	"chrome_sizes_file": "/path/to/hg38.chrom.sizes",
 	"cores": "8", 
-	"percentage_rip": "30", 
+	"percentage_rip": "10", 
 	"num_reads_threshold": "10000", 
 	"peak_caller": "macs2", 	
 	"peak_type": "narrow", 

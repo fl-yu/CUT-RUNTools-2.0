@@ -57,7 +57,7 @@ A sample configuration file is below.
 	"genome": "hg38", 
 	"chrome_sizes_file": "/path/to/hg38.chrom.sizes",
 	"cores": "8", 
-	"percentage_rip": "30", 
+	"percentage_rip": "10", 
 	"num_reads_threshold": "10000", 
 	"peak_caller": "macs2", 	
 	"peak_type": "narrow", 
@@ -115,13 +115,13 @@ PARAMETERS
 	[percentage_rip]: A criterion to filter barcode cells based on the signal-to-noise (percentage of 
 	      reads in peaks). The barcode cells will be filtered out if they having reads percentage in the
 	      aggregation peaks less than the threshold
-			options: 30 (default) or a "numeric" between 0 and 100. Set to 0 if you do not 
+			options: 10 (default) or a "numeric" between 0 and 100. Set to 0 if you do not 
 				 want to filter the cells based on this measurements
 			 			
 	[num_reads_threshold]: A criterion to filter barcode cells. The barcode cells will be filtered out 
 	      if they having the number of properly paired reads less than the threshold. Set to 0 if you do
 	      not want to filter the cells based on this measurements  
-			options: 10000 (default) 
+			options: 1000 (default) 
 			 			
 	[peak_caller]: To specify statistical significant peaks called from macs2 or SEACR method used for 
 	      QC (i.e. cell filtering), countmatrix construction and differential peaks analysis 
@@ -136,7 +136,7 @@ PARAMETERS
 	
 	[matrix_type]: This parameter control the feature used for count matrix generation (see Tutorial for 
 	      further information) 
-			options: bin_by_cell (default), peak_by_cell or customFeature_by_cell 
+			options: bin_by_cell, peak_by_cell (default) or customFeature_by_cell 
 			 			
 	[bin_size]: If matrix_type is specified as bin_by_cell, the feature file of genome-wide bins with 
 	      resolution of bin_size is automatically generated and the feature-by-cell matrix will be 
