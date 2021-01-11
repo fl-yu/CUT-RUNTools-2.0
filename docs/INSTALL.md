@@ -175,8 +175,8 @@ The configuration file tells CutRunTools where to locate the prerequisite tools.
         "workdir": "/gcdata/gcproj/fulong/Software/cutrun-test/bulk-example-test", 
         "fastq_sequence_length": "42", 
         "organism_build": "hg19",
-        "spike_in": "TRUE",
-        "spike_in_norm": "TRUE",
+        "spike_in": "FALSE",
+        "spike_in_norm": "FALSE",
         "spikein_scale": "10000",
         "frag_120": "TRUE",
         "peak_caller": "macs2",
@@ -185,7 +185,7 @@ The configuration file tells CutRunTools where to locate the prerequisite tools.
         "experiment_type": "CUT&RUN"
     }, 
     "motif_finding": {
-        "num_bp_from_summit": "150", 
+        "num_bp_from_summit": "100", 
         "num_peaks": "1000", 
         "total_peaks": "2000", 
         "motif_scanning_pval": "0.0005", 
