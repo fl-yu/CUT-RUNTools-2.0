@@ -53,16 +53,16 @@ fi
 # confirm the reference genome
 if [ $genome = "hg38" ]
 then
-    genome_prefix=GRCh38
+    genome_prefix=genome
 elif [ $genome = "hg19" ]
 then
-    genome_prefix=hg19
+    genome_prefix=genome
 elif [ $genome = "mm10" ]
 then
-    genome_prefix=mm10
+    genome_prefix=genome
 elif [ $genome = "mm9" ]
 then
-    genome_prefix=mm9
+    genome_prefix=genome
 else
     echo "[info] Parameter genome should be one of hg38, hg19, mm10, mm9"
 fi
@@ -97,17 +97,18 @@ $path_parallel/parallel -j $cores "$samtoolsbin/samtools index dup.marked/{}.bam
 $path_parallel/parallel -j $cores "$samtoolsbin/samtools view -bh -q 30 -f 0x2 -F 1024 dup.marked/{}.bam > dup.marked.clean/{}.bam" ::: $infiles >/dev/null 2>&1
 $path_parallel/parallel -j $cores "$samtoolsbin/samtools index dup.marked.clean/{}.bam" ::: $infiles >/dev/null 2>&1
 
-
 >&2 echo "[info] Generating coverage .bed files used for single-cell genome track visualization ... "
 >&2 date
 $path_parallel/parallel -j $cores "$bedtoolsbin/bedtools genomecov -ibam dup.marked.clean/{}.bam -bg | cut -f 1-3 > dup.marked.clean/{}.bed" ::: $infiles >/dev/null 2>&1
 
+
+dup_dir=dup.marked # revise this parameter to control which data (duplication or deduplication bam files) used in the following analysis # dup_dir=dup.marked.clean 
 >&2 echo "[info] Aggregation analysis of individual cells... "
 >&2 date
 # define the parameters
 r_function_dir=$scriptdir/Rscript
 bash_function_dir=$scriptdir/BASHscript
-bam_dir=$workdir/sc_aligned.aug10/dup.marked.clean
+bam_dir=$workdir/sc_aligned.aug10/$dup_dir
 sc_pseudoBulk_dir=$workdir/sc_pseudoBulk
 # SEACR script should be in $extratoolsbin
 mkdir -p $sc_pseudoBulk_dir 

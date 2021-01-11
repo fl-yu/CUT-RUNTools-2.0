@@ -16,7 +16,7 @@ cran.pkgs <- c("devtools", "reticulate", "leiden", "data.table", "Matirx", "irlb
 for(i in cran.pkgs){
     if(!require(i, character.only = T)) {
         message(paste("Install ", i, "\n"))
-        install.packages(i, dependencies = TRUE, repos = "http://cran.us.r-project.org")
+        install.packages(i, dependencies = TRUE, repos="http://R-Forge.R-project.org")
     }
 }
 

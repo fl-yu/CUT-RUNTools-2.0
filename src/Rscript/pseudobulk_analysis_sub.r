@@ -130,7 +130,7 @@ if (group_num==1) {
         cat(date(), paste("Generating the bw file...\n"))
         cat(date(), paste("CPM normalization method will be applied...\n"))
         cat(date(), paste("binsize: 10 \n"))
-        cat(date(), paste("Multiple thresholds will be used: ", cores, " \n"))
+        cat(date(), paste("Multiple threads will be used: ", cores, " \n"))
         # bam2bw   
         system(paste(paste0(deeptoolsbin, "/bamCoverage"), "--bam", paste0(scPS_dir, "/", paste0(paste0("group_", target_group[i])), "_pseudo_sort.bam"), "-o",  paste0(scPS_dir, "/", paste0(paste0("group_", target_group[i])), "_pseudo_sort.bw"), "-p", cores, "--binSize 10 --normalizeUsing CPM --effectiveGenomeSize", eGenomeSize, ">", paste0(macs2dir, paste0("/", "group_", target_group[i]), "_bam2bw.log 2>&1")))
     }

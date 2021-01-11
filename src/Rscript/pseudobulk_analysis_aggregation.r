@@ -128,7 +128,7 @@ system(paste(paste0(samtoolsbin, "/samtools index"), paste0(scPS_dir, "/", "grou
     cat(date(), paste("Generating the bw file...\n"))
     cat(date(), paste("CPM normalization method will be applied...\n"))
     cat(date(), paste("binsize: 10 \n"))
-    cat(date(), paste("Multiple thresholds will be used: ", cores, " \n"))
+    cat(date(), paste("Multiple threads will be used: ", cores, " \n"))
     system(paste(paste0(deeptoolsbin, "/bamCoverage"), "--bam", paste0(scPS_dir, "/", "groups_aggregation", "_pseudo_sort.bam"), "-o",  paste0(scPS_dir, "/", "groups_aggregation", "_pseudo_sort.bw"), "-p", cores, "--binSize 10 --ignoreDuplicates --normalizeUsing CPM --effectiveGenomeSize", eGenomeSize, paste0("> ", macs2dir, "/", "groups_aggregation_bam2wig.log 2>&1")))
 
 
