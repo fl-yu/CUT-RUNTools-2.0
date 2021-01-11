@@ -23,8 +23,8 @@ We recommend the user to install and manage the software using [conda system](ht
 1. Create and activate the conda environment to make a tidy environment to mange the software
 
 ```
-conda create -n cutruntools2 python=3.6
-source activate cutruntools2
+conda create -n cutruntools2.1 python=3.6
+source activate cutruntools2.1
 ```
 2. Install the required software in the conda environment, you can skip any software which have been installed
 
