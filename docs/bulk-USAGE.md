@@ -12,57 +12,60 @@ A sample configuration file is below.
 ``` json
 {
     "software_config": {
-        "Rscriptbin": "/path/to/R/3.3.3/bin", 
-        "pythonbin": "/path/to/python/2.7.12/bin", 
-        "perlbin": "/path/to/perl/5.24.0/bin",
-        "javabin": "/path/to/java/jdk-1.8u112/bin",
-        "bowtie2bin": "/path/to/bowtie2/2.2.9/bin", 
-        "samtoolsbin": "/path/to/samtools/1.3.1/bin", 
-        "macs2bin": "/path/to/macs2/2.1.1.20160309/bin", 
-        "memebin": "/home/user/meme/bin", 
-        "bedopsbin": "/path/to/bedops/2.4.30", 
-        "bedtoolsbin": "/path/to/bedtools/2.26.0/bin", 
-        "path_deeptools": "/path/to/deeptools",
-        "bt2idx": "/n/groups/bowtie2_indexes", 
-        "genome_sequence": "/home/user/chrom.hg19/hg19.fa", 
-        "spike_in_bt2idx": "/n/groups/ecoli/bowtie2_indexes", 
-        "spike_in_sequence": "/home/user/chrom.ecoli/ecoli6.fa", 
-        "extratoolsbin": "/path/to/cutrun_pipeline2.0", 
-        "extrasettings": "/path/to/cutrun_pipeline2.0",
-        "kseqbin": "/path/to/cutrun_pipeline2.0", 
-        "adapterpath": "/path/to/cutrun_pipeline2.0/adapters", 
-        "trimmomaticbin": "/path/to/cutrun_pipeline2.0", 
-        "picardbin": "/path/to/cutrun_pipeline2.0", 
+        "Rscriptbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "pythonbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "perlbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin",
+        "javabin": "/homes6/fulong/miniconda3/envs/dfci1/bin",
+        "bowtie2bin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "samtoolsbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "macs2bin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "memebin": "/homes6/fulong/miniconda3/envs/py3/bin", 
+        "bedopsbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "bedtoolsbin": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "path_deeptools": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin",
+        "path_parallel": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin", 
+        "path_tabix": "/homes6/fulong/miniconda3/envs/cutruntools2.1/bin",
+        "bt2idx": "/gcdata/gcproj/fulong/Data/Genomes/Homo_sapiens/UCSC/hg38/Sequence/Bowtie2Index", 
+        "genome_sequence": "/gcdata/gcproj/fulong/Data/Genomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa", 
+        "spike_in_bt2idx": "/gcdata/gcproj/fulong/Data/Genomes/Escherichia_coli_K_12_DH10B/Ensembl/EB1/Sequence/Bowtie2Index", 
+        "spike_in_sequence": "/gcdata/gcproj/fulong/Data/Genomes/Escherichia_coli_K_12_DH10B/Ensembl/EB1/Sequence/WholeGenomeFasta/genome.fa", 
+        "extratoolsbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
+        "extrasettings": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install",
+        "kseqbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
+        "adapterpath": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/adapters", 
+        "trimmomaticbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
+        "picardbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
         "picardjarfile": "picard-2.8.0.jar", 
         "trimmomaticjarfile": "trimmomatic-0.36.jar", 
-        "makecutmatrixbin": "/home/user/.local/bin"
+        "makecutmatrixbin": "/homes6/fulong/.local/bin"
     }, 
     "input_output": {
-        "fastq_directory": "/n/scratch2/user/Nan_18_demo/sorted.chr11", 
-        "workdir": "/n/scratch2/user/workdir", 
-        "fastq_sequence_length": 42, 
+        "fastq_directory": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/exampleData", 
+        "workdir": "/gcdata/gcproj/fulong/Software/cutrun-test/bulk-example-test", 
+        "fastq_sequence_length": "42", 
         "organism_build": "hg19",
-        "spike_in_align": "FALSE",
+        "spike_in": "FALSE",
         "spike_in_norm": "FALSE",
         "spikein_scale": "10000",
         "frag_120": "TRUE",
         "peak_caller": "macs2",
         "dup_peak_calling": "FALSE",
         "cores": "8",
-        "experiment_type": "CUT&Tag"
+        "experiment_type": "CUT&RUN"
     }, 
     "motif_finding": {
-        "num_bp_from_summit": 150, 
-        "num_peaks": 1000, 
-        "total_peaks": 5000, 
-        "motif_scanning_pval": 0.0005, 
-        "num_motifs": 10
+        "num_bp_from_summit": "100", 
+        "num_peaks": "1000", 
+        "total_peaks": "2000", 
+        "motif_scanning_pval": "0.0005", 
+        "num_motifs": "10"
     }
 }
 
+
 ```
 
-- The **software_config** section defines the software paths for various sequencing tools.  
+- The **software_config** section defines the software paths for various sequencing tools and required data.  
 
 - The **input_output** section contains the general parameters for the data processing.
 
