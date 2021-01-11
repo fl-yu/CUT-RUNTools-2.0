@@ -12,7 +12,7 @@ tar -zxvf exampleData-sc.tar.gz
 To configure the exampleData_configure.sh file:   
 > specify the *workdir*;  
   specify the *fastqdir* parameter as the folder of exampleData;  
-  make sure you have successfully installed pre-requsite software, set the paths and validate the bulk-config.json file  
+  make sure you have successfully installed pre-requsite software, set the paths and validate the bulk-config.json file (**make sure to set both of `percentage_rip` and `num_reads_threshold` as 0 when you use the example data**)
 
 Then you can simply run the following command to perform the entire pipeline.
 
