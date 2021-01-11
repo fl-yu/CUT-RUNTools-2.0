@@ -115,13 +115,13 @@ PARAMETERS
 	[percentage_rip]: A criterion to filter barcode cells based on the signal-to-noise (percentage of 
 	      reads in peaks). The barcode cells will be filtered out if they having reads percentage in the
 	      aggregation peaks less than the threshold
-			options: 30 (default) or a "numeric" between 0 and 100. Set to 0 if you do not 
+			options: 10 (default) or a "numeric" between 0 and 100. Set to 0 if you do not 
 				 want to filter the cells based on this measurements
 			 			
 	[num_reads_threshold]: A criterion to filter barcode cells. The barcode cells will be filtered out 
 	      if they having the number of properly paired reads less than the threshold. Set to 0 if you do
 	      not want to filter the cells based on this measurements  
-			options: 10000 (default) 
+			options: 1000 (default) 
 			 			
 	[peak_caller]: To specify statistical significant peaks called from macs2 or SEACR method used for 
 	      QC (i.e. cell filtering), countmatrix construction and differential peaks analysis 
