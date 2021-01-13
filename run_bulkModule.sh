@@ -10,7 +10,9 @@
 configrue_file=$1 # $scriptdir/bulk-config.json
 sample_name=$2 # $scriptdir/bulk-config.json
 experiment_name=$sample_name
-SCRIPT=`readlink -f $0`
+# SCRIPT=`readlink -f $0`
+SCRIPT=`echo "$(cd "$(dirname "$0")" && pwd -P)/$(basename "$0")"`
+
 
 SCRIPTPATH=`dirname $SCRIPT`
 scriptdir=$SCRIPTPATH/src/bulk
