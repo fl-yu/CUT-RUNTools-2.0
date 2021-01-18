@@ -64,8 +64,3 @@ If you run into issues and would like to report them, you can use the "Issues" t
 Alternatively, you can contact authors: fulong.yu{at}childrens.harvard.edu, or gcyuan{at}jimmy.harvard.edu.  
 Read our [paper](). Sign up for CUT&RUNTools Google group mailing list to ask questions, receive updates.
 
-
-##To do list:
-
-1. add bulk functions
-2. check and review the manuscript and figure
