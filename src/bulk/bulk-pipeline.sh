@@ -390,7 +390,7 @@ for m in `ls -1 $motif_dir`; do
         mkdir $fimo_d
     fi
     $memebin/fimo --thresh $p --parse-genomic-coord -oc $fimo_d $motif_dir/"$motif".meme $fa_dir/"$mbase".fa
-    $bedopsbin/gff2bed < $fimo_d/fimo.gff | awk 'BEGIN {IFS="\t"; OFS="\t";} {print $sample_name,$2,$3,$4,$5,$6}' > $fimo_d/fimo.bed
+    $bedopsbin/gff2bed < $fimo_d/fimo.gff | awk 'BEGIN {IFS="\t"; OFS="\t";} {print $1,$2,$3,$4,$5,$6}' > $fimo_d/fimo.bed
 done
 >&2 echo "[info] Output can be found: $outdir/$mbase"
 
