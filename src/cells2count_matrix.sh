@@ -10,7 +10,7 @@ genome=$genome # used when activate matrix_type=bin_by_cell
 featureFile=$featureFile # if customFeature_by_cell, a bed file (such as peaks from bulk experiment) to specify the custom features
 bedtoolsbin=$bedtoolsbin
 cores=$cores
-blacklist=$extrasettings/$genome.blacklist.bed
+blacklist=`dirname $scriptdir`/blacklist/$genome.blacklist.bed
 path_parallel=$path_parallel
 scriptdir=$scriptdir
 bash_function_dir=$scriptdir/BASHscript

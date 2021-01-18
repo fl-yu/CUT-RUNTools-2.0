@@ -1,13 +1,9 @@
 ## Example for bulk data analysis
 ### Easy 1-step execution
 
-To walk through the pipeline quickly, we make an small example of GATA1 CUT&RUN dataset from [our paper] (https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1802-4) only containing data from chromosome 11 (can be found in the folder `exampleData` ). It will take roughly less than half an hour to run the entire pipeline from raw sequencing data using a laptop with 4 cores.
+To walk through the pipeline quickly, we make an small example of GATA1 CUT&RUN dataset from [our paper](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1802-4) only containing data from chromosome 11 (can be found in the folder `exampleData` ) to illustrate the usage of our bulk data analysis pipeline. It will take roughly less than half an hour to run the entire pipeline from raw sequencing data using a laptop with 4 cores.
 
-Download and uncompress the example data of two fastq files suffix with R1_001.fastq.gz, and R2_001.fastq.gz in a directory.
-
-```
-unzip exampleData-bulk.zip
-```
+Download the example data with two fastq files suffix with R1_001.fastq.gz, and R2_001.fastq.gz in the `exampleData` folder.
 
 To configure the exampleData_configure.sh file:   
 > specify the *workdir*;  

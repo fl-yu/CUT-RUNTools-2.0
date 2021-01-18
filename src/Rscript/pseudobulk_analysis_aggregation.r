@@ -47,7 +47,7 @@ experi_name <- "groups_aggregation"
 cat(date(), paste(length(grep("*bam$", dir(bam_dir))), "Barcode bam files will be copied and merged ...\n"))
 myfile <- dir(bam_dir)
 # copy the bam files to subgroup dir
-file_copy_result <- file.copy(paste(bam_dir, myfile, sep="/"), paste(scbam_dir, myfile, sep="/"))
+file_copy_result <- file.copy(paste(bam_dir, myfile, sep="/"), paste(scbam_dir, myfile, sep="/"), overwrite=T)
 message("[info] single-cell track generating")
 
 system(paste("chmod +x", paste0(bash_function_dir, "/qbed.sh")))
@@ -128,7 +128,7 @@ system(paste(paste0(samtoolsbin, "/samtools index"), paste0(scPS_dir, "/", "grou
     cat(date(), paste("Generating the bw file...\n"))
     cat(date(), paste("CPM normalization method will be applied...\n"))
     cat(date(), paste("binsize: 10 \n"))
-    cat(date(), paste("Multiple thresholds will be used: ", cores, " \n"))
+    cat(date(), paste("Multiple threads will be used: ", cores, " \n"))
     system(paste(paste0(deeptoolsbin, "/bamCoverage"), "--bam", paste0(scPS_dir, "/", "groups_aggregation", "_pseudo_sort.bam"), "-o",  paste0(scPS_dir, "/", "groups_aggregation", "_pseudo_sort.bw"), "-p", cores, "--binSize 10 --ignoreDuplicates --normalizeUsing CPM --effectiveGenomeSize", eGenomeSize, paste0("> ", macs2dir, "/", "groups_aggregation_bam2wig.log 2>&1")))
 
 

@@ -1,0 +1,36 @@
+--- metrics.py	2018-09-26 07:12:04.316368000 -0400
++++ /home/qz64/.local/lib/python2.7/site-packages/atactk/metrics.py	2017-08-19 14:01:41.574813078 -0400
+@@ -86,7 +86,8 @@
+     if aligned_segment.is_reverse:
+         # the cut point is the reference_end minus (cut_point_offset + 1)
+         # (pysam's reference_end is one past the last aligned residue)
+-        cut_point = aligned_segment.reference_end - (cut_point_offset + 1)
++        #cut_point = aligned_segment.reference_end - (cut_point_offset + 1)
++        cut_point = aligned_segment.reference_end - (cut_point_offset)
+     else:
+         cut_point = aligned_segment.reference_start + cut_point_offset  # start of the read plus offset
+     return cut_point
+@@ -115,11 +116,13 @@
+     cut_points_in_region = []
+     for segment in aligned_segments:
+         cut_point = find_cut_point(segment, cut_point_offset)
+-        if start <= cut_point < end:
++        #if start <= cut_point < end:
++        if start <= cut_point <= end:
+             cut_points_in_region.append(cut_point)
+ 
+     # initialize the region with zero counts
+-    counts = {p: 0 for p in range(start, end)}
++    #counts = {p: 0 for p in range(start, end)}
++    counts = {p: 0 for p in range(start, end+1)}
+ 
+     # add the cut points
+     counts.update(collections.Counter(cut_points_in_region))
+@@ -236,6 +239,7 @@
+             if feature.is_reverse:
+                 # need to orient the cut point positions to the motif in the matrix
+                 forward_cut_points, reverse_cut_points = list(reversed(reverse_cut_points)), list(reversed(forward_cut_points))
++                #forward_cut_points, reverse_cut_points = list(reversed(forward_cut_points)), list(reversed(reverse_cut_points))
+ 
+             # for the discrete matrix: scores for each feature
+             bin_scores.extend(aggregate_scores(forward_cut_points, feature.extension, resolution))

@@ -12,8 +12,9 @@ infile=$fastq_directory/$sample_name
 #expand the path of infile
 # relinfile=`realpath -s $infile`
 dirname=`dirname $infile`
-base=`basename $infile _R1_001.fastq.gz`
->&2 echo "[info] Input file is $infile"
+# base=`basename $infile _R1_001.fastq.gz`
+base=$sample_name
+>&2 echo "[info] Input file is `basename $infile`_R1_001.fastq.gz and `basename $infile`_R2_001.fastq.gz"
 >&2 date
 
 #cd to current directory
@@ -26,7 +27,6 @@ trimdir2=$workdir/trimmed2
 logdir=$workdir/logs
 aligndir=$workdir/aligned
 peakdir=$workdir/peakcalling
-
 
 for d in $trimdir $trimdir2 $logdir $aligndir $peakdir; do
     if [ ! -d $d ]; then
@@ -106,7 +106,7 @@ rm -rf sorted/"$base".step1.bam
 >&2 date
 $javabin/java -jar $picardbin/$picardjarfile MarkDuplicates \
 INPUT=sorted/"$base".bam OUTPUT=dup.marked/"$base".bam VALIDATION_STRINGENCY=SILENT \
-METRICS_FILE=metrics."$base".txt
+METRICS_FILE=metrics."$base".txt 2> $logdir/"$base".mark.dup
 
 >&2 echo "[info] Removing duplicates... ""$base".bam
 >&2 date
@@ -213,6 +213,7 @@ $pythonbin/python $extratoolsbin/get_summits_broadPeak.py $outdirbroad/"$base_fi
 >&2 echo "[info] SEACR stringent peak calling"
 $macs2bin/macs2 callpeak -t $bam_file -g $macs2_genome -f BAMPE -n $base_file --outdir $outdirseac -q 0.01 -B --SPMR --keep-dup all 2> $logdir/"$base_file".seacr
 $pythonbin/python $extratoolsbin/change.bdg.py $outdirseac/"$base_file"_treat_pileup.bdg > $outdirseac/"$base_file"_treat_integer.bdg
+chmod +x $extratoolsbin/SEACR_1.1.sh
 $extratoolsbin/SEACR_1.1.sh $outdirseac/"$base_file"_treat_integer.bdg 0.01 non stringent $outdirseac/"$base_file"_treat $Rscriptbin
 $bedopsbin/sort-bed $outdirseac/"$base_file"_treat.stringent.bed > $outdirseac/"$base_file"_treat.stringent.sort.bed
 $pythonbin/python $extratoolsbin/get_summits_seacr.py $outdirseac/"$base_file"_treat.stringent.bed|$bedopsbin/sort-bed - > $outdirseac/"$base_file"_treat.stringent.sort.summits.bed
@@ -221,14 +222,20 @@ for i in _summits.bed _peaks.xls _peaks.narrowPeak _control_lambda.bdg _treat_pi
 done
 
 
->&2 echo "[info] Converting bedgraph to bigwig... ""$base".bam
+>&2 echo "[info] Generating the normalized signal file with BigWig format... "
 >&2 date
 cd $outdir
-LC_ALL=C sort -k1,1 -k2,2n $outdir/"$base_file"_treat_pileup.bdg > $outdir/"$base_file".sort.bdg
-$extratoolsbin/bedGraphToBigWig $outdir/"$base_file".sort.bdg $chrom_size_file $outdir/"$base_file".sorted.bw
-    rm -rf $outdir/"$base_file".sort.bdg
-    cp $outdir/"$base_file".sorted.bw $outdirbroad
-    cp $outdir/"$base_file".sorted.bw $outdirseac
+
+# LC_ALL=C sort -k1,1 -k2,2n $outdir/"$base_file"_treat_pileup.bdg > $outdir/"$base_file".sort.bdg
+# $extratoolsbin/bedGraphToBigWig $outdir/"$base_file".sort.bdg $chrom_size_file $outdir/"$base_file".sorted.bw # use deeptools
+#     rm -rf $outdir/"$base_file".sort.bdg
+$path_deeptools/bamCoverage --bam $bam_file -o $outdir/"$base_file".cpm.norm.bw \
+    --binSize 10 \
+    --normalizeUsing CPM \
+    --effectiveGenomeSize $eGenomeSize \
+    --numberOfProcessors $cores 2> $logdir/"$base".gene.bw
+cp $outdir/"$base_file".cpm.norm.bw $outdirbroad
+cp $outdir/"$base_file".cpm.norm.bw $outdirseac
 if [ "$spike_in_align" == "TRUE" ]
 then 
     if [ "$spikein_reads" == "0" ] || [ "$spike_in_norm" == "FALSE" ]
@@ -283,7 +290,6 @@ fi
 #
 # motif discovery
 #
-motif_discovery
 peak_file=$peak_file #filename must end with .narrowPeak or .bed (if SEACR)
 >&2 echo "[info] Input file is $peak_file"
 
@@ -295,9 +301,9 @@ dirname=`dirname $peak_file`
 cd $dirname
 
 for d in blacklist_filtered; do
-if [ ! -d $d ]; then
-mkdir $d
-fi
+    if [ ! -d $d ]; then
+        mkdir $d
+    fi
 done
 
 fname=$base_file
@@ -308,15 +314,14 @@ summitfa=$fname$summit_padded_suffix
 cat $peak | grep -v -e "chrM" | $bedopsbin/sort-bed - | $bedopsbin/bedops -n 1 - $blacklist > blacklist_filtered/$peak
 cat $summit | grep -v -e "chrM" | $bedopsbin/sort-bed - | $bedopsbin/bedops -n 1 - $blacklist > blacklist_filtered/$summit
 
-
 motif_dir=random$num_peaks
 msummit=$motif_dir/summits
 mpadded=$motif_dir/padded
 mpaddedfa=$motif_dir/padded.fa
 for d in $motif_dir $msummit $mpadded $mpaddedfa; do
-if [ ! -d $d ]; then
-mkdir $d
-fi
+    if [ ! -d $d ]; then
+        mkdir $d
+    fi
 done
 
 >&2 echo "[info] Get randomized [$num_peaks] peaks from the top [$total_peaks] peaks..."
@@ -327,11 +332,6 @@ then
 else
     cat blacklist_filtered/$peak | sort -t$'\t' -g -k5 -r | head -n $total_peaks | shuf | head -n $num_peaks | $bedopsbin/sort-bed - > $motif_dir/$peak
 fi
-        "num_bp_from_summit": 150, 
-        "num_peaks": 1000, 
-        "total_peaks": 5000, 
-        "motif_scanning_pval": 0.0005, 
-        "num_motifs": 10
 
 $bedopsbin/bedops -e 1 blacklist_filtered/$summit $motif_dir/$peak > $msummit/$summit
 $bedopsbin/bedops --range $num_bp_from_summit -u $msummit/$summit > $mpadded/$summit
@@ -339,7 +339,7 @@ $bedopsbin/bedops --range $num_bp_from_summit -u $msummit/$summit > $mpadded/$su
 $bedtoolsbin/bedtools getfasta -fi $genome_sequence -bed $mpadded/$summit -fo $mpaddedfa/$summitfa
 
 >&2 echo "[info] Start MEME analysis for de novo motif finding ..."
->&2 echo "[info] Up to $num_motif will be output ..."
+>&2 echo "[info] Up to $num_motifs will be output ..."
 meme_outdir=$motif_dir/MEME_"$fname"_shuf
 $memebin/meme-chip -oc $meme_outdir -dreme-m $num_motifs -meme-nmotifs $num_motifs $mpaddedfa/$summitfa
 >&2 echo "[info] De Novo motifs can be found: $meme_outdir ..."
@@ -373,7 +373,7 @@ if [ ! -d $dir ] || [ ! -f $dir/$peak ] ; then
 fi
 >&2 echo "[info] Getting Fasta sequences"
 $bedtoolsbin/bedtools getfasta -fi $genome_sequence -bed $workdir/$dir/$peak -fo $fa_dir/"$mbase".fa
-$pythonbin/python fix_sequence.py $fa_dir/"$mbase".fa
+$pythonbin/python $extrasettings/fix_sequence.py $fa_dir/"$mbase".fa
 
 outdir=fimo.result
 for d in $outdir $outdir/$mbase; do
@@ -390,7 +390,7 @@ for m in `ls -1 $motif_dir`; do
         mkdir $fimo_d
     fi
     $memebin/fimo --thresh $p --parse-genomic-coord -oc $fimo_d $motif_dir/"$motif".meme $fa_dir/"$mbase".fa
-    $bedopsbin/gff2bed < $fimo_d/fimo.gff | awk 'BEGIN {IFS="\t"; OFS="\t";} {print $sample_name,$2,$3,$4,$5,$6}' > $fimo_d/fimo.bed
+    $bedopsbin/gff2bed < $fimo_d/fimo.gff | awk 'BEGIN {IFS="\t"; OFS="\t";} {print $1,$2,$3,$4,$5,$6}' > $fimo_d/fimo.bed
 done
 >&2 echo "[info] Output can be found: $outdir/$mbase"
 
@@ -400,17 +400,7 @@ done
 workdir=`pwd`
 dir=`dirname $bam_file`
 bambase=`basename $bam_file .bam`
-
-dest=centipede.bam
-outbam=$dest/"$bambase".bam
-if [ ! -d $dest ]; then
-    mkdir $dest
-fi
-
-cd $dest
-ln -s ../../aligned/"$mbase".bam .
-ln -s ../../aligned/"$mbase".bam.bai .
-cd ..
+outbam=$bam_file
 
 fimo_dir=$outdir/$mbase
 
@@ -420,7 +410,11 @@ for i in `ls -1 $fimo_dir`; do #shows a list of motifs
     tmp=`echo $i|cut -d "." -f3 | wc -c`
     mlen=$(( tmp - 1 ))
     $makecutmatrixbin/make_cut_matrix -v -b '(25-150 1)' -d -o 0 -r 100 -p 1 -f 3 -F 4 -F 8 -q 0 $outbam $fimo_d/fimo.bed > $fimo_d/fimo.cuts.freq.txt
-    $Rscriptbin/Rscript run_centipede_parker.R $fimo_d/fimo.cuts.freq.txt $fimo_d/fimo.bed $fimo_d/fimo.png $mlen
+    $Rscriptbin/Rscript $extratoolsbin/run_centipede_parker.R $fimo_d/fimo.cuts.freq.txt $fimo_d/fimo.bed $fimo_d/fimo.png $mlen
 done
 
+echo "# "
+echo "#        Congrats! The bulk data analysis is complete!"
+echo "# "
+echo "--------------------------------------------------------------------------"
 

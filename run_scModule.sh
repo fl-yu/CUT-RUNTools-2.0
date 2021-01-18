@@ -8,14 +8,16 @@
 # A copy of the GNU General Public License has been distributed along with CUT&RUNTools and is found in LICENSE.md.
 
 configrue_file=$1 # $scriptdir/sc-config.json
-SCRIPT=`realpath $0`
+SCRIPT=`readlink -f $0`
 SCRIPTPATH=`dirname $SCRIPT`
 scriptdir=$SCRIPTPATH/src
 
+
 # convert configuration JSON files to bash variables
 eval "$(jq -r '.software_config | to_entries | .[] | .key + "=\"" + .value + "\""' < $configrue_file)"
-eval "$(jq -r '.sc_parameters | to_entries | .[] | .key + "=\"" + .value + "\""' < $configrue_file)"
+eval "$(jq -r '.input_output | to_entries | .[] | .key + "=\"" + .value + "\""' < $configrue_file)"
 eval "$(jq -r '.run_pipeline | to_entries | .[] | .key + "=\"" + .value + "\""' < $configrue_file)"
+
 
 workdir=$workdir/$experiment_name
 

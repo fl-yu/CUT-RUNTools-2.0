@@ -12,13 +12,13 @@ tar -zxvf exampleData-sc.tar.gz
 To configure the exampleData_configure.sh file:   
 > specify the *workdir*;  
   specify the *fastqdir* parameter as the folder of exampleData;  
-  make sure you have successfully installed pre-requsite software, set the paths and validate the bulk-config.json file  
+  make sure you have successfully installed pre-requsite software, set the paths and validate the bulk-config.json file (**make sure to set both of `percentage_rip` and `num_reads_threshold` as 0, and set `matrix_type` as bin_by_cell when you use the example data**)
 
 Then you can simply run the following command to perform the entire pipeline.
 
 ```
 chmod +x ./run_scModule.sh   
-./run_scModule.sh /path/to/scCutRunTools/src sc-config.json
+./run_scModule.sh /path/to/sc-config.json
 ```
 
 What happens next is that CUT&RUNTools will sequentially run the analysis pipeline, see the [Usages](./sc-USAGE.md) and output [Directory Structure](./sc-DIRECTORY.md) for details. 
