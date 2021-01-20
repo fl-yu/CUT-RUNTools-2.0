@@ -1,0 +1,3 @@
+ID,name,Binom_Genome_Fraction,Binom_Expected,Binom_Observed_Region_Hits,Binom_Fold_Enrichment,Binom_Region_Set_Coverage,Binom_Raw_PValue,Binom_Adjp_BH,Hyper_Total_Genes,Hyper_Expected,Hyper_Observed_Gene_Hits,Hyper_Fold_Enrichment,Hyper_Gene_Set_Coverage,Hyper_Term_Gene_Coverage,Hyper_Raw_PValue,Hyper_Adjp_BH
+GO:0031295,T cell costimulation,0.004978257,7.268256,33,4.540291,0.02260274,2.181968e-12,1.99180342777778e-10,66,3.291283,15,4.557494,0.01621622,0.2272727,6.447441e-07,0.0077808606975
+GO:0031294,lymphocyte costimulation,0.005152988,7.523363,33,4.386336,0.02260274,5.350849e-12,4.59718366699346e-10,69,3.440886,15,4.359342,0.01621622,0.2173913,1.183851e-06,0.0077808606975
