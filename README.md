@@ -19,7 +19,7 @@ CUT&RUNTools 2.0 is a major update of CUT&RUNTools [(link)](https://bitbucket.or
 
 *Bulk data analysis update* 
 
-- supporting spike-in sequence alignment and data normalizaion
+- supporting spike-in sequence alignment and data normalization
 - options of experiment for CUT&RUN or CUT&Tag data analysis  
 - flexiable option for fragments selections (>120bp) 
 - supporting different peak calling strategies 
