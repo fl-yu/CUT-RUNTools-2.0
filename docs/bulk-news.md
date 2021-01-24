@@ -1,7 +1,7 @@
 
 #### New features for bulk data analysis
 
-In this release, we provided several new features in the following which are urgently needed from the feedback of the community. Also, we slightly revised the design of our code to be more flexible and handy for data processing and analysis.
+In this release, we provided several new features in the following which are urgently needed from the feedback of the community. Also, we slightly revised the design of our code to be more flexible and user-friendly for data processing and analysis.
 - *supporting spike-in sequence alignment and data normalization*   
     Users can provide spike-in genome data (usually E.coli or fly genome) to align their fastq data. The statistic of aligned spike-in reads can be used for normalization of CUT&RUN or CUT&Tag 
 - *option of the experiment for CUT&RUN or CUT&Tag data analysis*  
