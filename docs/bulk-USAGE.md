@@ -73,7 +73,7 @@ A sample configuration file is below.
 PARAMETERS
 ----------
 
-	[fastq_directory]: A folder containing all the fastq files of barcode cells, pattern with ***_R1_001.fastq.gz
+	[fastq_directory]: A folder containing all the paired ended fastq files with the patterns of ***_R1_001.fastq.gz
 		and ***_R2_001.fastq.gz 
 			options: NO default 
 			 			
@@ -86,15 +86,17 @@ PARAMETERS
 	[organism_build]: Reference genome version 
 			options: hg38, hg19 (default), mm10 or mm9
 			 			
-	[spike_in_align]: Whether align the trimmed fastq files to the spike-in genome. Make sure you provided 
-		the spike-in genome information if you set this as TRUE
+	[spike_in_align]: Whether align the trimmed fastq files to the spike-in genome. Make sure that you provided 
+		the spike-in genome information in the software_config section if you set this as TRUE
 			options: TRUE or FALSE (default)
 			 			
-	[spike_in_norm]: Whether normalize the signal file (bigwig) based on spike-in reads. Note that the
-		normalization will not be performed if the spike-in reads number is 0.
+	[spike_in_norm]: Whether normalize the signal file (bigwig) based on spike-in reads. Note that the software
+		will check the read number, normalization will not be performed if the spike-in read number is 0.
+		The resulting bigwig files but not the BAM files will be normalized .
 			options: TRUE or FALSE (default)
 			 			
-	[spikein_scale]: A scale number for spike-in normalization. The scale factor is calculated as (spikein_scale)/(spike-in reads) 
+	[spikein_scale]: A scale number for spike-in normalization. The scale factor is calculated as 
+		(spikein_scale)/(spike-in reads). The resulting bigwig files but not the BAM files will be normalized.
 			options: 10000 (default) 
 			 			
 	[frag_120]: Whether filter the bam files based on the cretiria of fragment size 120
@@ -105,10 +107,11 @@ PARAMETERS
 		peaks and seacr peaks) can be found in the 'peakcalling' directory. he narrow peak mode is suitable for a  
 	        typical TF, while the broad peak mode is good to use for the chromatin factors generally having 
 	        a large binding domain or epigenetic modification such as H3K27me3 or H3K9me3 having dispersed 
-	        localization
+	        localization. By default, our software will generate all three peak calling results and this parameter
+		could decide which peaks would be used in the following analysis such as TF direct binding analysis
 			options: macs2 (default) or SEACR
 			 			
-	[dup_peak_calling]: Whether the reads with duplication will be used in the peak calling step 
+	[dup_peak_calling]: Whether the reads (BAM file) with duplication or not will be used in the peak calling step 
 			options: TRUE or FALSE (default)
 			
 	[cores]: How many threads will be used by parallel in the software such as bowtie2 and samtool..
@@ -116,7 +119,8 @@ PARAMETERS
 			 			
 	[experiment_type]: CUT&Tag reads (bam files) should be shifted + 4 bp and − 5 bp for positive and 
 		negative strand respectively, to account for the 9-bp duplication created by DNA repair of the nick 
-		by Tn5 transposase and achieve 	base-pair resolution of TF footprint and motif-related analyses.  
+		by Tn5 transposase and achieve base-pair resolution of TF footprint and motif-related analyses. The
+		resulting BAM files and following analysis such as TF direct binding analyis will be affected.
 			options: CUT&RUN or CUT&Tag (default)
 			 			
 
