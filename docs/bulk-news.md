@@ -9,7 +9,7 @@ In this release, we provided several new features in the following which are urg
 - *flexible option for fragments selections (>120bp)*  
     Reads filter step (size 120 bp) is good to find the enriched signal for TF data, while it is not suitable for histone modification data whose fragment size generally large than 150 bp. CUT&RUN 2.0 now provides a new option for the user to select whether to perform this fragment selection according to their data type.
 - *different peak calling strategies and new functions for peaks annotation*  
-    As different types of data including different TFs and histone modifications can be broadly detected by CUT&RUN and CUT&Tag methods, three commonly used peak calling methods including MACS2 narrow, MACS2 broad and SEACR were provided in CUT&RUN 2.0. Several peak annotation functions were also provided.
+    As different types of data including different TFs and histone modifications can be broadly detected by CUT&RUN and CUT&Tag methods, three commonly used peak calling methods including MACS2 narrow, MACS2 broad and SEACR were provided in CUT&RUN 2.0. Several peak annotation functions were also provided (user could find them in the /src/bulk folder.
 - *compatible with more computational platforms*    
     To compatible with more computational platforms for bulk data analysis, the requirement of the SLURM job submission environment was removed. 
 
