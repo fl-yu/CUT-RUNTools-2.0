@@ -43,7 +43,7 @@ bedtools intersect -a $peak_file2 \
 peak_num1=`wc -l < $outputdir/nooverlap_peak1.bed`
 peak_num2=`wc -l < $outputdir/nooverlap_peak2.bed`
 peak_num3=`wc -l < $outputdir/overlap_peak1.bed`
-echo "[INFO] Overlapping peak number: $peak_num3"
+echo "[INFO] Overlapping peaks number: $peak_num3"
 Rscript $rscript_dir/PeakOverlap.r $peak_num1 $peak_num2 $peak_num3 $outputdir 
 
 echo "---------------------------End here--------------------------------------"
