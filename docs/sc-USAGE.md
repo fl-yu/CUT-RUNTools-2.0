@@ -100,7 +100,7 @@ PARAMETERS
 		and ***_2.fastq.gz 
 			options: NO default 
 			 			
-	[workdir]: A folder containg all the output of data processing and analysis
+	[workdir]: A folder containing all the output of data processing and analysis
 			options: NO default 
 	
 	[genome]: Reference genome version 
