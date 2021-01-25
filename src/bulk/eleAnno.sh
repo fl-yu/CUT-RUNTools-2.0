@@ -55,6 +55,6 @@ Rscript $rscript_dir/eleAnno.r peak_ele_overlap.temp.count peak.temp.count $outp
 
 echo "---------------------------End here--------------------------------------"
 
-# cd /Users/fulongyu/github/CUT-RUNTools-2.0/src/bulk
+# cd /Users/fyu/Documents/GitHub/CUT-RUNTools-2.0/src/bulk
 # chmod +x *
-# ./eleAnno.sh /Users/fulongyu/github/CUT-RUNTools-2.0/test/FLI1_fimo.bed /Users/fulongyu/github/CUT-RUNTools-2.0/test/hg38_genomic_element /Users/fulongyu/github/CUT-RUNTools-2.0/test
+# ./eleAnno.sh /Users/fyu/Documents/GitHub/CUT-RUNTools-2.0/test/FLI1_fimo.bed /Users/fyu/Documents/GitHub/CUT-RUNTools-2.0/test/hg38_genomic_element /Users/fyu/Documents/GitHub/CUT-RUNTools-2.0/test
