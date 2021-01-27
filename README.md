@@ -64,6 +64,6 @@ If you run into issues and would like to report them, you can use the "Issues" t
 Alternatively, you can contact authors: fulong.yu{at}childrens.harvard.edu, or gcyuan{at}jimmy.harvard.edu.  
 
 ## Read our paper:  
-*CUT&RUNTools 2.0: A pipeline for single-cell and bulk-level CUT&RUN and CUT&Tag data analysis*; bioRxiv (https://doi.org/10.1101/2021.01.26.428013)  
+*CUT&RUNTools 2.0: A pipeline for single-cell and bulk-level CUT&RUN and CUT&Tag data analysis*; bioRxiv (https://www.biorxiv.org/content/10.1101/2021.01.26.428013v1)  
 *CUT&RUNTools: a flexible pipeline for CUT&RUN processing and footprint analysis* Genome Biol 20, 192; 2019 (https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1802-4)
 
