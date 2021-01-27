@@ -62,7 +62,7 @@ See [Directory Structure](docs/sc-DIRECTORY.md) for basic structure of input and
 
 ## Read our paper:  
 *CUT&RUNTools 2.0: A pipeline for single-cell and bulk-level CUT&RUN and CUT&Tag data analysis*; bioRxiv (https://www.biorxiv.org/content/10.1101/2021.01.26.428013v1)  
-*CUT&RUNTools: a flexible pipeline for CUT&RUN processing and footprint analysis* Genome Biol 20, 192; 2019 (https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1802-4)  
+*CUT&RUNTools: a flexible pipeline for CUT&RUN processing and footprint analysis*; Genome Biol; 2019 (https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1802-4)  
 
 
 If you run into issues and would like to report them, you can use the "Issues" tab on the left hand side.  
