@@ -64,6 +64,6 @@ See [Directory Structure](docs/sc-DIRECTORY.md) for basic structure of input and
 
 
 If you run into issues and would like to report them, you can use the "Issues" tab on the left hand side.  
-Alternatively, you can contact authors: fyu{at}broadinstitute.org, or gcyuan{at}jimmy.harvard.edu.  
+Alternatively, you can contact authors: fyu{at}broadinstitute.org or guo-cheng.yuan{at}mssm.edu .  
 
 
