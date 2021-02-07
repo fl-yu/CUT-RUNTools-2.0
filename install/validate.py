@@ -96,8 +96,8 @@ if __name__=="__main__":
 		sys.exit(1)
 	if not check_program_exists(config["software_config"]["bedtoolsbin"], "bedtools"):
 		sys.exit(1)
-	if not check_program_exists(config["software_config"]["makecutmatrixbin"], "make_cut_matrix"):
-		sys.exit(1)
+#	if not check_program_exists(config["software_config"]["makecutmatrixbin"], "make_cut_matrix"):
+#		sys.exit(1)
 	if not check_program_exists(config["software_config"]["Rscriptbin"], "Rscript"):
 		sys.exit(1)
 	if not check_program_exists(config["software_config"]["pythonbin"], "python"):
