@@ -117,7 +117,7 @@ We provided script or method to download the reference genome and bowtie2 indexe
 
 ```
 chmod +x assemblies.install.sh
-assemblies.install.sh hg19 /path/to/bedtools
+./assemblies.install.sh hg19 /path/to/bedtools
 ```
 To download proper indexes of bowtie2, just use the either the downloads on the [Bowtie2 homepage] (http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) or the [Illumina iGenomes] (https://support.illumina.com/sequencing/sequencing_software/igenome.html).  
 
