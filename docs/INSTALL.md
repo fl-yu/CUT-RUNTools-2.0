@@ -113,7 +113,7 @@ source make_kseq_test.sh
 ```
 
 **Part 5.**  
-We provided script or method to download the reference genome and bowtie2 indexes. The genome sequence of a specific organism build (such as hg19, hg38) is required for genome alignment and motif discovery. We provide a script `assemblies.install` to download this automatically from UCSC. We specifically require repeat-**masked** version of genome sequence file. Two parameters were needed to be specified by the user, genome assembly (hg38, hg19, mm10 or mm9) and the path of software bedtools. 
+We provided script or method to download the reference genome and bowtie2 indexes. The genome sequence of a specific organism build (such as hg19, hg38) is required for genome alignment and motif discovery. We provide a script `assemblies.install` to download this automatically from UCSC. Two parameters were needed to be specified by the user, genome assembly (hg38, hg19, mm10 or mm9) and the path of software bedtools. 
 
 ```
 chmod +x assemblies.install.sh
