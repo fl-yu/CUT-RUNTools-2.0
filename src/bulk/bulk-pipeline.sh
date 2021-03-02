@@ -410,7 +410,7 @@ for i in `ls -1 $fimo_dir`; do #shows a list of motifs
     tmp=`echo $i|cut -d "." -f3 | wc -c`
     mlen=$(( tmp - 1 ))
     $makecutmatrixbin/make_cut_matrix -v -b '(25-150 1)' -d -o 0 -r 100 -p 1 -f 3 -F 4 -F 8 -q 0 $outbam $fimo_d/fimo.bed > $fimo_d/fimo.cuts.freq.txt
-    $Rscriptbin/Rscript $extratoolsbin/run_centipede_parker.R $fimo_d/fimo.cuts.freq.txt $fimo_d/fimo.bed $fimo_d/fimo.png $mlen
+    $Rscriptbin/Rscript $extratoolsbin/run_centipede_parker.R $fimo_d/fimo.cuts.freq.txt $fimo_d/fimo.bed $fimo_d/fimo.pdf $mlen
 done
 
 echo "# "
