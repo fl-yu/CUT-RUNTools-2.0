@@ -34,7 +34,7 @@ else
 fi
 
 # 
-# we just use getfast function to generate index for the genome.fa file (create *.fai index file), so you don't need have a real bed file
+# we just use getfasta function to generate an index for the genome.fa file (create *.fai index file), so you don't need to have a real bed file here
 echo "[info] Please ignore the following error if corresponding index file is generated"
 $bedtoolsbin/bedtools getfasta -fi ${organism_build}.fa -bed ignore_this.bed
 # rm -rf chr*.fa.masked
