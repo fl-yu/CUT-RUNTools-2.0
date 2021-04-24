@@ -11,7 +11,7 @@ if(packageVersion("BiocManager") < "1.30.10"){
 message(paste("#### Install R packages #### "))
 
 # CRAN packages
-cran.pkgs <- c("devtools", "reticulate", "leiden", "data.table", "Matirx", "irlba", "igraph",
+cran.pkgs <- c("devtools", "reticulate", "leiden", "data.table", "Matrix", "irlba", "igraph",
   "uwot", "ggplot2")
 for(i in cran.pkgs){
     if(!require(i, character.only = T)) {
