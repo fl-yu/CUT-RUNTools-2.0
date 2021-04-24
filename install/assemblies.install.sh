@@ -21,18 +21,23 @@ else
     echo "Only support hg38, hg19, mm10 or mm9, please check your parameter.."
 fi
 
-
 cur=`pwd`
 mkdir -p assemblies/$organism_build
 cd assemblies/$organism_build
 wget $url -O chromFaMasked.tar.gz
 tar -zxf chromFaMasked.tar.gz
-#ls -1 maskedChroms/chr*.fa|xargs cat > hg38.fa
-ls -1 chr*.fa.masked | xargs cat > ${organism_build}.fa
-#should create *.fai index file
-$bedtoolsbin/bedtools getfasta -fi ${organism_build}.fa -bed ../../sample.bed
-#rm -rf chr*.fa.masked
+if [ "$organism_build" == "hg38" ]
+then
+    ls -1 maskedChroms/chr*.fa |xargs cat > ${organism_build}.fa
+else
+    ls -1 chr*.fa.masked | xargs cat > ${organism_build}.fa
+fi
+
+# 
+# we just use getfast function to generate index for the genome.fa file (create *.fai index file), so you don't need have a real bed file
+echo "[info] Please ignore the following error if corresponding index file is generated"
+$bedtoolsbin/bedtools getfasta -fi ${organism_build}.fa -bed ignore_this.bed
+# rm -rf chr*.fa.masked
 cd $cur
 
-
-echo "Genome assembly ${organism_build} was installed and the corresponding index file is generated.."
+echo "[info] Genome assembly ${organism_build} was installed and the corresponding index file is generated.."
