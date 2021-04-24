@@ -23,6 +23,7 @@ write.table(fit$LambdaParList[[1]], paste(out_prefix, ".lambda.txt", sep=""), se
 write.table(fit$PostPr, paste(out_prefix, ".postpr.txt", sep=""), sep="\t", col.names=F, row.names=F)
 write.table(fit$LogRatios, paste(out_prefix, ".logratio.txt", sep=""), sep="\t", col.names=F, row.names=F)
 
-png(png_file, type="cairo")
+#png(png_file, type="cairo")
+pdf(png_file)
 plotProfile(fit$LambdaParList[[1]], Mlen=mlen) #changed
 dev.off()

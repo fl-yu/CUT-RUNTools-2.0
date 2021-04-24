@@ -247,9 +247,9 @@ then
         scale_factor=`printf "%.0f" $(echo "$scale / $spikein_reads"|bc)`
         >&2 echo scale_factor=$scale_factor
         bamCoverage --bam $bam_file -o $outdir/"$base_file".spikein_normalized.bw \
-        --binSize 10
-        --normalizeUsing cpm
-        --effectiveGenomeSize $eGenomeSize
+        --binSize 10 \
+        --normalizeUsing cpm \
+        --effectiveGenomeSize $eGenomeSize \
         --scaleFactor $scale_factor
         cp $outdir/"$base_file".spikein_normalized.bw $outdirbroad
         cp $outdir/"$base_file".spikein_normalized.bw $outdirseac
@@ -410,7 +410,7 @@ for i in `ls -1 $fimo_dir`; do #shows a list of motifs
     tmp=`echo $i|cut -d "." -f3 | wc -c`
     mlen=$(( tmp - 1 ))
     $makecutmatrixbin/make_cut_matrix -v -b '(25-150 1)' -d -o 0 -r 100 -p 1 -f 3 -F 4 -F 8 -q 0 $outbam $fimo_d/fimo.bed > $fimo_d/fimo.cuts.freq.txt
-    $Rscriptbin/Rscript $extratoolsbin/run_centipede_parker.R $fimo_d/fimo.cuts.freq.txt $fimo_d/fimo.bed $fimo_d/fimo.png $mlen
+    $Rscriptbin/Rscript $extratoolsbin/run_centipede_parker.R $fimo_d/fimo.cuts.freq.txt $fimo_d/fimo.bed $fimo_d/fimo.pdf $mlen
 done
 
 echo "# "

@@ -11,7 +11,7 @@ then
 elif [ "$organism_build" == "hg19" ]
 then
     url=http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/chromFaMasked.tar.gz
-elif [ "$organism_build" == "mm10" ]
+elif [ "$organism_build" == "mm9" ]
 then
     url=http://hgdownload.cse.ucsc.edu/goldenPath/mm9/bigZips/chromFaMasked.tar.gz
 elif [ "$organism_build" == "mm10" ]
