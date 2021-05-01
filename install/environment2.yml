@@ -1,8 +1,5 @@
 name: meme
-channels:
-- bioconda
-- bioconda/label/cf201901
 dependencies:
 - python=3.6
-- meme
+- bioconda/label/cf201901::meme
   
