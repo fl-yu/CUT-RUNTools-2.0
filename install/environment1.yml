@@ -1,20 +1,16 @@
 name: cutruntools2
-channels:
-- bioconda
-- bioinfo
-- conda-forge
 dependencies:
 - python=3.6
-- bowtie2
-- samtools
-- bedops
-- bedtools
-- deeptools
-- parallel
-- tabix
+- bioconda::bowtie2
+- bioconda::samtools
+- bioinfo:macs2
+- bioconda::bedops
+- bioconda::bedtools
+- bioconda::deeptools
+- conda-forge::parallel
+- bioconda::tabix
 - pip
 - pip:
   - umap-learn
   - leidenalg
   - igraph
-  
