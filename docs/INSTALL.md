@@ -3,6 +3,10 @@
 CUT&RUNTools 2.0 requires **Python** (>=3.6), **R** (>=3.3), **Java** (>=1.8) and **Perl**. Installation also requires **GCC** to compile some C-based source code. Additionally, the following required tools should be already installed before running the setup.   
 
 ## Prerequisites
+**In order to install the dependencies in Part 1 & 3, you can run the following commands to create conda environments with CUT&RUNTools's dependencies:**  
+`conda env create --file environment1.yml`  
+`conda env create --file environment2.yml`  
+**Otherwise, you could intall the dependencies separately as follow.**
 
 **Part 1.**  
 CUT&RUNTools 2.0 may work with different version of each tool.
