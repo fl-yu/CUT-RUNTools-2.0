@@ -119,7 +119,7 @@ source make_kseq_test.sh
 ```
 
 **Part 5.**  
-We provided script or method to download the reference genome and bowtie2 indexes. The genome sequence of a specific organism build (such as hg19, hg38) is required for genome alignment and motif discovery. We provide a script `assemblies.install` to download this automatically from UCSC. Two parameters were needed to be specified by the user, genome assembly (hg38, hg19, mm10 or mm9) and the path of software bedtools. 
+**[optional]** We provided script or method to download the reference genome and bowtie2 indexes. The genome sequence of a specific organism build (such as hg19, hg38) is required for genome alignment and motif discovery. We provide a script `assemblies.install` to download this automatically from UCSC. Two parameters were needed to be specified by the user, genome assembly (hg38, hg19, mm10 or mm9) and the path of software bedtools. 
 
 ```
 chmod +x assemblies.install.sh
@@ -128,7 +128,7 @@ chmod +x assemblies.install.sh
 To download proper indexes of bowtie2, just use the either the downloads on the [Bowtie2 homepage] (http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) or the [Illumina iGenomes] (https://support.illumina.com/sequencing/sequencing_software/igenome.html).  
 
 **Part 6.**  
-In this part, some necessary tools and data were already contained in CUT&RUNTools, so no installation is required.  
+**[optional]** In this part, some necessary tools and data were already contained in CUT&RUNTools, so no installation is required.  
 * SEACR (1.3) [link](https://github.com/FredHutch/SEACR)  
 * picard (0.1.8) [link](http://broadinstitute.github.io/picard/command-line-overview.html)  
 * trimmomatic (0.36) [link](https://github.com/timflutre/trimmomatic)  
