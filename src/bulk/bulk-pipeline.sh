@@ -246,9 +246,9 @@ then
         scale=$spikein_scale
         scale_factor=`printf "%.0f" $(echo "$scale / $spikein_reads"|bc)`
         >&2 echo scale_factor=$scale_factor
-        bamCoverage --bam $bam_file -o $outdir/"$base_file".spikein_normalized.bw \
+        $path_deeptools/bamCoverage --bam $bam_file -o $outdir/"$base_file".spikein_normalized.bw \
         --binSize 10 \
-        --normalizeUsing cpm \
+        --normalizeUsing CPM \
         --effectiveGenomeSize $eGenomeSize \
         --scaleFactor $scale_factor
         cp $outdir/"$base_file".spikein_normalized.bw $outdirbroad
