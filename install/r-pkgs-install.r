@@ -41,7 +41,7 @@ for(i in bioc.pkgs){
 # check if all the required packages were installed
 # 
 pkg <- c(cran.pkgs, indi.pkgs, bioc.pkgs, "CENTIPEDE")
-if(any(! pkg %in% rownames(installed.packages()))){
+if(all(pkg %in% rownames(installed.packages()))){
     message(paste("#### All the R packages were installed successfully ! #### \n"))
 } else {
     message(paste("#### Some packages were not installed successfully ! #### \n"))
