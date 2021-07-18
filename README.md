@@ -59,7 +59,11 @@ See [Directory Structure](docs/sc-DIRECTORY.md) for basic structure of input and
 
 ## News:  
 
+*Here are the new updates after first publication of CUT&RUNTools 2.0 (07/15/2021).*  
+*We are really appreciated that all the users who used this tool and gave the feedback, riased issues, fixed the bugs and pulled requests, with us together to make this tool better.*  
+
 xxxxxxxx
+
 
 ## Read our paper:  
 [CUT&RUNTools 2.0: A pipeline for single-cell and bulk-level CUT&RUN and CUT&Tag data analysis](https://doi.org/10.1093/bioinformatics/btab507), *Bioinformatics*, 2021
