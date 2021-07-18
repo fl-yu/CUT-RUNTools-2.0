@@ -57,6 +57,9 @@ See [Directory Structure](docs/sc-DIRECTORY.md) for basic structure of input and
 
 <p align="center">The schematic view of the single-cell data processing module of CUT&RUNTools</p>  
 
+## News:  
+
+xxxxxxxx
 
 ## Read our paper:  
 [CUT&RUNTools 2.0: A pipeline for single-cell and bulk-level CUT&RUN and CUT&Tag data analysis](https://doi.org/10.1093/bioinformatics/btab507), *Bioinformatics*, 2021
