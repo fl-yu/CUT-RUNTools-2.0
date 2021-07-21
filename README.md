@@ -66,7 +66,7 @@ xxxxxxxx
 
 ## FAQs:  
 
-1. MEME do not work (discussed in [issue 20](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/20), [issue 15](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/15), [issue 2](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/2))  
+1. MEME does not work (discussed in [issue 20](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/20), [issue 15](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/15), [issue 2](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/2))  
 potential solution for installazation of MEME
 ```
 conda create -n meme meme=5.0.5 python=3.7
