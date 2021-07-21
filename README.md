@@ -57,17 +57,11 @@ See [Directory Structure](docs/sc-DIRECTORY.md) for basic structure of input and
 
 <p align="center">The schematic view of the single-cell data processing module of CUT&RUNTools</p>  
 
-## News:  
-
-*Here are the new updates after first publication of CUT&RUNTools 2.0 (07/15/2021).*  
-*We are really appreciated that all the users who used this tool and gave the feedback, riased issues, fixed the bugs and pulled requests, with us together to make this tool better.*  
-
-xxxxxxxx
 
 ## FAQs:  
 
-1. MEME does not work (discussed in [issue 20](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/20), [issue 15](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/15), [issue 2](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/2))  
-potential solution for installazation of MEME
+1. MEME does not work (well discussed in [issue 20](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/20), [issue 15](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/15), [issue 2](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/2))  
+potential solution: re-install MEME with either command
 ```
 conda create -n meme meme=5.0.5 python=3.7
 conda activate meme
@@ -78,6 +72,13 @@ conda activate meme
 conda install ‘meme=5.0.2’ ‘icu=58.2’
 ```
 
+## News:  
+
+*Here are the new updates after first publication of CUT&RUNTools 2.0 (07/15/2021).*  
+*We are really appreciated that all the users who used this tool and gave the feedback, riased issues, fixed the bugs and pulled requests, with us together to make this tool better.*  
+
+xx/xx/xxxx - working on script of single locus and input control support  
+07/21/2021 - bugs fixed
 
 ## Read our paper:  
 [CUT&RUNTools 2.0: A pipeline for single-cell and bulk-level CUT&RUN and CUT&Tag data analysis](https://doi.org/10.1093/bioinformatics/btab507), *Bioinformatics*, 2021
