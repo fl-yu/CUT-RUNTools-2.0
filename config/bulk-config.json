@@ -23,7 +23,7 @@
         "adapterpath": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/adapters", 
         "trimmomaticbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
         "picardbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
-        "bdg2bwbin": "/broad/sankaranlab/fyu/software/CUT-RUNTools-2.0/install", 
+        "bdg2bwbin": "/gcdata/gcproj/fulong/Software/cutrun-test/CUT-RUNTools-2.0/install", 
         "picardjarfile": "picard-2.8.0.jar", 
         "trimmomaticjarfile": "trimmomatic-0.36.jar", 
         "makecutmatrixbin": "/homes6/fulong/.local/bin"
