@@ -43,6 +43,7 @@ conda install -y -c bioconda bedtools
 conda install -y -c bioconda deeptools
 conda install -y -c conda-forge parallel
 conda install -y -c bioconda tabix
+conda install -y -c conda-forge python-igraph
 ```  
 As the installation of MEME will frequently conflict with other software, we will create a new conda environment named `meme` to install this independently.
 ```
@@ -88,11 +89,11 @@ source("r-pkgs-install.r")
 ```
 
 **Part 3.**  
-Three python modules (umap, leidenalg, and igraph) are required to be installed on your system.  
+Three python modules (umap, leidenalg, and igraph) are required to be installed on your system. As igraph package was deprecated, we use conda to install igraph above.  
 To install them  
 
 ```
-pip install umap-learn leidenalg igraph
+pip install umap-learn leidenalg
 ```  
 
 To test if the package is installed successfully, for example:
