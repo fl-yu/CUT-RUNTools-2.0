@@ -12,7 +12,7 @@ message(paste("#### Install R packages #### "))
 
 # CRAN packages
 cran.pkgs <- c("devtools", "reticulate", "leiden", "data.table", "Matrix", "irlba", "igraph",
-  "uwot", "ggplot2")
+  "uwot", "ggplot2", "viridis")
 for(i in cran.pkgs){
     if(!require(i, character.only = T)) {
         message(paste("Install ", i, "\n"))
