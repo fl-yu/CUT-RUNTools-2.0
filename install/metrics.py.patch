@@ -18,12 +18,12 @@
 +        #if start <= cut_point < end:
 +        if start <= cut_point <= end:
              cut_points_in_region.append(cut_point)
- 
+
      # initialize the region with zero counts
 -    counts = {p: 0 for p in range(start, end)}
 +    #counts = {p: 0 for p in range(start, end)}
 +    counts = {p: 0 for p in range(start, end+1)}
- 
+
      # add the cut points
      counts.update(collections.Counter(cut_points_in_region))
 @@ -236,6 +239,7 @@
