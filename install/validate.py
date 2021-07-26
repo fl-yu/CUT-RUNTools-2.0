@@ -36,7 +36,7 @@ if __name__=="__main__":
 	parser = argparse.ArgumentParser(prog="validate")
 	parser.add_argument("--software", action="store_true")
 	parser.add_argument("--ignore-input-output", action="store_true")
-	parser.add_argument("config", type=file)
+	parser.add_argument("config", type=open)
 
 	args = vars(parser.parse_args(sys.argv[1:]))
 	#f = open(args["config"]) #config.json
