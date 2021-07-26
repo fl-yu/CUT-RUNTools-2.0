@@ -80,7 +80,7 @@ tabix                     0.2.6                ha92aebf_0    bioconda
 ```
 
 **Part 2.**   
-R packages including reticulate ("1.15"), leiden ("0.3.3"), data.table ("1.11.6"), Matrix ("1.2.18"), irlba ("2.3.3"), Rtsne ("0.15"), RANN ("2.6.1"), igraph ("1.2.4.2"), uwot ("0.1.8"), rGREAT ("1.14.0"), ggplot2 ("3.3.0"), CENTIPEDE ("1.2") need to be installed in the library of R you specified in the JSON configuration file. The user can install these R packages automatically with the script ***r-pkgs-install.r*** in the `install` folder provided by our package.
+R packages including reticulate ("1.15"), leiden ("0.3.3"), data.table ("1.11.6"), Matrix ("1.2.18"), irlba ("2.3.3"), Rtsne ("0.15"), RANN ("2.6.1"), igraph ("1.2.4.2"), uwot ("0.1.8"), rGREAT ("1.14.0"), ggplot2 ("3.3.0"), CENTIPEDE ("1.2"), viridis, need to be installed in the library of R you specified in the JSON configuration file. The user can install these R packages automatically with the script ***r-pkgs-install.r*** in the `install` folder provided by our package.
 
 ```
 # in R
