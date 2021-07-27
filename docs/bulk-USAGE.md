@@ -86,7 +86,7 @@ PARAMETERS
 	[organism_build]: Reference genome version 
 			options: hg38, hg19 (default), mm10 or mm9
 			 			
-	[spike_in_align]: Whether align the trimmed fastq files to the spike-in genome. Make sure that you provided 
+	[spike_in]: Whether align the trimmed fastq files to the spike-in genome. Make sure that you provided 
 		the spike-in genome information in the software_config section if you set this as TRUE
 			options: TRUE or FALSE (default)
 			 			
