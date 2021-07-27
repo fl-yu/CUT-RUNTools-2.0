@@ -58,9 +58,10 @@ else
     ($bowtie2bin/bowtie2 -p $cores --very-sensitive-local --phred33 -I 10 -X 700 -x $bt2idx/genome -1 $trimdir2/"$base"_1.paired.fastq.gz -2 $trimdir2/"$base"_2.paired.fastq.gz) 2> $logdir/"$base".bowtie2 | $samtoolsbin/samtools view -bS - > $aligndir/"$base".bam
 fi
 
-spikein_dir=$workdir/spike_in
+spikein_dir=$workdir/
+
 # check the parameters
-if [ "$spike_in_align" == "TRUE" ]
+if [ "$spike_in" == "TRUE" ]
 then
     mkdir -p $spikein_dir
     >&2 echo "[info] Aligning file $base to spike-in genome"
