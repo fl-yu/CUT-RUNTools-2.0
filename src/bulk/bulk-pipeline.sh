@@ -237,7 +237,7 @@ $path_deeptools/bamCoverage --bam $bam_file -o $outdir/"$base_file".cpm.norm.bw 
     --numberOfProcessors $cores 2> $logdir/"$base".gene.bw
 cp $outdir/"$base_file".cpm.norm.bw $outdirbroad
 cp $outdir/"$base_file".cpm.norm.bw $outdirseac
-if [ "$spike_in_align" == "TRUE" ]
+if [ "$spike_in" == "TRUE" ]
 then 
     if [ "$spikein_reads" == "0" ] || [ "$spike_in_norm" == "FALSE" ]
     then
