@@ -71,7 +71,7 @@ then
     $logdir/"$base".spikein.bowtie2
     total_reads=`cat $logdir/"$base".spikein.bowtie2 | grep "reads; of these:" | awk '{print $1}' - FS=' '`
     align_ratio=`cat $logdir/"$base".spikein.bowtie2 | grep "overall alignment" | awk '{print $1}' - FS=' ' | cut -f1 -d"%"`
-    spikein_reads=`printf "%.0f" $(echo "$total_reads * $align_ratio"|bc)`
+    spikein_reads=`printf "%.0f" $(echo "$total_reads * $align_ratio/100"|bc)`
 
     >&2 echo "[info] Spikein reads number is $spikein_reads, consisting of $align_ratio % of total reads"
     >&2 echo "[info] This information could be used in spike-in normalization when generating bigwig files"
