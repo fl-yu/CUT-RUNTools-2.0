@@ -38,7 +38,20 @@ done
 #good version
 >&2 echo "[info] Trimming file $base ..."
 >&2 date
-$javabin/java -jar $trimmomaticbin/$trimmomaticjarfile PE -threads $cores -phred33 $dirname/"$base"_R1_001.fastq.gz $dirname/"$base"_R2_001.fastq.gz $trimdir/"$base"_1.paired.fastq.gz $trimdir/"$base"_1.unpaired.fastq.gz $trimdir/"$base"_2.paired.fastq.gz $trimdir/"$base"_2.unpaired.fastq.gz ILLUMINACLIP:$adapterpath/Truseq3.PE.fa:2:15:4:4:true LEADING:20 TRAILING:20 SLIDINGWINDOW:4:15 MINLEN:25 > $logdir/${base}_trim1.log 2>&1
+
+if [ "$adaptor_type" == "Truseq" ]
+then
+    >&2 echo "[info] Use Truseq adaptor  "
+    $javabin/java -jar $trimmomaticbin/$trimmomaticjarfile PE -threads $cores -phred33 $dirname/"$base"_R1_001.fastq.gz $dirname/"$base"_R2_001.fastq.gz $trimdir/"$base"_1.paired.fastq.gz $trimdir/"$base"_1.unpaired.fastq.gz $trimdir/"$base"_2.paired.fastq.gz $trimdir/"$base"_2.unpaired.fastq.gz ILLUMINACLIP:$adapterpath/Truseq3.PE.fa:2:15:4:4:true LEADING:20 TRAILING:20 SLIDINGWINDOW:4:15 MINLEN:25 > $logdir/${base}_trim1.log 2>&1
+elif [ "$adaptor_type" == "Nextera" ]
+then
+    >&2 echo "[info] Use Nextera adaptor  "
+    $javabin/java -jar $trimmomaticbin/$trimmomaticjarfile PE -threads $cores -phred33 $dirname/"$base"_R1_001.fastq.gz $dirname/"$base"_R2_001.fastq.gz $trimdir/"$base"_1.paired.fastq.gz $trimdir/"$base"_1.unpaired.fastq.gz $trimdir/"$base"_2.paired.fastq.gz $trimdir/"$base"_2.unpaired.fastq.gz ILLUMINACLIP:$adapterpath/NexteraPE-PE.fa:2:15:4:4:true LEADING:20 TRAILING:20 SLIDINGWINDOW:4:15 MINLEN:25 > $logdir/${base}_trim1.log 2>&1
+else
+    >&2 echo "[info] Use Truseq adaptor as default "
+    $javabin/java -jar $trimmomaticbin/$trimmomaticjarfile PE -threads $cores -phred33 $dirname/"$base"_R1_001.fastq.gz $dirname/"$base"_R2_001.fastq.gz $trimdir/"$base"_1.paired.fastq.gz $trimdir/"$base"_1.unpaired.fastq.gz $trimdir/"$base"_2.paired.fastq.gz $trimdir/"$base"_2.unpaired.fastq.gz ILLUMINACLIP:$adapterpath/Truseq3.PE.fa:2:15:4:4:true LEADING:20 TRAILING:20 SLIDINGWINDOW:4:15 MINLEN:25 > $logdir/${base}_trim1.log 2>&1
+fi
+
 
 >&2 echo "[info] Second stage trimming $base ..."
 >&2 date

@@ -40,7 +40,8 @@
         "peak_caller": "macs2",
         "dup_peak_calling": "FALSE",
         "cores": "8",
-        "experiment_type": "CUT&RUN"
+        "experiment_type": "CUT&RUN",
+        "adaptor_type":"Truseq"
     }, 
     "motif_finding": {
         "num_bp_from_summit": "100", 
