@@ -78,6 +78,7 @@ conda install ‘meme=5.0.2’ ‘icu=58.2’
 *We are really appreciated that all the users who used this tool and gave the feedback, riased issues, fixed the bugs and pulled requests, with us together to make this tool better.*  
 
 xx/xx/xxxx - working on script of input control support  
+08/26/2021 - A singularity definition [file](https://github.com/qiyubio/CutRunTools2_singularity/blob/main/CutRunTools2.def) for installation on their HPC cluster, thanks to [qiyubio](https://github.com/qiyubio)
 07/29/2021 - bugs fixed in spike-in normalization (bulk)  
 07/23/2021 - add the scripts for get cut profiles of single locus/whole genome [[details](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/10)]  
 07/21/2021 - bugs fixed
