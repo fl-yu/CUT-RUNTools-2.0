@@ -74,7 +74,7 @@ conda install ‘meme=5.0.2’ ‘icu=58.2’
 
 ## News:  
 
-*Here are the new updates since our tool is offically [published](https://doi.org/10.1093/bioinformatics/btab507) in Bioinformatics (07/9/2021).*  
+*Here are the new updates after first publication of CUT&RUNTools 2.0 (07/9/2021).*  
 *We are really appreciated that all the users who used this tool and gave the feedback, riased issues, fixed the bugs and pulled requests, with us together to make this tool better.*  
 
 xx/xx/xxxx - working on script of input control support (bulk)  
