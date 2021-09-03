@@ -90,7 +90,7 @@ xx/xx/xxxx - working on script of input control support (bulk)
 [CUT&RUNTools: a flexible pipeline for CUT&RUN processing and footprint analysis](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1802-4), *Genome Biol*, 2019   
 
 
-If you run into issues and would like to report them, you can use the "Issues" tab on the left hand side.  
+Please cite our paper if you used CUT&RUNTools 2.0 in your study [PubMed](https://pubmed.ncbi.nlm.nih.gov/34244724/). If you run into issues and would like to report them, you can use the "Issues" tab on the left hand side.  
 Alternatively, you can contact authors: fyu{at}broadinstitute.org or guo-cheng.yuan{at}mssm.edu .  
 
 
