@@ -16,7 +16,7 @@ import argparse
 
 def check_program_exists(path, program):
 	if not os.path.isfile(path + "/" + program):
-		print program, "is not found in", path
+		print(program + " is not found in " + path)
 		return False
 	return True
 
@@ -26,7 +26,7 @@ def module_exists(module_name):
         __import__(module_name)
     except ImportError:
 		return False
-		print module_name, "is not found in python"
+		print(module_name + " is not found in python")
     else:
         return True
 
@@ -55,17 +55,17 @@ if __name__=="__main__":
 			m1 = re.match("(.*)_R1_001.fastq.gz", x)
 			m2 = re.match("(.*)_R2_001.fastq.gz", x)
 			if m1 is None and m2 is None:
-				print "Error:", x, " no pattern of _R1_001.fastq.gz, or _R2_001.fastq.gz detected"
+				print("Error: " + x + " no pattern of _R1_001.fastq.gz, or _R2_001.fastq.gz detected")
 				sys.exit(1)
 			if m1 is not None:
 				x2 = m1.group(1) + "_R2_001.fastq.gz"
 				if not x2 in flist:
-					print x, "does not have a corresponding _R2_001.fastq.gz file"
+					print(x + " does not have a corresponding _R2_001.fastq.gz file")
 					sys.exit(1)
 			if m2 is not None:
 				x2 = m2.group(1) + "_R1_001.fastq.gz"
 				if not x2 in flist:
-					print x, "does not have a corresponding _R1_001.fastq.gz file"
+					print(x + " does not have a corresponding _R1_001.fastq.gz file")
 					sys.exit(1)
 	#valide software path
 	if not check_program_exists(config["software_config"]["bowtie2bin"], "bowtie2"):
@@ -142,26 +142,26 @@ if __name__=="__main__":
 		"%s.4.bt2" % org, "%s.rev.1.bt2" % org, "%s.rev.2.bt2" % org]:	
 			if not check_program_exists(config["software_config"]["bt2idx"], ff):
 				sys.exit(1)
-	print "abc3"
+	print("abc3")
 	#test software works
 	if args["software"]:
-		print "======================Testing Rscript...======================"
+		print("======================Testing Rscript...======================")
 		os.system("%s/Rscript --version" % config["software_config"]["Rscriptbin"])
-		print "======================Testing python...======================"
+		print("======================Testing python...======================")
 		os.system("%s/python --version" % config["software_config"]["pythonbin"])
-		print "======================Testing perl...======================"
+		print("======================Testing perl...======================")
 		os.system("%s/perl -version" % config["software_config"]["perlbin"])
-		print "======================Testing java...======================"
+		print("======================Testing java...======================")
 		os.system("%s/java -version" % config["software_config"]["javabin"])
-		print "======================Testing trimmomatic...======================"
+		print("======================Testing trimmomatic...======================")
 		os.system("%s/java -jar %s/%s -version" % (config["software_config"]["javabin"], config["software_config"]["trimmomaticbin"], config["software_config"]["trimmomaticjarfile"]))
-		print "======================Testing bowtie2...======================"
+		print("======================Testing bowtie2...======================")
 		os.system("%s/bowtie2 --version" % config["software_config"]["bowtie2bin"])
-		print "======================Testing samtools...======================"
+		print("======================Testing samtools...======================")
 		os.system("%s/samtools --version" % config["software_config"]["samtoolsbin"])
-		print "======================Testing picard...======================"
+		print("======================Testing picard...======================")
 		os.system("%s/java -jar %s/%s -h" % (config["software_config"]["javabin"], config["software_config"]["picardbin"], config["software_config"]["picardjarfile"]))
-		print "======================Testing macs2...======================"
+		print("======================Testing macs2...======================")
 		p_pythonbin = config["software_config"]["pythonbin"]
 		p_pythonbin_suffix = p_pythonbin.rstrip("/").rstrip("/bin")
 		p_pythoninclude = p_pythonbin_suffix + "/include"
@@ -176,24 +176,24 @@ if __name__=="__main__":
 		#print all_cmd
 		os.system(all_cmd)
 		#os.system("pythonlib=`echo $PYTHONPATH | tr : \\n | grep -v %s | paste -s -d:` && unset $PYTHONPATH && export PYTHONPATH=%s:$pythonlib && %s/macs2 --version" % (config["macs2pythonlib"], config["macs2pythonlib"], config["macs2bin"]))
-		print "======================Testing kseq...======================"
+		print("======================Testing kseq...======================")
 		os.system("%s/kseq_test --help" % config["software_config"]["kseqbin"])
-		print "======================Testing meme...======================"
+		print("======================Testing meme...======================")
 		os.system("%s/meme -version" % config["software_config"]["memebin"])
-		print "======================Testing meme-chip...======================"
+		print("======================Testing meme-chip...======================")
 		os.system("%s/meme-chip -version" % (config["software_config"]["memebin"]))
-		print "======================Testing bedops...======================"
+		print("======================Testing bedops...======================")
 		os.system("%s/bedops --version" % config["software_config"]["bedopsbin"])
-		print "======================Testing bedtools...======================"
+		print("======================Testing bedtools...======================")
 		os.system("%s/bedtools --version" % config["software_config"]["bedtoolsbin"])
-		print "======================Testing make_cut_matrix...======================"
+		print("======================Testing make_cut_matrix...======================")
 		#cmd1 = "pythonpath=`echo $PATH | tr \":\" \"\\n\" | grep -v %s | paste -s -d:` && unset PATH && export PATH=%s:$pythonpath" % (p_pythonbin, p_pythonbin)
 		#cmd2 = "pythoninclude=`echo $PATH | tr \":\" \"\\n\" | grep -v %s | paste -s -d:` && unset PATH && export PATH=%s:$pythoninclude" % (p_pythoninclude, p_pythoninclude)
 		cmd3 = "ldlibrary=`echo $LD_LIBRARY_PATH | tr \":\" \"\\n\" | grep -v %s | paste -s -d:` && unset LD_LIBRARY_PATH && export LD_LIBRARY_PATH=%s:$ldlibrary" % (p_pythonlib, p_pythonlib)
 		#cmd4 = "pythonlib=`echo $PYTHONPATH | tr \":\" \"\\n\" | grep -v %s | paste -s -d:` && unset PYTHONPATH && export PYTHONPATH=%s:$pythonlib" % (config["macs2pythonlib"], config["macs2pythonlib"])
 		cmd5 = "%s/make_cut_matrix --version" % config["software_config"]["makecutmatrixbin"]
 		all_cmd = " && ".join([cmd3, cmd5])
-		#print all_cmd
+		#print(all_cmd)
 		os.system(all_cmd)
 		#os.system("%s/make_cut_matrix --version" % config["makecutmatrixbin"])
 
