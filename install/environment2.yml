@@ -1,5 +1,5 @@
 name: meme
 dependencies:
-- python=3.6
-- bioconda/label/cf201901::meme
+- python=3.7
+- bioconda::meme=5.0.5
   
