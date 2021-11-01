@@ -63,6 +63,10 @@ See [Directory Structure](docs/sc-DIRECTORY.md) for basic structure of input and
 1. MEME does not work (well discussed in [issue 20](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/20), [issue 15](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/15), [issue 2](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/2))  
 potential solution: re-install MEME with either command
 ```
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+
 conda create -n meme meme=5.0.5 python=3.7
 conda activate meme
 ```
