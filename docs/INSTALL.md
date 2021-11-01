@@ -47,9 +47,12 @@ conda install -y -c conda-forge python-igraph
 ```  
 As the installation of MEME will frequently conflict with other software, we will create a new conda environment named `meme` to install this independently.
 ```
-conda create -n meme python=3.6
-source activate meme
-conda install -y -c bioconda/label/cf201901 meme
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+
+conda create -n meme meme=5.0.5 python=3.7
+conda activate meme
 ```
 
 On a Linux system, paths of software (e.g. /homes6/fulong/miniconda3/envs/cutruntools2) from the anaconda environment might be obtained in the following: 
