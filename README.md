@@ -75,7 +75,7 @@ conda create -n meme python=3.6
 conda activate meme
 conda install ‘meme=5.0.2’ ‘icu=58.2’
 ```
-
+If it still does not work well, you could try to install MEME manually ([issue 7](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/7)). Please make sure you used the correct version, some users reported the latest version of MEME was not compatible at some points.
 ## News:  
 
 *Here are the new updates after first publication of CUT&RUNTools 2.0 (07/9/2021).*  
