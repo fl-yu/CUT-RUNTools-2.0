@@ -81,7 +81,6 @@ If it still does not work well, you could try to install MEME manually ([issue 7
 *Here are the new updates after first publication of CUT&RUNTools 2.0 (07/9/2021).*  
 *We are really appreciated that all the users who used this tool and gave the feedback, riased issues, fixed the bugs and pulled requests, with us together to make this tool better.*  
 
-xx/xx/xxxx - working on script of input control support (bulk)  
 09/02/2021 - support different types of adaptor processing (bulk) [[details](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/24)]  
 08/26/2021 - A singularity definition [file](https://github.com/fl-yu/CutRunTools2_singularity) for installation on their HPC cluster, thanks to [qiyubio](https://github.com/qiyubio)  
 07/29/2021 - bugs fixed in spike-in normalization (bulk)  
