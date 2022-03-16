@@ -53,10 +53,6 @@ See [Usage Page](docs/sc-USAGE.md) about how to set up the pipeline and detailed
 
 See [Directory Structure](docs/sc-DIRECTORY.md) for basic structure of input and output folders.
 
-<div align=center> <img src="images/scCRtools.png" width="680" height="318"> </div> 
-
-<p align="center">The schematic view of the single-cell data processing module of CUT&RUNTools</p>  
-
 
 ## FAQs:  
 
