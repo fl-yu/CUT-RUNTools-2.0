@@ -53,6 +53,25 @@ See [Usage Page](docs/sc-USAGE.md) about how to set up the pipeline and detailed
 
 See [Directory Structure](docs/sc-DIRECTORY.md) for basic structure of input and output folders.
 
+## Cite our paper:  
+Please cite our paper if you used/adapted CUT&RUNTools 2.0 in your study, this will be extremely helpful for us to maintain and further develop this tool.   
+
+***Yu et al., CUT&RUNTools 2.0: a pipeline for single-cell and bulk-level CUT&RUN and CUT&Tag data analysis, Bioinformatics, 2021 [PubMed](https://pubmed.ncbi.nlm.nih.gov/34244724/).***  
+
+If you run into issues and would like to report them, you can use the "Issues" tab on the left hand side.  
+Alternatively, you can contact authors: fyu{at}broadinstitute.org or guo-cheng.yuan{at}mssm.edu .  
+
+
+## News:  
+
+*Here are the new updates after first publication of CUT&RUNTools 2.0 (07/9/2021).*  
+*We are really appreciated that all the users who used this tool and gave the feedback, riased issues, fixed the bugs and pulled requests, with us together to make this tool better.*  
+
+09/02/2021 - support different types of adaptor processing (bulk) [[details](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/24)]  
+08/26/2021 - A singularity definition [file](https://github.com/fl-yu/CutRunTools2_singularity) for installation on their HPC cluster, thanks to [qiyubio](https://github.com/qiyubio)  
+07/29/2021 - bugs fixed in spike-in normalization (bulk)  
+07/23/2021 - add the scripts for get cut profiles of single locus/whole genome [[details](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/10)]  
+07/21/2021 - bugs fixed
 
 ## FAQs:  
 
@@ -71,24 +90,4 @@ conda create -n meme python=3.6
 conda activate meme
 conda install ‘meme=5.0.2’ ‘icu=58.2’
 ```
-If it still does not work well, you could try to install MEME manually ([issue 7](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/7)). Please make sure you used the correct version, some users reported the latest version of MEME was not compatible at some points.
-## News:  
-
-*Here are the new updates after first publication of CUT&RUNTools 2.0 (07/9/2021).*  
-*We are really appreciated that all the users who used this tool and gave the feedback, riased issues, fixed the bugs and pulled requests, with us together to make this tool better.*  
-
-09/02/2021 - support different types of adaptor processing (bulk) [[details](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/24)]  
-08/26/2021 - A singularity definition [file](https://github.com/fl-yu/CutRunTools2_singularity) for installation on their HPC cluster, thanks to [qiyubio](https://github.com/qiyubio)  
-07/29/2021 - bugs fixed in spike-in normalization (bulk)  
-07/23/2021 - add the scripts for get cut profiles of single locus/whole genome [[details](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/10)]  
-07/21/2021 - bugs fixed
-
-## Cite our paper:  
-Please cite our paper if you used/adapted CUT&RUNTools 2.0 in your study, this helps maintain and further develop this tool.   
-
-***Yu et al., CUT&RUNTools 2.0: a pipeline for single-cell and bulk-level CUT&RUN and CUT&Tag data analysis, Bioinformatics, 2021 [PubMed](https://pubmed.ncbi.nlm.nih.gov/34244724/).***  
-
-If you run into issues and would like to report them, you can use the "Issues" tab on the left hand side.  
-Alternatively, you can contact authors: fyu{at}broadinstitute.org or guo-cheng.yuan{at}mssm.edu .  
-
-
+If it still does not work well, you could try to install MEME manually ([issue 7](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/7)). Please make sure you used the correct version, some users reported the latest version of MEME was not compatible at some points.  
