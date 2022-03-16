@@ -88,8 +88,8 @@ xx/xx/xxxx - working on script of input control support (bulk)
 07/23/2021 - add the scripts for get cut profiles of single locus/whole genome [[details](https://github.com/fl-yu/CUT-RUNTools-2.0/issues/10)]  
 07/21/2021 - bugs fixed
 
-## Read our paper:  
-Please cite our paper if you used CUT&RUNTools 2.0  
+## Cite our paper:  
+Please cite our paper if you used/adapted CUT&RUNTools 2.0 in your study  
 
 ***Yu et al., CUT&RUNTools 2.0: a pipeline for single-cell and bulk-level CUT&RUN and CUT&Tag data analysis, Bioinformatics, 2021 [PubMed](https://pubmed.ncbi.nlm.nih.gov/34244724/).***  
 
