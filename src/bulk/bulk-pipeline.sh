@@ -81,7 +81,7 @@ then
     >&2 date
     ($bowtie2bin/bowtie2 -p $cores --dovetail --phred33 -x $spike_in_bt2idx/genome -1 $trimdir2/"$base"_1.paired.fastq.gz -2 $trimdir2/"$base"_2.paired.fastq.gz) 2> $logdir/"$base".spikein.bowtie2 | $samtoolsbin/samtools view -bS - > $spikein_dir/"$base".bam
 
-    $logdir/"$base".spikein.bowtie2
+    # $logdir/"$base".spikein.bowtie2
     total_reads=`cat $logdir/"$base".spikein.bowtie2 | grep "reads; of these:" | awk '{print $1}' - FS=' '`
     align_ratio=`cat $logdir/"$base".spikein.bowtie2 | grep "overall alignment" | awk '{print $1}' - FS=' ' | cut -f1 -d"%"`
     spikein_reads=`printf "%.0f" $(echo "$total_reads * $align_ratio/100"|bc)`
