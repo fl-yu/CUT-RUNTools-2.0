@@ -99,9 +99,9 @@ $path_parallel/parallel -j $cores "$samtoolsbin/samtools index dup.marked.clean/
 
 >&2 echo "[info] Generating coverage .bed files used for single-cell genome track visualization ... "
 >&2 date
-$path_parallel/parallel -j $cores "$bedtoolsbin/bedtools genomecov -ibam dup.marked.clean/{}.bam -bg | cut -f 1-3 > dup.marked.clean/{}.bed" ::: $infiles >/dev/null 2>&1
-
 dup_dir=dup.marked # revise this parameter to control which data (duplication or deduplication bam files) used in the following analysis # dup_dir=dup.marked.clean 
+$path_parallel/parallel -j $cores "$bedtoolsbin/bedtools genomecov -ibam $dup_dir/{}.bam -bg | cut -f 1-3 > $dup_dir/{}.bed" ::: $infiles >/dev/null 2>&1
+
 >&2 echo "[info] Aggregation analysis of individual cells... "
 >&2 date
 # define the parameters
