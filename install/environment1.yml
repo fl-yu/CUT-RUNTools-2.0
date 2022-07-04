@@ -1,4 +1,4 @@
-name: cutruntools2
+name: cutruntools2.1
 dependencies:
 - python=3.6
 - bioconda::bowtie2
