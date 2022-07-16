@@ -113,13 +113,13 @@ $samtoolsbin/samtools view -bh -f 3 -F 4 -F 8 $dirname/"$base".bam > sorted/"$ba
 >&2 echo "[info] Sorting BAM... ""$base".bam
 >&2 date
 $javabin/java -jar $picardbin/$picardjarfile SortSam \
-INPUT=sorted/"$base".step1.bam OUTPUT=sorted/"$base".bam SORT_ORDER=coordinate VALIDATION_STRINGENCY=SILENT
+INPUT=sorted/"$base".step1.bam OUTPUT=sorted/"$base".bam SORT_ORDER=coordinate VALIDATION_STRINGENCY=SILENT TMP_DIR=$logdir 
 rm -rf sorted/"$base".step1.bam
 
 >&2 echo "[info] Marking duplicates... ""$base".bam
 >&2 date
 $javabin/java -jar $picardbin/$picardjarfile MarkDuplicates \
-INPUT=sorted/"$base".bam OUTPUT=dup.marked/"$base".bam VALIDATION_STRINGENCY=SILENT \
+INPUT=sorted/"$base".bam OUTPUT=dup.marked/"$base".bam VALIDATION_STRINGENCY=SILENT TMP_DIR=$logdir \
 METRICS_FILE=metrics."$base".txt 2> $logdir/"$base".mark.dup
 
 >&2 echo "[info] Removing duplicates... ""$base".bam
