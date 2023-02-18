@@ -54,7 +54,7 @@ See [Usage Page](docs/sc-USAGE.md) about how to set up the pipeline and detailed
 See [Directory Structure](docs/sc-DIRECTORY.md) for basic structure of input and output folders.
 
 ## Cite our paper:  
-**Please give the credit for this work if you can.** We appreciate that you cite our paper if you used/adapted CUT&RUNTools 2.0 in your study, this will be extremely helpful for us to maintain and further develop this tool.   
+*Kindly ensure that proper credit is attributed to this work.* If you utilized or modified CUT&RUNTools 2.0 in your research, we would be grateful if you could reference our paper. This would greatly assist us in maintaining and enhancing the tool going forward.   
 ***Yu et al., CUT&RUNTools 2.0: a pipeline for single-cell and bulk-level CUT&RUN and CUT&Tag data analysis, Bioinformatics, 2021 [PubMed](https://pubmed.ncbi.nlm.nih.gov/34244724/).***  
 
 If you run into issues and would like to report them, you can use the "Issues" tab on the left hand side.  
