@@ -122,7 +122,7 @@ if __name__=="__main__":
 		sys.exit(1)
 
 	#valide python packages
-	if not module_exists("umap-learn"):
+	if not module_exists("umap"):
     		sys.exit(1)
 	if not module_exists("leidenalg"):
     		sys.exit(1)
