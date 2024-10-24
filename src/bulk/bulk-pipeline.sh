@@ -64,11 +64,11 @@ if [ "$frag_120" == "TRUE" ]
 then
     echo "[info] Bowtie2 command: --dovetail --phred33"
     echo "[info] The dovetail mode is enabled [as parameter frag_120 is on]"
-    ($bowtie2bin/bowtie2 -p $cores --dovetail --phred33 -x $bt2idx/genome -1 $trimdir2/"$base"_1.paired.fastq.gz -2 $trimdir2/"$base"_2.paired.fastq.gz) 2> $logdir/"$base".bowtie2 | $samtoolsbin/samtools view -bS - > $aligndir/"$base".bam
+    ($bowtie2bin/bowtie2 -p $cores --dovetail --phred33 -x $bt2idx/$organism_build -1 $trimdir2/"$base"_1.paired.fastq.gz -2 $trimdir2/"$base"_2.paired.fastq.gz) 2> $logdir/"$base".bowtie2 | $samtoolsbin/samtools view -bS - > $aligndir/"$base".bam
 else
     echo "[info] Bowtie2 command: --very-sensitive-local --phred33 -I 10 -X 700"
     echo "[info] The dovetail mode is off [as parameter frag_120 is off]"
-    ($bowtie2bin/bowtie2 -p $cores --very-sensitive-local --phred33 -I 10 -X 700 -x $bt2idx/genome -1 $trimdir2/"$base"_1.paired.fastq.gz -2 $trimdir2/"$base"_2.paired.fastq.gz) 2> $logdir/"$base".bowtie2 | $samtoolsbin/samtools view -bS - > $aligndir/"$base".bam
+    ($bowtie2bin/bowtie2 -p $cores --very-sensitive-local --phred33 -I 10 -X 700 -x $bt2idx/$organism_build -1 $trimdir2/"$base"_1.paired.fastq.gz -2 $trimdir2/"$base"_2.paired.fastq.gz) 2> $logdir/"$base".bowtie2 | $samtoolsbin/samtools view -bS - > $aligndir/"$base".bam
 fi
 
 spikein_dir=$workdir/
