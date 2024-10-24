@@ -1,6 +1,7 @@
 name: cutruntools2.1
 dependencies:
 - python=3.6
+- cmake>=3.16
 - bioconda::bowtie2
 - bioconda::samtools
 - bioinfo:macs2
